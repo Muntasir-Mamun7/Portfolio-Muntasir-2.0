@@ -109,7 +109,7 @@ a:hover  {
     padding: 10px;
     text-align: center;
     font-size: 1.5rem;
-    color: black;
+    color: white;
     text-decoration: none;
     transition: all .3 ease-in-out;
 
@@ -119,9 +119,19 @@ a:hover  {
     list-style: none;
 
 }
+.menu-links li:hover {
+    color: gray;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181,181,181);
+
+}
 
 .menu-links.open {
     max-height: 300px;
+    background-color: rgba(0, 0, 0, 0.525);
+    border-radius: 5%;
+    
 
 }
 
@@ -180,6 +190,7 @@ section {
 .section__text {
     align-self: center;
     text-align: center;
+    margin-left: 5%;
 }
 
 .section__text-p {
@@ -362,6 +373,13 @@ article .icon {
     border-radius: 2rem;
     width: 90%;
     height: 90%;
+    transition: .2s;
+    border: 2px solid gray;
+
+}
+.project-img:hover {
+    opacity: .9;
+    border: 2px solid black;
 }
 
 .project-title {

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Muntasir Al Mamun</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir</div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About Header -->
+    <section id="about-header">
+      <div class="header-content">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <p class="about-intro">
+          Passionate Computer Science student dedicated to creating innovative solutions 
+          and continuously expanding technical expertise.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Main Content -->
+    <section id="about">
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="Images/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="Images/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years <br />Software Development</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="Images/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>
+                B.Sc. Computer Science <br />
+                Nanjing University of Posts and Telecommunications
+              </p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              I'm Muntasir Al Mamun, a passionate Computer Science student from Bangladesh,
+              currently pursuing my degree at Nanjing University of Posts and Telecommunications in China.
+              With expertise in software development, web technologies, and problem-solving,
+              I'm dedicated to creating innovative solutions and continuously expanding my technical skills.
+              I thrive on challenges and am always eager to learn and apply new technologies in real-world projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section id="back-to-home">
+      <button class="btn btn-color-1" onclick="location.href='index.html'">
+        ← Back to Home
+      </button>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

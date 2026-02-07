@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificates & Achievements - Muntasir Al Mamun</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="certificates.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="certificates.html" class="active">Certificates</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir</div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="index.html#skills" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="index.html#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Certificates Header -->
+    <section id="certificates-header">
+      <div class="header-content">
+        <p class="section__text__p1">My Professional</p>
+        <h1 class="title">Certificates & Achievements</h1>
+        <p class="certificates-intro">
+          A collection of my professional certifications, academic achievements, and recognitions 
+          that showcase my dedication to continuous learning and excellence in various domains.
+        </p>
+      </div>
+    </section>
+
+    <!-- Certificates Gallery -->
+    <section id="certificates-main">
+      <div class="certificates-grid">
+        
+        <!-- Certificate 1: Jiangsu Government Scholarship -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Certificate of Jiangsu Government Scholership.jpg" 
+                   alt="Jiangsu Government Scholarship Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">🏆 Academic Excellence</div>
+            <h2 class="certificate-title">Jiangsu Government Scholarship</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">Jiangsu Provincial Government</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2024</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Government Scholarship</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Prestigious scholarship awarded by the Jiangsu Provincial Government in recognition 
+              of outstanding academic performance and contribution to the international student 
+              community in Jiangsu Province, China.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 2: NJUPT Individual Scholarship -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Certificate of NJUPT Individual Scholarship.jpg" 
+                   alt="NJUPT Individual Scholarship Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">🎓 Academic Achievement</div>
+            <h2 class="certificate-title">NJUPT Individual Scholarship</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">Nanjing University of Posts and Telecommunications</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2024</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">University Scholarship</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Awarded for exceptional academic performance, maintaining high GPA, and demonstrating 
+              excellence in computer science studies at Nanjing University of Posts and Telecommunications.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 3: Discover Jiangsu Summer Program -->
+        <div class="certificate-item vertical">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Certificate of Discover Jiangsu International Summer Program 2025.jpg" 
+                   alt="Discover Jiangsu International Summer Program 2025" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">🌍 International Program</div>
+            <h2 class="certificate-title">Discover Jiangsu International Summer Program 2025</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">Jiangsu Education Department</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2025</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Cultural Exchange Program</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Participated in an intensive international summer program focused on Chinese culture, 
+              language immersion, and cross-cultural exchange, enhancing global perspective and 
+              intercultural communication skills.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 4: Outstanding Volunteer 2024 -->
+        <div class="certificate-item vertical">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Certificate of Outstanding Volunteer 2024.jpg" 
+                   alt="Outstanding Volunteer 2024 Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">🤝 Community Service</div>
+            <h2 class="certificate-title">Outstanding Volunteer 2024</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">NJUPT Student Affairs Office</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2024</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Volunteer Recognition</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Recognized for exceptional dedication to community service, actively participating in 
+              university events, helping international students, and contributing significantly to 
+              campus volunteer activities throughout 2024.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 5: Outstanding Volunteer 2023 -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Certificate of Outstanding Volunteer 2023.jpg" 
+                   alt="Outstanding Volunteer 2023 Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">🤝 Community Service</div>
+            <h2 class="certificate-title">Outstanding Volunteer 2023</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">NJUPT Student Affairs Office</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2023</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Volunteer Recognition</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Awarded for consistent volunteer service, demonstrating leadership in organizing 
+              community events, and making a positive impact on the campus community during 2023.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 6: C Programming Teacher -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Cirtificate as a C programing teacher.jpg" 
+                   alt="C Programming Teacher Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">👨‍🏫 Teaching Experience</div>
+            <h2 class="certificate-title">C Programming Teacher Certificate</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">Educational Institution</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">2023</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Teaching & Mentorship</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Certified as a C Programming instructor, demonstrating proficiency in teaching 
+              fundamental programming concepts, mentoring students, and developing effective 
+              educational materials for computer science learners.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 7: C3 Club Summer Camp -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Cirtificate of C3 Club summer camp.jpg" 
+                   alt="C3 Club Summer Camp Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">💡 Workshop Participation</div>
+            <h2 class="certificate-title">C3 Club Summer Camp</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">C3 Club Organization</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">Summer 2023</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Technical Workshop</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Successfully completed an intensive technical summer camp focused on advanced 
+              programming concepts, collaborative problem-solving, and practical software 
+              development skills.
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificate 8: C3 Club Summer Program -->
+        <div class="certificate-item horizontal">
+          <div class="certificate-frame">
+            <div class="certificate-image-wrapper">
+              <img src="Images/Cirtificates/Cirtificate of C3 club sumer program.jpg" 
+                   alt="C3 Club Summer Program Certificate" />
+            </div>
+          </div>
+          <div class="certificate-details">
+            <div class="certificate-badge">💻 Program Completion</div>
+            <h2 class="certificate-title">C3 Club Summer Program</h2>
+            <div class="certificate-meta">
+              <div class="meta-item">
+                <span class="meta-label">Issued by:</span>
+                <span class="meta-value">C3 Club Organization</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span class="meta-value">Summer 2023</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span class="meta-value">Technical Training</span>
+              </div>
+            </div>
+            <p class="certificate-description">
+              Completed a comprehensive summer training program covering modern programming 
+              practices, software engineering principles, and hands-on project development 
+              with industry-standard tools and technologies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section id="back-to-home">
+      <button class="btn btn-color-1" onclick="location.href='index.html'">
+        ← Back to Portfolio
+      </button>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

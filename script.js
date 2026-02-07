@@ -231,3 +231,83 @@ certificateItems.forEach(item => {
     });
   });
 });
+
+// ===== HERO SECTION COUNTER ANIMATION =====
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16); // 60fps
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+
+// Trigger counter animation when hero section is visible
+const heroSection = document.getElementById('hero-section');
+if (heroSection) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-target'));
+          stat.classList.add('counting');
+          animateCounter(stat, target);
+        });
+        heroObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  heroObserver.observe(heroSection);
+}
+
+// ===== ENHANCED SCROLL ANIMATIONS =====
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection && window.innerWidth >= 1200) {
+    const scrolled = window.pageYOffset;
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+      heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+  }
+});
+
+// ===== SMOOTH PAGE TRANSITIONS =====
+// Add fade-in effect for page sections
+const addSectionAnimations = () => {
+  const sections = document.querySelectorAll('section');
+  sections.forEach((section, index) => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  });
+};
+
+// Observe sections for scroll animations
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { 
+  threshold: 0.1,
+  rootMargin: '-50px'
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth >= 1200) {
+    addSectionAnimations();
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+});

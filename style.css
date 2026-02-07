@@ -1953,17 +1953,20 @@ body {
   }
 }
 
-/* Remove conflicting animations */
-.skill-item {
-  animation: slideInUp 0.6s ease-out backwards;
-}
-
-.project-card {
-  animation: fadeInScale 0.6s ease-out backwards;
-}
-
-.certificate-gallery-item {
-  animation: fadeInScale 0.6s ease-out backwards;
+/* Media query for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .title::before {
+    display: none;
+  }
 }
 
 /* Parallax Effect Enhancement */

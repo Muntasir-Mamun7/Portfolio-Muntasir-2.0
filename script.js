@@ -268,15 +268,22 @@ if (heroSection) {
 }
 
 // ===== ENHANCED SCROLL ANIMATIONS =====
-// Add parallax effect to hero section
+// Add parallax effect to hero section with performance optimization
+let ticking = false;
 window.addEventListener('scroll', () => {
-  const heroSection = document.getElementById('hero-section');
-  if (heroSection && window.innerWidth >= 1200) {
-    const scrolled = window.pageYOffset;
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-      heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const heroSection = document.getElementById('hero-section');
+      if (heroSection && window.innerWidth >= 1200) {
+        const scrolled = window.pageYOffset;
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) {
+          heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+      }
+      ticking = false;
+    });
+    ticking = true;
   }
 });
 
@@ -304,10 +311,32 @@ const sectionObserver = new IntersectionObserver((entries) => {
   rootMargin: '-50px'
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth >= 1200) {
+// Initialize animations and handle resize
+let animationsInitialized = false;
+
+const initializeSectionAnimations = () => {
+  if (window.innerWidth >= 1200 && !animationsInitialized) {
     addSectionAnimations();
     const sections = document.querySelectorAll('section');
     sections.forEach(section => sectionObserver.observe(section));
+    animationsInitialized = true;
+  } else if (window.innerWidth < 1200 && animationsInitialized) {
+    // Reset sections for smaller viewports
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+      sectionObserver.unobserve(section);
+    });
+    animationsInitialized = false;
   }
+};
+
+document.addEventListener('DOMContentLoaded', initializeSectionAnimations);
+
+// Handle resize with debouncing
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(initializeSectionAnimations, 250);
 });

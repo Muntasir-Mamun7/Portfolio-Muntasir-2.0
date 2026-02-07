@@ -3,67 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muntasir Al Mamun</title>
+    <title>Muntasir Al Mamun - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaquesries.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
     <nav id="desktop-nav">
-      <div class="logo">Muntasir</div>
-      <div>
+      <div class="logo">Muntasir Al Mamun</div>
+      <div class="nav-center">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#experience">Exparience</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#certificates">Certificates</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
       </div>
     </nav>
     <nav id="hamburger-nav">
       <div class="logo">Muntasir</div>
-
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Exparience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#publications" onclick="toggleMenu()">Publications</a></li>
+            <li><a href="#certificates" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
         </div>
       </div>
     </nav>
     <section id="profile">
-      <div class="section__pic-container">
-        <img
-      src="Images/MoRNGif.gif"
-      alt="Muntasir Mamun GIF"
-    />
-      </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Muntasir</h1>
-        <p class="section__text__p2">Software Developer</p>
+        <h1 class="title">Muntasir Al Mamun</h1>
+        <p class="section__text__p2">Computer Science Student & Software Developer</p>
+        <p class="profile-description">
+          Passionate CS student at Nanjing University of Posts and Telecommunications, 
+          specializing in software development, web technologies, and innovative solutions.
+        </p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
-            onclick="window.open('MuntasirResume.pdf')"
+            onclick="window.open('Muntasir Al Mamun (11).pdf')"
           >
-            Download CV
+            Download Resume
           </button>
           <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
+            Contact Me
           </button>
         </div>
         <div id="socials-container">
@@ -80,6 +103,13 @@
             onclick="location.href='https://github.com/Muntasir-Mamun7'"
           />
         </div>
+      </div>
+      <div class="section__pic-container">
+        <img
+          src="Images/MoRNGif.gif"
+          alt="Muntasir Mamun"
+          class="profile-pic"
+        />
       </div>
     </section>
     <section id="about">
@@ -113,18 +143,17 @@
               <h3>Education</h3>
               <p>
                 B.Sc. Computer Science <br />
-                (Nanjing University of Posts and Telecommunications)
+                Nanjing University of Posts and Telecommunications
               </p>
             </div>
           </div>
           <div class="text-container">
             <p>
-              I'm Muntasir Al Mamun, a Computer Science student from Bangladesh
-              now based in Nanjing, China. With a passion for web development,
-              I've honed skills in HTML, CSS, JavaScript, and C++. I'm an agile
-              learner and collaborative problem-solver, experienced in freelance
-              work. Excited to embrace new challenges and innovations in
-              technology.
+              I'm Muntasir Al Mamun, a passionate Computer Science student from Bangladesh,
+              currently pursuing my degree at Nanjing University of Posts and Telecommunications in China.
+              With expertise in software development, web technologies, and problem-solving,
+              I'm dedicated to creating innovative solutions and continuously expanding my technical skills.
+              I thrive on challenges and am always eager to learn and apply new technologies in real-world projects.
             </p>
           </div>
         </div>
@@ -133,165 +162,147 @@
         src="Images/arrow.png"
         alt="Arrow Icon"
         class="icon arrow"
-        onclick="location.href='./#experience'"
+        onclick="location.href='./#skills'"
       />
     </section>
-    <section id="experience">
+    <section id="skills">
       <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Software Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SASS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <!-- <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TypeScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article> -->
-              <!-- <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Marerial UI</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article> -->
+      <h1 class="title">Technical Skills</h1>
+      <div class="skills-details-container">
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Programming Languages</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Java</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Advanced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>C/C++</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Python</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>C#</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 60%"></div>
+              </div>
+              <p class="skill-level">Basic</p>
             </div>
           </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <!-- <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Basic</p>
-                </div>
-              </article> -->
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                  <p>Advanced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C</h3>
-                  <p>Proficient</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>c#</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C++</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="Images/checkmark.png"
-                  alt="experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
+        </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Web Development</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>HTML/CSS</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+              <p class="skill-level">Experienced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>JavaScript</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>SASS</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Responsive Design</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Experienced</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Tools & Technologies</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Git & GitHub</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Problem Solving</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+              <p class="skill-level">Advanced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Data Structures</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Algorithms</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 82%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
             </div>
           </div>
         </div>
@@ -304,19 +315,26 @@
       />
     </section>
     <section id="projects">
-      <p class="section__text__p1">Browse My recent</p>
+      <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="Images/project-2.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-2.jpg"
+              alt="Baymax 2.3 Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">Baymax 2.3</h2>
+            <p class="project-description">
+              A modern web application featuring responsive design and interactive elements.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
             </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
@@ -324,78 +342,33 @@
               >
                 Github
               </button>
-
               <button
-                class="btn btn-color-2 project-btn"
+                class="btn btn-color-1 project-btn"
                 onclick="location.href='https://muntasir-mamun7.github.io/baymax-2.3/'"
               >
                 Live Demo
               </button>
             </div>
           </div>
+        </div>
 
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="Images/project-1.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2-0'"
-              >
-                Github
-              </button>
-
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2-0/'"
-              >
-                Live Demo
-              </button>
-            </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/beatChimpGif.gif"
+              alt="Beat Chimp Memory Test"
+            />
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="Images/project-3.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
+          <div class="project-content">
+            <h2 class="project-title">Beat Chimp - Memory Test Game</h2>
+            <p class="project-description">
+              A Java-based memory testing game designed to challenge and improve cognitive abilities.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">GUI</span>
+              <span class="tag">Game Dev</span>
             </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/g3-arch'"
-              >
-                Github
-              </button>
-
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://muntasir-mamun7.github.io/g3-arch/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-
-          <!-- Java -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="Images/beatChimpGif.gif"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Beat Chimp 1.0.5</h2>
-            
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
@@ -403,10 +376,77 @@
               >
                 Github
               </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/download/v1.0/Tutorial.VIDEO.mp4'"
+              >
+                Demo Video
+              </button>
+            </div>
+          </div>
+        </div>
 
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-1.png"
+              alt="Baymax 2.0 Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">Baymax 2.0</h2>
+            <p class="project-description">
+              An earlier version of the Baymax project showcasing fundamental web development skills.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/download/v1.0/Tutorial.VIDEO.mp4'"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2-0'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2-0/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-3.jpg"
+              alt="G3 Architecture Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">G3 Architecture</h2>
+            <p class="project-description">
+              A sleek architecture website design showcasing modern layout and styling techniques.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Design</span>
+            </div>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/g3-arch'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://muntasir-mamun7.github.io/g3-arch/'"
               >
                 Live Demo
               </button>
@@ -418,9 +458,93 @@
         src="Images/arrow.png"
         alt="Arrow Icon"
         class="icon arrow"
+        onclick="location.href='./#publications'"
+      />
+    </section>
+    <section id="publications">
+      <p class="section__text__p1">My Academic</p>
+      <h1 class="title">Publications & Research</h1>
+      <div class="publications-container">
+        <div class="publication-card">
+          <div class="publication-icon">📄</div>
+          <div class="publication-content">
+            <h3 class="publication-title">Research in Computer Science</h3>
+            <p class="publication-description">
+              Exploring various domains in computer science including algorithms, 
+              data structures, and software engineering principles.
+            </p>
+            <p class="publication-status">In Progress</p>
+          </div>
+        </div>
+        <div class="publication-card">
+          <div class="publication-icon">🔬</div>
+          <div class="publication-content">
+            <h3 class="publication-title">Web Development Studies</h3>
+            <p class="publication-description">
+              Research on modern web technologies, responsive design patterns, 
+              and user experience optimization.
+            </p>
+            <p class="publication-status">Ongoing</p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="Images/arrow.png"
+        alt="Arrow Icon"
+        class="icon arrow"
+        onclick="location.href='./#certificates'"
+      />
+    </section>
+
+    <section id="certificates">
+      <p class="section__text__p1">My Professional</p>
+      <h1 class="title">Certificates & Achievements</h1>
+      <div class="certificates-container">
+        <div class="certificate-card">
+          <div class="certificate-icon">🏆</div>
+          <div class="certificate-content">
+            <h3>Computer Science Degree</h3>
+            <p>B.Sc. in Computer Science</p>
+            <p class="certificate-issuer">Nanjing University of Posts and Telecommunications</p>
+            <span class="certificate-date">In Progress</span>
+          </div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-icon">💻</div>
+          <div class="certificate-content">
+            <h3>Software Development</h3>
+            <p>2+ Years Experience</p>
+            <p class="certificate-issuer">Freelance & Personal Projects</p>
+            <span class="certificate-date">2022 - Present</span>
+          </div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-icon">🌐</div>
+          <div class="certificate-content">
+            <h3>Web Development</h3>
+            <p>Full Stack Web Development</p>
+            <p class="certificate-issuer">Self-Taught & Projects</p>
+            <span class="certificate-date">Ongoing</span>
+          </div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-icon">📚</div>
+          <div class="certificate-content">
+            <h3>Problem Solving</h3>
+            <p>Data Structures & Algorithms</p>
+            <p class="certificate-issuer">Academic & Competitive Programming</p>
+            <span class="certificate-date">Continuous Learning</span>
+          </div>
+        </div>
+      </div>
+      <img
+        src="Images/arrow.png"
+        alt="Arrow Icon"
+        class="icon arrow"
         onclick="location.href='./#contact'"
       />
     </section>
+
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -452,13 +576,15 @@
         <div class="nav-link-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Exparience</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2024 @Muntasir. All Right Reserved</p>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
     </footer>
     <script src="script.js"></script>
   </body>

@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
 const animateSkillBars = () => {
   const skillBars = document.querySelectorAll('.skill-progress');
   skillBars.forEach(bar => {
-    const width = bar.style.width;
+    const targetWidth = bar.style.width || '0%';
     bar.style.width = '0%';
     setTimeout(() => {
-      bar.style.width = width;
+      bar.style.width = targetWidth;
     }, 100);
   });
 };
@@ -143,10 +143,9 @@ updateYear();
 
 // ===== PERFORMANCE: Lazy Loading Images =====
 if ('loading' in HTMLImageElement.prototype) {
+  // Browser supports native lazy loading, images will load automatically
   const images = document.querySelectorAll('img[loading="lazy"]');
-  images.forEach(img => {
-    img.src = img.dataset.src;
-  });
+  // No action needed, native lazy loading handles it
 } else {
   // Fallback for browsers that don't support lazy loading
   const script = document.createElement('script');
@@ -181,16 +180,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===== ADD HOVER EFFECT TO PROJECT CARDS =====
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-  card.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-10px) scale(1.02)';
-  });
-  
-  card.addEventListener('mouseleave', function() {
-    this.style.transform = 'translateY(0) scale(1)';
-  });
-});
+// Hover effects are handled by CSS - no JavaScript needed
 
 // ===== CONSOLE MESSAGE =====
 console.log('%c👋 Welcome to Muntasir\'s Portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');

@@ -1,0 +1,29 @@
+# Server logs
+server.log
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if added in future)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.bak
+*-old.*
+
+# Python cache
+__pycache__/
+*.pyc

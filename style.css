@@ -153,12 +153,13 @@ nav {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--bg-primary);
+  opacity: 0.95;
   transition: all 0.3s ease;
 }
 
 [data-theme="dark"] nav {
-  background-color: rgba(15, 23, 42, 0.9);
+  opacity: 0.95;
 }
 
 nav.scrolled {
@@ -673,6 +674,7 @@ section {
 
 @keyframes fillBar {
   from { width: 0; }
+  to { width: 100%; }
 }
 
 .skill-level {
@@ -972,9 +974,18 @@ footer p {
 
 /* ===== RESPONSIVE ANIMATIONS ===== */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Keep essential focus indicators */
+  :focus {
+    transition: outline 0.2s ease;
   }
 }
 

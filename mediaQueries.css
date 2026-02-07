@@ -111,6 +111,10 @@
   .certificates-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+  
+  .certificates-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
 /* Mobile Landscape and Small Tablets */
@@ -182,6 +186,14 @@
   
   .certificates-container {
     grid-template-columns: 1fr;
+  }
+  
+  .certificates-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .certificate-gallery-item {
+    aspect-ratio: 16 / 11;
   }
   
   .contact-info-upper-container {

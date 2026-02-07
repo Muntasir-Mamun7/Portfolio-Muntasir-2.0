@@ -186,3 +186,48 @@ document.addEventListener('keydown', (e) => {
 console.log('%c👋 Welcome to Muntasir\'s Portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');
 console.log('%cInterested in the code? Check it out on GitHub!', 'color: #764ba2; font-size: 14px;');
 console.log('%chttps://github.com/Muntasir-Mamun7', 'color: #3b82f6; font-size: 12px;');
+
+// ===== CERTIFICATE GALLERY MODAL =====
+const certificateItems = document.querySelectorAll('.certificate-gallery-item');
+certificateItems.forEach(item => {
+  item.addEventListener('click', function() {
+    const img = this.querySelector('img');
+    const modal = document.createElement('div');
+    modal.className = 'certificate-modal';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'certificate-modal-content';
+    
+    const modalImg = document.createElement('img');
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = 'position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001;';
+    
+    modalContent.appendChild(modalImg);
+    modal.appendChild(closeBtn);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Close modal on click
+    modal.addEventListener('click', function() {
+      modal.style.opacity = '0';
+      setTimeout(() => {
+        document.body.removeChild(modal);
+      }, 300);
+    });
+    
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      modal.style.opacity = '0';
+      setTimeout(() => {
+        document.body.removeChild(modal);
+      }, 300);
+    });
+  });
+});

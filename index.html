@@ -35,7 +35,6 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#publications">Publications</a></li>
           <li><a href="#certificates">Certificates</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -62,7 +61,6 @@
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
             <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="#publications" onclick="toggleMenu()">Publications</a></li>
             <li><a href="#certificates" onclick="toggleMenu()">Certificates</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
           </div>
@@ -306,6 +304,42 @@
             </div>
           </div>
         </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Languages</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Bengali</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+              <p class="skill-level">Native</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>English</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Fluent</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Chinese</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+          </div>
+        </div>
       </div>
       <img
         src="Images/arrow.png"
@@ -458,40 +492,6 @@
         src="Images/arrow.png"
         alt="Arrow Icon"
         class="icon arrow"
-        onclick="location.href='./#publications'"
-      />
-    </section>
-    <section id="publications">
-      <p class="section__text__p1">My Academic</p>
-      <h1 class="title">Publications & Research</h1>
-      <div class="publications-container">
-        <div class="publication-card">
-          <div class="publication-icon">📄</div>
-          <div class="publication-content">
-            <h3 class="publication-title">Research in Computer Science</h3>
-            <p class="publication-description">
-              Exploring various domains in computer science including algorithms, 
-              data structures, and software engineering principles.
-            </p>
-            <p class="publication-status">In Progress</p>
-          </div>
-        </div>
-        <div class="publication-card">
-          <div class="publication-icon">🔬</div>
-          <div class="publication-content">
-            <h3 class="publication-title">Web Development Studies</h3>
-            <p class="publication-description">
-              Research on modern web technologies, responsive design patterns, 
-              and user experience optimization.
-            </p>
-            <p class="publication-status">Ongoing</p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="Images/arrow.png"
-        alt="Arrow Icon"
-        class="icon arrow"
         onclick="location.href='./#certificates'"
       />
     </section>
@@ -499,41 +499,61 @@
     <section id="certificates">
       <p class="section__text__p1">My Professional</p>
       <h1 class="title">Certificates & Achievements</h1>
-      <div class="certificates-container">
-        <div class="certificate-card">
-          <div class="certificate-icon">🏆</div>
-          <div class="certificate-content">
-            <h3>Computer Science Degree</h3>
-            <p>B.Sc. in Computer Science</p>
-            <p class="certificate-issuer">Nanjing University of Posts and Telecommunications</p>
-            <span class="certificate-date">In Progress</span>
+      <div class="certificates-gallery">
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Certificate of Jiangsu Government Scholership.jpg" alt="Jiangsu Government Scholarship Certificate" />
+          <div class="certificate-overlay">
+            <h3>Jiangsu Government Scholarship</h3>
+            <p>Government Recognition</p>
           </div>
         </div>
-        <div class="certificate-card">
-          <div class="certificate-icon">💻</div>
-          <div class="certificate-content">
-            <h3>Software Development</h3>
-            <p>2+ Years Experience</p>
-            <p class="certificate-issuer">Freelance & Personal Projects</p>
-            <span class="certificate-date">2022 - Present</span>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Certificate of NJUPT Individual Scholarship.jpg" alt="NJUPT Individual Scholarship Certificate" />
+          <div class="certificate-overlay">
+            <h3>NJUPT Individual Scholarship</h3>
+            <p>Academic Excellence</p>
           </div>
         </div>
-        <div class="certificate-card">
-          <div class="certificate-icon">🌐</div>
-          <div class="certificate-content">
-            <h3>Web Development</h3>
-            <p>Full Stack Web Development</p>
-            <p class="certificate-issuer">Self-Taught & Projects</p>
-            <span class="certificate-date">Ongoing</span>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Certificate of Discover Jiangsu International Summer Program 2025.jpg" alt="Discover Jiangsu International Summer Program 2025" />
+          <div class="certificate-overlay">
+            <h3>Discover Jiangsu Summer Program 2025</h3>
+            <p>International Program</p>
           </div>
         </div>
-        <div class="certificate-card">
-          <div class="certificate-icon">📚</div>
-          <div class="certificate-content">
-            <h3>Problem Solving</h3>
-            <p>Data Structures & Algorithms</p>
-            <p class="certificate-issuer">Academic & Competitive Programming</p>
-            <span class="certificate-date">Continuous Learning</span>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Certificate of Outstanding Volunteer 2024.jpg" alt="Outstanding Volunteer 2024 Certificate" />
+          <div class="certificate-overlay">
+            <h3>Outstanding Volunteer 2024</h3>
+            <p>Community Service</p>
+          </div>
+        </div>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Certificate of Outstanding Volunteer 2023.jpg" alt="Outstanding Volunteer 2023 Certificate" />
+          <div class="certificate-overlay">
+            <h3>Outstanding Volunteer 2023</h3>
+            <p>Community Service</p>
+          </div>
+        </div>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Cirtificate as a C programing teacher.jpg" alt="C Programming Teacher Certificate" />
+          <div class="certificate-overlay">
+            <h3>C Programming Teacher</h3>
+            <p>Teaching Experience</p>
+          </div>
+        </div>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Cirtificate of C3 Club summer camp.jpg" alt="C3 Club Summer Camp Certificate" />
+          <div class="certificate-overlay">
+            <h3>C3 Club Summer Camp</h3>
+            <p>Workshop Participation</p>
+          </div>
+        </div>
+        <div class="certificate-gallery-item">
+          <img src="Images/Cirtificates/Cirtificate of C3 club sumer program.jpg" alt="C3 Club Summer Program Certificate" />
+          <div class="certificate-overlay">
+            <h3>C3 Club Summer Program</h3>
+            <p>Program Completion</p>
           </div>
         </div>
       </div>
@@ -578,7 +598,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#publications">Publications</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>

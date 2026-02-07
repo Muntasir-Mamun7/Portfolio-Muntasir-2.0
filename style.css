@@ -1757,10 +1757,213 @@ section::before {
   height: 60px;
   background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
   opacity: 0.3;
+  animation: fadeIn 1s ease-out;
 }
 
-section:first-of-type::before {
+section:first-of-type::before,
+#profile::before,
+#hero-section::before {
   display: none;
+}
+
+/* Page Load Animation */
+body {
+  animation: pageLoad 0.6s ease-out;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth Hover Transitions */
+.project-card,
+.skill-item,
+.certificate-gallery-item,
+.details-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after,
+.skill-item::after,
+.certificate-gallery-item::after,
+.details-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-card:hover::after,
+.skill-item:hover::after,
+.certificate-gallery-item:hover::after,
+.details-container:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.project-card > *,
+.skill-item > *,
+.details-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating Animation for Icons */
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.icon:hover {
+  animation: floatIcon 1s ease-in-out infinite;
+}
+
+/* Button Ripple Effect */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::after {
+  width: 300px;
+  height: 300px;
+  transition: width 0s, height 0s;
+}
+
+/* Section Divider Animation */
+.section-divider {
+  width: 100px;
+  height: 4px;
+  background: var(--accent-gradient);
+  margin: 3rem auto;
+  border-radius: 2px;
+  animation: expandWidth 1s ease-out;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+/* Gradient Text Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text,
+.title {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Stagger Animation Enhancement */
+.skill-item,
+.project-card,
+.certificate-gallery-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+.skill-item:nth-child(6) { animation-delay: 0.6s; }
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Text Reveal Animation */
+.title {
+  overflow: hidden;
+  position: relative;
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  animation: revealText 1s ease-out forwards;
+}
+
+@keyframes revealText {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* Remove conflicting animations */
+.skill-item {
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.project-card {
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.certificate-gallery-item {
+  animation: fadeInScale 0.6s ease-out backwards;
 }
 
 /* Parallax Effect Enhancement */

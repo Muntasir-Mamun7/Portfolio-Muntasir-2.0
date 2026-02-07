@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Muntasir Al Mamun</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir</div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Projects Header -->
+    <section id="projects-header">
+      <div class="header-content">
+        <p class="section__text__p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+        <p class="projects-intro">
+          A showcase of my most notable projects, demonstrating my skills in web development, 
+          software engineering, and creative problem-solving.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Main Content -->
+    <section id="projects-main">
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-2.jpg"
+              alt="Baymax 2.3 Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">Baymax 2.3</h2>
+            <p class="project-description">
+              A modern, responsive web application featuring interactive elements, smooth animations, 
+              and a clean user interface. Built with modern web technologies to ensure optimal 
+              performance across all devices.
+            </p>
+            <div class="project-details">
+              <div class="project-detail-item">
+                <strong>Key Features:</strong>
+                <ul>
+                  <li>Fully responsive design</li>
+                  <li>Interactive UI components</li>
+                  <li>Optimized performance</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2.3'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2.3/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/beatChimpGif.gif"
+              alt="Beat Chimp Memory Test"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">Beat Chimp - Memory Test Game</h2>
+            <p class="project-description">
+              An engaging Java-based memory testing game designed to challenge and improve cognitive 
+              abilities. Features progressive difficulty levels and tracks user performance metrics.
+            </p>
+            <div class="project-details">
+              <div class="project-detail-item">
+                <strong>Technical Highlights:</strong>
+                <ul>
+                  <li>Built with Java Swing for GUI</li>
+                  <li>Progressive difficulty system</li>
+                  <li>Performance tracking</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">GUI</span>
+              <span class="tag">Game Dev</span>
+            </div>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/tag/v1.0'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/download/v1.0/Tutorial.VIDEO.mp4'"
+              >
+                Demo Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-1.png"
+              alt="Baymax 2.0 Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">Baymax 2.0</h2>
+            <p class="project-description">
+              An earlier iteration of the Baymax project showcasing fundamental web development skills. 
+              Demonstrates clean code structure and responsive design principles.
+            </p>
+            <div class="project-details">
+              <div class="project-detail-item">
+                <strong>Learning Outcomes:</strong>
+                <ul>
+                  <li>Responsive web design</li>
+                  <li>CSS animations</li>
+                  <li>JavaScript DOM manipulation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2-0'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2-0/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="Images/project-3.jpg"
+              alt="G3 Architecture Project"
+            />
+          </div>
+          <div class="project-content">
+            <h2 class="project-title">G3 Architecture</h2>
+            <p class="project-description">
+              A sleek architecture website design showcasing modern layout techniques and styling. 
+              Features a professional presentation with attention to visual hierarchy and user experience.
+            </p>
+            <div class="project-details">
+              <div class="project-detail-item">
+                <strong>Design Focus:</strong>
+                <ul>
+                  <li>Modern UI/UX design</li>
+                  <li>Grid-based layouts</li>
+                  <li>Typography and spacing</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Design</span>
+            </div>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Muntasir-Mamun7/g3-arch'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-1 project-btn"
+                onclick="location.href='https://muntasir-mamun7.github.io/g3-arch/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section id="back-to-home">
+      <button class="btn btn-color-1" onclick="location.href='index.html'">
+        ← Back to Portfolio
+      </button>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

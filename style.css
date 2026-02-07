@@ -245,6 +245,11 @@ nav.scrolled {
   padding: 0.5rem 0;
 }
 
+.nav-links a.active {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -256,7 +261,8 @@ nav.scrolled {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
@@ -1762,4 +1768,67 @@ section:first-of-type::before {
   #hero-section {
     background-attachment: fixed;
   }
+}
+
+/* ===== PAGE HEADER SECTIONS ===== */
+#skills-header,
+#projects-header,
+#certificates-header {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 8rem 5% 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#skills-header::before,
+#projects-header::before,
+#certificates-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+
+.skills-intro,
+.projects-intro,
+.certificates-intro {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+}
+
+#skills-main,
+#projects-main,
+#certificates-main {
+  padding: 5rem 5%;
+}
+
+#back-to-home {
+  min-height: auto;
+  padding: 3rem 5%;
+  text-align: center;
+}
+
+#back-to-home .btn {
+  font-size: 1.1rem;
+  padding: 1.2rem 2.5rem;
 }

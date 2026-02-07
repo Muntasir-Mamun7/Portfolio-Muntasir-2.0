@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Skills - Muntasir Al Mamun</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="skills.html" class="active">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir</div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Skills Header -->
+    <section id="skills-header">
+      <div class="header-content">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Technical Skills</h1>
+        <p class="skills-intro">
+          A comprehensive overview of my technical expertise, programming languages, 
+          and tools that I've mastered throughout my journey as a software developer.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Main Content -->
+    <section id="skills-main">
+      <div class="skills-details-container">
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Programming Languages</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Java</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Advanced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>C/C++</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Python</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>C#</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 60%"></div>
+              </div>
+              <p class="skill-level">Basic</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Web Development</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>HTML/CSS</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+              <p class="skill-level">Experienced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>JavaScript</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>SASS</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Responsive Design</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Experienced</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Tools & Technologies</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Git & GitHub</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Problem Solving</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+              <p class="skill-level">Advanced</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Data Structures</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Algorithms</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 82%"></div>
+              </div>
+              <p class="skill-level">Proficient</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h2 class="skills-sub-title">Languages</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Bengali</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+              <p class="skill-level">Native</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>English</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <p class="skill-level">Fluent</p>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <img src="Images/checkmark.png" alt="skill icon" class="icon" />
+                <h3>Chinese</h3>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <p class="skill-level">Intermediate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section id="back-to-home">
+      <button class="btn btn-color-1" onclick="location.href='index.html'">
+        ← Back to Portfolio
+      </button>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

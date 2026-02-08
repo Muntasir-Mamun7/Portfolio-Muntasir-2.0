@@ -11,20 +11,24 @@ window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
   const smokeContainer = document.getElementById('smoke-container');
   
+  const LOADING_DURATION = 1500; // Show loading for 1.5 seconds
+  const SMOKE_ANIMATION_DURATION = 9000; // Longest smoke animation is 9s (matches CSS smoke:nth-child(3))
+  const SMOKE_FADE_OUT_DURATION = 2000; // Fade out transition duration
+  
   setTimeout(() => {
     loadingScreen.classList.add('hidden');
-  }, 1500); // Show loading for 1.5 seconds
+  }, LOADING_DURATION);
   
-  // Trigger smoke effect after loading screen
+  // Trigger smoke fade-out after longest animation completes
   setTimeout(() => {
     if (smokeContainer) {
       smokeContainer.classList.add('fade-out');
-      // Remove smoke container after animation completes
+      // Remove smoke container after fade-out completes
       setTimeout(() => {
         smokeContainer.style.display = 'none';
-      }, 2000);
+      }, SMOKE_FADE_OUT_DURATION);
     }
-  }, 7000); // Start fading out smoke after 7 seconds
+  }, SMOKE_ANIMATION_DURATION);
 });
 
 // ===== DARK/LIGHT MODE TOGGLE =====

@@ -702,7 +702,9 @@
     bottom: 10px;
     right: 10px;
     left: auto;
+    /* Width: 50% of viewport or full width minus 20px (10px margin on each side) */
     width: min(50vw, calc(100vw - 20px));
+    /* Height: Full viewport minus 80px (60px toggle button + 20px spacing) */
     height: calc(100vh - 80px);
     max-height: calc(100vh - 80px);
     border-radius: 16px;

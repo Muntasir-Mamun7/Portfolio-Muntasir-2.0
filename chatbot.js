@@ -6,8 +6,7 @@ class AIChatbot {
     this.isOpen = false;
     this.isTyping = false;
     this.knowledgeBase = this.initializeKnowledgeBase();
-    this.apiEndpoint = 'https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill';
-    this.apiKey = ''; // Will use free API without key for basic functionality
+    // Note: Future enhancement could integrate with AI APIs like Hugging Face
     this.init();
   }
 
@@ -157,9 +156,14 @@ class AIChatbot {
       "Contact information"
     ];
 
-    quickActionsContainer.innerHTML = actions.map(action => 
-      `<button class="quick-action-btn" onclick="chatbot.handleQuickAction('${action}')">${action}</button>`
+    quickActionsContainer.innerHTML = actions.map((action, index) => 
+      `<button class="quick-action-btn" data-action="${index}">${action}</button>`
     ).join('');
+    
+    // Add event listeners to quick action buttons
+    quickActionsContainer.querySelectorAll('.quick-action-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => this.handleQuickAction(actions[index]));
+    });
   }
 
   handleQuickAction(action) {

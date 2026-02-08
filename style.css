@@ -618,6 +618,7 @@ section {
 .profile-pic {
   width: clamp(220px, 40vw, 400px);
   height: clamp(220px, 40vw, 400px);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-xl);
@@ -1621,6 +1622,11 @@ footer p {
   .profile-pic {
     width: 480px;
     height: 480px;
+    aspect-ratio: 1 / 1;
+  }
+  
+  #home {
+    gap: 5rem;
   }
   
   /* Enhanced desktop layout */

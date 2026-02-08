@@ -241,7 +241,9 @@ class AIChatbot {
     }
 
     // US President
-    if ((message.includes('president') || message.includes('potus')) && (message.includes('usa') || /\bus\b/.test(message) || message.includes('america') || message.includes('united states'))) {
+    const isUSQuery = message.includes('usa') || /\bus\b/.test(message) || 
+                     message.includes('america') || message.includes('united states');
+    if ((message.includes('president') || message.includes('potus')) && isUSQuery) {
       return `As of 2024, Joe Biden is the President of the United States (the 46th president). However, please verify with current sources as this information may change.`;
     }
 
@@ -251,7 +253,7 @@ class AIChatbot {
     }
 
     // Projects - check this before generic "where" to avoid conflict
-    if (/\bproject(s)?\b/.test(message)) {
+    if (/\bproject(s)?\b/.test(message) || message.includes('work') || message.includes('built')) {
       const projectList = kb.projects.map(p => 
         `**${p.name}:** ${p.description} (Technologies: ${p.technologies.join(', ')})`
       ).join('\n\n');

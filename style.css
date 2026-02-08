@@ -1,20 +1,20 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-  /* Light Mode Colors - Elegant & Modern */
-  --bg-primary: #fafbfd;
-  --bg-secondary: #f5f7fa;
-  --bg-tertiary: #e8ecf1;
-  --text-primary: #1a202c;
-  --text-secondary: #4a5568;
-  --text-tertiary: #718096;
-  --accent-primary: #6366f1;
-  --accent-secondary: #4f46e5;
-  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --border-color: #e2e8f0;
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
+  /* Light Mode Colors - Elegant & Clean */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-tertiary: #6c757d;
+  --accent-primary: #2c3e50;
+  --accent-secondary: #34495e;
+  --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --border-color: #dee2e6;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.12);
   
   /* Border Widths */
   --border-thin: 1px;
@@ -22,36 +22,36 @@
   --border-thick: 4px;
   
   /* Skill Progress Colors */
-  --skill-progress-bg: #e8ecf1;
-  --skill-progress-fill: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  --skill-progress-bg: #e9ecef;
+  --skill-progress-fill: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
   
   /* Card Colors */
   --card-bg: #ffffff;
-  --card-hover-bg: #f8fafc;
+  --card-hover-bg: #f8f9fa;
 }
 
 /* Dark Mode Colors */
 [data-theme="dark"] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --accent-primary: #818cf8;
-  --accent-secondary: #6366f1;
-  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
-  --border-color: #334155;
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.6);
-  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.7);
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3d3d3d;
+  --text-primary: #f5f5f5;
+  --text-secondary: #d1d1d1;
+  --text-tertiary: #a8a8a8;
+  --accent-primary: #3498db;
+  --accent-secondary: #2980b9;
+  --accent-gradient: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+  --border-color: #3d3d3d;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.8);
   
-  --skill-progress-bg: #334155;
-  --skill-progress-fill: linear-gradient(90deg, #818cf8 0%, #a78bfa 100%);
+  --skill-progress-bg: #3d3d3d;
+  --skill-progress-fill: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
   
-  --card-bg: #1e293b;
-  --card-hover-bg: #334155;
+  --card-bg: #2d2d2d;
+  --card-hover-bg: #3d3d3d;
 }
 
 /* ===== LOADING SCREEN ===== */
@@ -106,6 +106,100 @@
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
+}
+
+/* ===== SMOKE EFFECT ===== */
+.smoke-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 2s ease-out;
+}
+
+.smoke-container.fade-out {
+  opacity: 0;
+}
+
+.smoke {
+  position: absolute;
+  bottom: -150px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(44, 62, 80, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: smoke-rise 8s ease-out forwards;
+}
+
+[data-theme="dark"] .smoke {
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 70%);
+}
+
+.smoke:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+
+.smoke:nth-child(2) {
+  left: 25%;
+  animation-delay: 0.5s;
+  animation-duration: 8s;
+  width: 250px;
+  height: 250px;
+}
+
+.smoke:nth-child(3) {
+  left: 45%;
+  animation-delay: 1s;
+  animation-duration: 9s;
+  width: 180px;
+  height: 180px;
+}
+
+.smoke:nth-child(4) {
+  left: 60%;
+  animation-delay: 0.3s;
+  animation-duration: 7.5s;
+  width: 220px;
+  height: 220px;
+}
+
+.smoke:nth-child(5) {
+  left: 80%;
+  animation-delay: 0.8s;
+  animation-duration: 8.5s;
+  width: 190px;
+  height: 190px;
+}
+
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) scale(1.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smoke {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ===== SCROLL PROGRESS ===== */
@@ -177,8 +271,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 50%, rgba(44, 62, 80, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.03) 0%, transparent 50%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
   pointer-events: none;

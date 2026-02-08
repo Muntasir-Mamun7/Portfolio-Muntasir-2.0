@@ -9,9 +9,26 @@ function toggleMenu() {
 // ===== LOADING SCREEN =====
 window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
+  const smokeContainer = document.getElementById('smoke-container');
+  
+  const LOADING_DURATION = 1500; // Show loading for 1.5 seconds
+  const SMOKE_ANIMATION_DURATION = 9000; // Longest smoke animation is 9s (matches CSS smoke:nth-child(3))
+  const SMOKE_FADE_OUT_DURATION = 2000; // Fade out transition duration
+  
   setTimeout(() => {
     loadingScreen.classList.add('hidden');
-  }, 1500); // Show loading for 1.5 seconds
+  }, LOADING_DURATION);
+  
+  // Trigger smoke fade-out after longest animation completes
+  setTimeout(() => {
+    if (smokeContainer) {
+      smokeContainer.classList.add('fade-out');
+      // Remove smoke container after fade-out completes
+      setTimeout(() => {
+        smokeContainer.style.display = 'none';
+      }, SMOKE_FADE_OUT_DURATION);
+    }
+  }, SMOKE_ANIMATION_DURATION);
 });
 
 // ===== DARK/LIGHT MODE TOGGLE =====
@@ -183,9 +200,9 @@ document.addEventListener('keydown', (e) => {
 // Hover effects are handled by CSS - no JavaScript needed
 
 // ===== CONSOLE MESSAGE =====
-console.log('%c👋 Welcome to Muntasir\'s Portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');
-console.log('%cInterested in the code? Check it out on GitHub!', 'color: #764ba2; font-size: 14px;');
-console.log('%chttps://github.com/Muntasir-Mamun7', 'color: #3b82f6; font-size: 12px;');
+console.log('%c👋 Welcome to Muntasir\'s Portfolio!', 'color: #2c3e50; font-size: 20px; font-weight: bold;');
+console.log('%cInterested in the code? Check it out on GitHub!', 'color: #3498db; font-size: 14px;');
+console.log('%chttps://github.com/Muntasir-Mamun7', 'color: #34495e; font-size: 12px;');
 
 // ===== CERTIFICATE GALLERY MODAL =====
 const certificateItems = document.querySelectorAll('.certificate-gallery-item');

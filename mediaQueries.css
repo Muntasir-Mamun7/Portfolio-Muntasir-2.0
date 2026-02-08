@@ -26,6 +26,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem 5%;
+    align-items: center;
   }
   
   /* Sections */

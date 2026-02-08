@@ -269,9 +269,69 @@ class AIChatbot {
   }
 
   async getAIResponse(message) {
-    // For now, return null to use fallback
-    // In production, you would integrate with a proper AI API
+    // Try to search the internet for general knowledge questions
+    if (this.shouldSearchInternet(message)) {
+      try {
+        const searchResult = await this.searchInternet(message);
+        if (searchResult) {
+          return searchResult;
+        }
+      } catch (error) {
+        console.error('Internet search error:', error);
+      }
+    }
+    
     return null;
+  }
+
+  shouldSearchInternet(message) {
+    // Keywords that suggest a general knowledge question
+    const generalKeywords = [
+      'what is', 'who is', 'how to', 'why', 'when', 
+      'define', 'explain', 'tell me about',
+      'how does', 'what are', 'where is'
+    ];
+    
+    const lowerMessage = message.toLowerCase();
+    
+    // Don't search if question is about Muntasir
+    const personalKeywords = ['muntasir', 'you', 'your', 'portfolio', 'resume'];
+    if (personalKeywords.some(keyword => lowerMessage.includes(keyword))) {
+      return false;
+    }
+    
+    // Check if question matches general knowledge patterns
+    return generalKeywords.some(keyword => lowerMessage.includes(keyword));
+  }
+
+  async searchInternet(query) {
+    // Use Wikipedia API for general knowledge questions
+    try {
+      const searchTerm = this.extractSearchTerm(query);
+      const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(searchTerm)}`;
+      
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.extract) {
+          return `Based on available information:\n\n${data.extract}\n\n_Source: Wikipedia_`;
+        }
+      }
+    } catch (error) {
+      console.error('Wikipedia search failed:', error);
+    }
+    
+    return null;
+  }
+
+  extractSearchTerm(query) {
+    // Remove question words to get the main topic
+    let term = query.toLowerCase()
+      .replace(/^(what is|who is|tell me about|explain|define|how to|why|when|where is|what are|how does)\s+/i, '')
+      .replace(/\?$/, '')
+      .trim();
+    
+    return term;
   }
 
   getFallbackResponse(message) {

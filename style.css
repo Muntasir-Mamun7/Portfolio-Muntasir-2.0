@@ -477,8 +477,9 @@ nav.scrolled {
   top: 100%;
   right: 0;
   background-color: var(--bg-secondary);
-  width: min(250px, 90vw);
-  max-width: 100%;
+  width: max-content;
+  min-width: 200px;
+  max-width: min(300px, 90vw);
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -497,6 +498,7 @@ nav.scrolled {
   text-decoration: none;
   transition: all 0.3s ease;
   border-bottom: var(--border-thin) solid var(--border-color);
+  white-space: nowrap;
 }
 
 .menu-links a:hover {

@@ -396,7 +396,7 @@
   }
 
   .menu-links {
-    width: min(200px, 85vw);
+    max-width: min(280px, 85vw);
   }
   
   .project-image {

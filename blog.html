@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Read insightful articles about software development, web technologies, coding best practices, and career advice from Muntasir Al Mamun - Computer Science Student & Software Developer" />
+    <meta name="keywords" content="software development blog, web development tutorials, coding best practices, programming tips, tech career advice, JavaScript, Python, React, web design" />
+    <meta name="author" content="Muntasir Al Mamun" />
+    <meta property="og:title" content="Blog - Muntasir Al Mamun | Software Development Insights" />
+    <meta property="og:description" content="Explore tutorials, tips, and insights on software development, web technologies, and tech career growth" />
+    <meta property="og:type" content="website" />
+    <title>Blog - Muntasir Al Mamun | Software Development & Web Technologies</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Muntasir Al Mamun</div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div class="logo">Muntasir</div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <section id="blog">
+      <div class="page-header">
+        <p class="section__text__p1">Insights & Knowledge</p>
+        <h1 class="title">My Blog</h1>
+        <p class="page-description">
+          Sharing my journey through code, exploring best practices, and discussing 
+          software development trends and technologies.
+        </p>
+      </div>
+
+      <div class="blog-container">
+        <!-- Featured Blog Post -->
+        <article class="blog-post featured-post">
+          <div class="blog-post-image">
+            <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <span class="blog-icon">🚀</span>
+            </div>
+            <span class="blog-badge featured-badge">Featured</span>
+          </div>
+          <div class="blog-post-content">
+            <div class="blog-meta">
+              <span class="blog-date">January 15, 2024</span>
+              <span class="blog-reading-time">8 min read</span>
+              <span class="blog-category">Web Development</span>
+            </div>
+            <h2 class="blog-post-title">
+              <a href="#modern-react">Building Modern Web Applications with React: Best Practices for 2024</a>
+            </h2>
+            <p class="blog-post-excerpt">
+              React continues to dominate the web development landscape. Discover the latest best practices, 
+              performance optimization techniques, and architectural patterns that will make your React applications 
+              scalable, maintainable, and lightning-fast. Learn about React Server Components, concurrent rendering, 
+              and modern state management solutions.
+            </p>
+            <div class="blog-tags">
+              <span class="blog-tag">React</span>
+              <span class="blog-tag">JavaScript</span>
+              <span class="blog-tag">Performance</span>
+              <span class="blog-tag">Web Development</span>
+            </div>
+            <a href="#modern-react" class="blog-read-more">
+              Read Article
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post Grid -->
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <article class="blog-post">
+            <div class="blog-post-image">
+              <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span class="blog-icon">💻</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-meta">
+                <span class="blog-date">January 8, 2024</span>
+                <span class="blog-reading-time">6 min read</span>
+                <span class="blog-category">Software Engineering</span>
+              </div>
+              <h3 class="blog-post-title">
+                <a href="#clean-code">Clean Code Principles Every Developer Should Know</a>
+              </h3>
+              <p class="blog-post-excerpt">
+                Writing clean, maintainable code is essential for long-term project success. Explore fundamental 
+                principles like SOLID, DRY, and KISS, along with practical examples showing how to apply them 
+                in real-world scenarios. Learn how to write code that your future self will thank you for.
+              </p>
+              <div class="blog-tags">
+                <span class="blog-tag">Clean Code</span>
+                <span class="blog-tag">Best Practices</span>
+                <span class="blog-tag">Software Engineering</span>
+              </div>
+              <a href="#clean-code" class="blog-read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog Post 2 -->
+          <article class="blog-post">
+            <div class="blog-post-image">
+              <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <span class="blog-icon">🎨</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-meta">
+                <span class="blog-date">December 28, 2023</span>
+                <span class="blog-reading-time">7 min read</span>
+                <span class="blog-category">UI/UX Design</span>
+              </div>
+              <h3 class="blog-post-title">
+                <a href="#responsive-design">Mastering Responsive Web Design: A Modern Approach</a>
+              </h3>
+              <p class="blog-post-excerpt">
+                In today's multi-device world, responsive design is non-negotiable. Dive deep into modern CSS 
+                techniques including CSS Grid, Flexbox, container queries, and CSS custom properties. Learn 
+                how to create fluid, adaptive layouts that look perfect on any screen size.
+              </p>
+              <div class="blog-tags">
+                <span class="blog-tag">CSS</span>
+                <span class="blog-tag">Responsive Design</span>
+                <span class="blog-tag">Frontend</span>
+              </div>
+              <a href="#responsive-design" class="blog-read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog Post 3 -->
+          <article class="blog-post">
+            <div class="blog-post-image">
+              <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <span class="blog-icon">⚡</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-meta">
+                <span class="blog-date">December 20, 2023</span>
+                <span class="blog-reading-time">5 min read</span>
+                <span class="blog-category">Performance</span>
+              </div>
+              <h3 class="blog-post-title">
+                <a href="#web-performance">Web Performance Optimization: Speed Up Your Website</a>
+              </h3>
+              <p class="blog-post-excerpt">
+                Page speed is crucial for user experience and SEO. Discover proven techniques to optimize your 
+                website's performance: lazy loading, code splitting, image optimization, caching strategies, 
+                and Core Web Vitals improvements that will boost your site's speed dramatically.
+              </p>
+              <div class="blog-tags">
+                <span class="blog-tag">Performance</span>
+                <span class="blog-tag">Optimization</span>
+                <span class="blog-tag">SEO</span>
+              </div>
+              <a href="#web-performance" class="blog-read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog Post 4 -->
+          <article class="blog-post">
+            <div class="blog-post-image">
+              <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span class="blog-icon">🎯</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-meta">
+                <span class="blog-date">December 12, 2023</span>
+                <span class="blog-reading-time">6 min read</span>
+                <span class="blog-category">Career Development</span>
+              </div>
+              <h3 class="blog-post-title">
+                <a href="#tech-career">Navigating Your Tech Career: Tips for Junior Developers</a>
+              </h3>
+              <p class="blog-post-excerpt">
+                Starting your career in tech can be overwhelming. Get practical advice on building your portfolio, 
+                learning effectively, contributing to open source, networking in the tech community, and landing 
+                your first developer job. Real insights from the journey of continuous learning.
+              </p>
+              <div class="blog-tags">
+                <span class="blog-tag">Career</span>
+                <span class="blog-tag">Learning</span>
+                <span class="blog-tag">Development</span>
+              </div>
+              <a href="#tech-career" class="blog-read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog Post 5 -->
+          <article class="blog-post">
+            <div class="blog-post-image">
+              <div class="blog-image-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <span class="blog-icon">🔒</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-meta">
+                <span class="blog-date">December 5, 2023</span>
+                <span class="blog-reading-time">7 min read</span>
+                <span class="blog-category">Security</span>
+              </div>
+              <h3 class="blog-post-title">
+                <a href="#web-security">Essential Web Security Practices for Modern Applications</a>
+              </h3>
+              <p class="blog-post-excerpt">
+                Security should never be an afterthought. Learn about common vulnerabilities like XSS, CSRF, 
+                and SQL injection, and how to protect against them. Implement authentication best practices, 
+                secure data transmission, and build applications that users can trust.
+              </p>
+              <div class="blog-tags">
+                <span class="blog-tag">Security</span>
+                <span class="blog-tag">Authentication</span>
+                <span class="blog-tag">Best Practices</span>
+              </div>
+              <a href="#web-security" class="blog-read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="blog-newsletter">
+          <div class="newsletter-content">
+            <h3 class="newsletter-title">Stay Updated</h3>
+            <p class="newsletter-description">
+              Get notified when I publish new articles about software development, web technologies, and tech career insights.
+            </p>
+          </div>
+          <div class="newsletter-form">
+            <p class="newsletter-note">Connect with me on <a href="https://linkedin.com/in/muntasir-mamun-2769a821b/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for updates!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

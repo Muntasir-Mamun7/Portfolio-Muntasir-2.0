@@ -541,6 +541,7 @@ section {
   z-index: 1;
   max-width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .section__text__p1 {
@@ -952,7 +953,7 @@ section {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -1019,7 +1020,7 @@ section {
 /* ===== PROJECTS SECTION ===== */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2.5rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -1144,7 +1145,7 @@ section {
 /* ===== PUBLICATIONS SECTION ===== */
 .publications-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -1218,7 +1219,7 @@ section {
 
 .certificates-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto 3rem;
@@ -1319,7 +1320,7 @@ section {
 
 .certificates-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -2065,7 +2066,7 @@ body {
 /* Blog Grid */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -2333,7 +2334,7 @@ body {
 
 .about-info-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -2578,7 +2579,7 @@ body {
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   gap: 2rem;
   padding: 2rem 0;
 }

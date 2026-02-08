@@ -2668,3 +2668,156 @@ body {
 .theme-btn:hover .theme-icon {
   transform: scale(1.1);
 }
+
+/* ===== TOOLS PAGE SPECIFIC STYLES ===== */
+#tools-header {
+  padding: 8rem 2rem 4rem;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+#tools-header .header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#tools-header .section__text__p1 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#tools-header .title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tools-intro {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+#tools-main {
+  padding: 4rem 2rem;
+  background: var(--bg-primary);
+  min-height: 60vh;
+}
+
+/* Keyboard-like Layout for Desktop */
+.tools-keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Staggered rows to create keyboard effect */
+.tools-keyboard-grid .tool-card:nth-child(5),
+.tools-keyboard-grid .tool-card:nth-child(6),
+.tools-keyboard-grid .tool-card:nth-child(7),
+.tools-keyboard-grid .tool-card:nth-child(8) {
+  margin-left: 4%;
+}
+
+.tools-keyboard-grid .tool-card:nth-child(9),
+.tools-keyboard-grid .tool-card:nth-child(10),
+.tools-keyboard-grid .tool-card:nth-child(11),
+.tools-keyboard-grid .tool-card:nth-child(12) {
+  margin-left: 8%;
+}
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+  .tools-keyboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Reset stagger for tablet */
+  .tools-keyboard-grid .tool-card:nth-child(5),
+  .tools-keyboard-grid .tool-card:nth-child(6),
+  .tools-keyboard-grid .tool-card:nth-child(7),
+  .tools-keyboard-grid .tool-card:nth-child(8) {
+    margin-left: 0;
+  }
+  
+  .tools-keyboard-grid .tool-card:nth-child(9),
+  .tools-keyboard-grid .tool-card:nth-child(10),
+  .tools-keyboard-grid .tool-card:nth-child(11),
+  .tools-keyboard-grid .tool-card:nth-child(12) {
+    margin-left: 0;
+  }
+  
+  /* Stagger for 3-column layout */
+  .tools-keyboard-grid .tool-card:nth-child(4),
+  .tools-keyboard-grid .tool-card:nth-child(5),
+  .tools-keyboard-grid .tool-card:nth-child(6) {
+    margin-left: 3%;
+  }
+  
+  .tools-keyboard-grid .tool-card:nth-child(7),
+  .tools-keyboard-grid .tool-card:nth-child(8),
+  .tools-keyboard-grid .tool-card:nth-child(9) {
+    margin-left: 6%;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  #tools-header {
+    padding: 6rem 1.5rem 3rem;
+  }
+  
+  #tools-header .title {
+    font-size: 2rem;
+  }
+  
+  .tools-intro {
+    font-size: 1rem;
+  }
+  
+  #tools-main {
+    padding: 3rem 1.5rem;
+  }
+  
+  .tools-keyboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  /* Reset all stagger for mobile */
+  .tools-keyboard-grid .tool-card:nth-child(n) {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tools-keyboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .tool-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .tool-icon {
+    font-size: 2.5rem;
+  }
+  
+  .tool-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  .tool-card p {
+    font-size: 0.75rem;
+  }
+}

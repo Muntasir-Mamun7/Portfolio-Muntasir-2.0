@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me - Muntasir Al Mamun</title>
+    <title>Tools & Technologies - Muntasir Al Mamun</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
@@ -17,6 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap Icons for professional icons -->
+    <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
   </head>
   <body>
     <!-- Loading Screen -->
@@ -34,9 +36,9 @@
       <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
       <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="skills.html">Skills</a></li>
-          <li><a href="tools.html">Tools</a></li>
+          <li><a href="tools.html" class="active">Tools</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="certificates.html">Certificates</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -75,60 +77,86 @@
       </div>
     </nav>
 
-    <!-- About Header -->
-    <section id="about-header">
+    <!-- Tools Header -->
+    <section id="tools-header">
       <div class="header-content">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <p class="about-intro">
-          Passionate Computer Science student dedicated to creating innovative solutions 
-          and continuously expanding technical expertise.
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Tools & Technologies</h1>
+        <p class="tools-intro">
+          A comprehensive overview of my development tools and technologies, 
+          organized for easy navigation and exploration.
         </p>
       </div>
     </section>
 
-    <!-- About Main Content -->
-    <section id="about">
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="Images/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="Images/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>2+ years <br />Software Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="Images/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>
-                B.Sc. Computer Science <br />
-                Nanjing University of Posts and Telecommunications
-              </p>
-            </div>
+    <!-- Tools Main Content -->
+    <section id="tools-main">
+      <div class="tools-container">
+        <div class="tools-keyboard-grid">
+          <!-- Row 1 -->
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-git"></i></div>
+            <h3>Git & GitHub</h3>
+            <p>Version Control</p>
           </div>
-          <div class="text-container">
-            <p>
-              I'm Muntasir Al Mamun, a passionate Computer Science student from Bangladesh,
-              currently pursuing my degree at Nanjing University of Posts and Telecommunications in China.
-              With expertise in software development, web technologies, and problem-solving,
-              I'm dedicated to creating innovative solutions and continuously expanding my technical skills.
-              I thrive on challenges and am always eager to learn and apply new technologies in real-world projects.
-            </p>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-code-slash"></i></div>
+            <h3>VS Code</h3>
+            <p>Code Editor</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-box-seam"></i></div>
+            <h3>Node.js</h3>
+            <p>Runtime Environment</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-react"></i></div>
+            <h3>React</h3>
+            <p>Frontend Framework</p>
+          </div>
+          
+          <!-- Row 2 -->
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-file-code"></i></div>
+            <h3>Python</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-cup-hot"></i></div>
+            <h3>Java</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-database"></i></div>
+            <h3>MySQL</h3>
+            <p>Database</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-box"></i></div>
+            <h3>NPM</h3>
+            <p>Package Manager</p>
+          </div>
+          
+          <!-- Row 3 -->
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-html"></i></div>
+            <h3>HTML5</h3>
+            <p>Markup Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-css"></i></div>
+            <h3>CSS3</h3>
+            <p>Styling</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-js"></i></div>
+            <h3>JavaScript</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-terminal"></i></div>
+            <h3>Command Line</h3>
+            <p>CLI Tools</p>
           </div>
         </div>
       </div>

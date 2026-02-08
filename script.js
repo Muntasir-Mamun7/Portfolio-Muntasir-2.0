@@ -340,3 +340,67 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(initializeSectionAnimations, 250);
 });
+
+// ===== ABOUT SECTION ANIMATIONS =====
+// Animate info cards on scroll
+const aboutHomeSection = document.getElementById('about-home');
+if (aboutHomeSection) {
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add visible class to trigger CSS animations
+        const infoCards = document.querySelectorAll('.info-card');
+        infoCards.forEach(card => {
+          card.classList.add('visible');
+        });
+        
+        const aboutDetails = document.querySelector('.about-details');
+        if (aboutDetails) {
+          aboutDetails.classList.add('visible');
+        }
+        
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+          tag.classList.add('visible');
+        });
+        
+        aboutObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  aboutObserver.observe(aboutHomeSection);
+}
+
+// Parallax effect removed to avoid conflicts with hover animations
+
+// Counter animation for experience years
+const experienceDetail = document.querySelector('.info-card [data-counter="experience"]');
+if (experienceDetail) {
+  const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const targetText = experienceDetail.textContent;
+        const match = targetText.match(/(\d+)\+/);
+        if (match) {
+          const target = parseInt(match[1]);
+          let count = 0;
+          const interval = setInterval(() => {
+            if (count < target) {
+              count++;
+              experienceDetail.textContent = `${count}+ Years`;
+            } else {
+              clearInterval(interval);
+            }
+          }, 500);
+        }
+        experienceObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  const parentCard = experienceDetail.closest('.info-card');
+  if (parentCard) {
+    experienceObserver.observe(parentCard);
+  }
+}

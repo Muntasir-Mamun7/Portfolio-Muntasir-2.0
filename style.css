@@ -337,11 +337,6 @@
   }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
 /* ===== SMOKE EFFECT ===== */
 .smoke-container {
   position: fixed;

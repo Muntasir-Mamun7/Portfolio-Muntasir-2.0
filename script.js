@@ -116,10 +116,10 @@ window.addEventListener('load', () => {
     if (newMessageIndex !== messageIndex && loadingMessage) {
       messageIndex = newMessageIndex;
       loadingMessage.style.animation = 'none';
-      setTimeout(() => {
-        loadingMessage.textContent = messages[messageIndex];
-        loadingMessage.style.animation = 'fadeIn 0.5s ease-in-out';
-      }, 50);
+      // Trigger reflow to restart animation reliably
+      void loadingMessage.offsetHeight;
+      loadingMessage.textContent = messages[messageIndex];
+      loadingMessage.style.animation = 'fadeIn 0.5s ease-in-out';
     }
   }, PROGRESS_INTERVAL);
   

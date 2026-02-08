@@ -55,7 +55,11 @@ themeToggleBtns.forEach(btn => {
 function updateThemeIcon(theme) {
   const icons = document.querySelectorAll('.theme-icon');
   icons.forEach(icon => {
-    icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    if (theme === 'dark') {
+      icon.className = 'bi bi-sun-fill theme-icon';
+    } else {
+      icon.className = 'bi bi-moon-fill theme-icon';
+    }
   });
 }
 

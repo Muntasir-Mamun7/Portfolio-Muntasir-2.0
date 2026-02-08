@@ -17,6 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Bootstrap Icons for professional icons -->
+    <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
   </head>
   <body>
     <!-- Loading Screen -->
@@ -52,7 +54,7 @@
       </div>
       <div class="theme-toggle">
         <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
-          <span class="theme-icon">🌙</span>
+          <i class="bi bi-moon-fill theme-icon"></i>
         </button>
       </div>
     </nav>
@@ -60,7 +62,7 @@
       <div class="logo">Muntasir</div>
       <div class="nav-right">
         <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
-          <span class="theme-icon">🌙</span>
+          <i class="bi bi-moon-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
           <div class="hamburger-icon" onclick="toggleMenu()">
@@ -81,7 +83,7 @@
     </nav>
 
     
-    <section id="profile">
+    <section id="home">
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title typing-effect">Muntasir Al Mamun</h1>
@@ -133,19 +135,19 @@
         <!-- Quick Info Cards -->
         <div class="about-info-cards">
           <div class="info-card" data-aos="fade-up" data-delay="0">
-            <div class="info-icon">📍</div>
+            <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <h3>Location</h3>
             <p class="info-detail">Nanjing, Jiangsu, China</p>
             <p class="info-sub">Originally from Bangladesh</p>
           </div>
           <div class="info-card" data-aos="fade-up" data-delay="100">
-            <div class="info-icon">🎓</div>
+            <div class="info-icon"><i class="bi bi-mortarboard-fill"></i></div>
             <h3>Education</h3>
             <p class="info-detail">B.Sc. Computer Science</p>
             <p class="info-sub">Nanjing University of Posts and Telecommunications</p>
           </div>
           <div class="info-card" data-aos="fade-up" data-delay="200">
-            <div class="info-icon">💼</div>
+            <div class="info-icon"><i class="bi bi-briefcase-fill"></i></div>
             <h3>Experience</h3>
             <p class="info-detail" data-counter="experience">2+ Years</p>
             <p class="info-sub">Software Development & Web Technologies</p>
@@ -186,6 +188,77 @@
             <button class="btn btn-color-1" onclick="location.href='about.html'">
               Learn More About Me
             </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Tools & Technologies Section -->
+    <section id="tools">
+      <p class="section__text__p1">My Tech Stack</p>
+      <h1 class="title">Tools & Technologies</h1>
+      <div class="tools-container">
+        <div class="tools-grid">
+          <!-- Development Tools -->
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-git"></i></div>
+            <h3>Git & GitHub</h3>
+            <p>Version Control</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-code-slash"></i></div>
+            <h3>VS Code</h3>
+            <p>Code Editor</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-box-seam"></i></div>
+            <h3>Node.js</h3>
+            <p>Runtime Environment</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-react"></i></div>
+            <h3>React</h3>
+            <p>Frontend Framework</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-file-code"></i></div>
+            <h3>Python</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-cup-hot"></i></div>
+            <h3>Java</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-database"></i></div>
+            <h3>MySQL</h3>
+            <p>Database</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-box"></i></div>
+            <h3>NPM</h3>
+            <p>Package Manager</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-html"></i></div>
+            <h3>HTML5</h3>
+            <p>Markup Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-css"></i></div>
+            <h3>CSS3</h3>
+            <p>Styling</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-filetype-js"></i></div>
+            <h3>JavaScript</h3>
+            <p>Programming Language</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="bi bi-terminal"></i></div>
+            <h3>Command Line</h3>
+            <p>CLI Tools</p>
           </div>
         </div>
       </div>

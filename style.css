@@ -590,7 +590,7 @@ section {
 }
 
 /* ===== PROFILE SECTION ===== */
-#profile {
+#home {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -623,18 +623,16 @@ section {
 
 
 
-.profile-pic:hover {
+.profile-pic-no-hover {
   transform: scale(1.08) rotate(3deg) translateY(-20px);
   box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
   border-color: var(--accent-primary);
 }
 
 
-
+/* Removed reduced motion hover effect from profile picture */
 @media (prefers-reduced-motion: reduce) {
-  .profile-pic:hover {
-    transform: scale(1.05);
-  }
+  /* No hover effect on profile picture */
 }
 
 .section__text {
@@ -2550,3 +2548,127 @@ body {
   font-size: 1.1rem;
 }
 
+
+/* ===== TOOLS & TECHNOLOGIES SECTION ===== */
+#tools {
+  padding: 5rem 2rem;
+  background: var(--bg-secondary);
+  min-height: auto;
+}
+
+#tools .section__text__p1 {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#tools .title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tools-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.tool-card {
+  background: var(--card-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  cursor: default;
+}
+
+.tool-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+  background: var(--card-hover-bg);
+}
+
+.tool-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.4s ease;
+}
+
+.tool-card:hover .tool-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.tool-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Responsive Design for Tools */
+@media screen and (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .tool-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .tool-icon {
+    font-size: 2.5rem;
+  }
+  
+  .tool-card h3 {
+    font-size: 1rem;
+  }
+  
+  .tool-card p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Font Awesome Icon Styles for Theme Toggle */
+.theme-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-btn:hover .theme-icon {
+  transform: scale(1.1);
+}

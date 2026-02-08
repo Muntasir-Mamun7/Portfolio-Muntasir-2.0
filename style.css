@@ -9,6 +9,7 @@
   --text-tertiary: #6c757d;
   --accent-primary: #2c3e50;
   --accent-secondary: #34495e;
+  --accent-rgb: 44, 62, 80;
   --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
   --border-color: #dee2e6;
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
@@ -40,6 +41,7 @@
   --text-tertiary: #a8a8a8;
   --accent-primary: #3498db;
   --accent-secondary: #2980b9;
+  --accent-rgb: 52, 152, 219;
   --accent-gradient: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
   --border-color: #3d3d3d;
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5);

@@ -1,28 +1,28 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-  /* Light Mode Colors - Minimal & Cool Brand Colors */
-  --bg-primary: #fafbfc;
-  --bg-secondary: #f3f4f6;
-  --bg-tertiary: #e5e7eb;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-tertiary: #6b7280;
-  --accent-primary: #4f46e5;
-  --accent-secondary: #4338ca;
+  /* Light Mode Colors - Elegant & Modern */
+  --bg-primary: #fafbfd;
+  --bg-secondary: #f5f7fa;
+  --bg-tertiary: #e8ecf1;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --accent-primary: #6366f1;
+  --accent-secondary: #4f46e5;
   --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --border-color: #e5e7eb;
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
   
   /* Skill Progress Colors */
-  --skill-progress-bg: #e5e7eb;
+  --skill-progress-bg: #e8ecf1;
   --skill-progress-fill: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   
   /* Card Colors */
   --card-bg: #ffffff;
-  --card-hover-bg: #f9fafb;
+  --card-hover-bg: #f8fafc;
 }
 
 /* Dark Mode Colors */
@@ -33,17 +33,17 @@
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --text-tertiary: #94a3b8;
-  --accent-primary: #6366f1;
-  --accent-secondary: #4f46e5;
-  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-primary: #818cf8;
+  --accent-secondary: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
   --border-color: #334155;
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.7);
   
   --skill-progress-bg: #334155;
-  --skill-progress-fill: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+  --skill-progress-fill: linear-gradient(90deg, #818cf8 0%, #a78bfa 100%);
   
   --card-bg: #1e293b;
   --card-hover-bg: #334155;
@@ -382,12 +382,13 @@ nav.scrolled {
 
 /* ===== SECTIONS ===== */
 section {
-  padding: 5rem 5%;
-  min-height: 100vh;
+  padding: 3rem 5%;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  z-index: 1;
 }
 
 .section__text__p1 {
@@ -417,8 +418,10 @@ section {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
-  padding-top: 8rem;
+  gap: 3rem;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  min-height: 90vh;
 }
 
 .section__pic-container {
@@ -434,12 +437,15 @@ section {
   object-fit: cover;
   box-shadow: var(--shadow-xl);
   border: 5px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-pic:hover {
-  transform: scale(1.05);
-  box-shadow: 0 25px 50px -12px rgba(102, 126, 234, 0.4);
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
+  border-color: var(--accent-primary);
 }
 
 .section__text {
@@ -1155,6 +1161,141 @@ section {
   width: 2.5rem;
 }
 
+/* ===== ANIMATED BACKGROUND PARTICLES ===== */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float-particle 15s infinite ease-in-out;
+  box-shadow: 0 0 10px var(--accent-primary);
+}
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.particle:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 15s;
+}
+
+.particle:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  animation-delay: 4s;
+  animation-duration: 18s;
+  width: 6px;
+  height: 6px;
+}
+
+.particle:nth-child(4) {
+  top: 80%;
+  left: 60%;
+  animation-delay: 6s;
+  animation-duration: 14s;
+}
+
+.particle:nth-child(5) {
+  top: 10%;
+  left: 90%;
+  animation-delay: 8s;
+  animation-duration: 16s;
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(100px, -100px) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50px, 100px) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(150px, 50px) scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+/* ===== ENHANCED PROFILE ANIMATIONS ===== */
+.typing-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-effect::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  width: 3px;
+  height: 100%;
+  background: var(--accent-primary);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* ===== ENHANCED BUTTON EFFECTS ===== */
+.btn-color-1,
+.btn-color-2 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-color-1::after,
+.btn-color-2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.btn-color-1:active::after,
+.btn-color-2:active::after {
+  width: 300px;
+  height: 300px;
+}
+
 /* ===== FOOTER ===== */
 footer {
   background: var(--bg-secondary);
@@ -1343,7 +1484,7 @@ footer p {
 }
 
 #hero-section {
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1351,7 +1492,7 @@ footer p {
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  padding: 8rem 5% 5rem;
+  padding: 4rem 5% 3rem;
 }
 
 .hero-container {

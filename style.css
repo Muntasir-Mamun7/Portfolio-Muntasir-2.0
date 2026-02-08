@@ -2175,19 +2175,24 @@ body {
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  animation: slideInUp 0.6s ease-out forwards;
+  transition: all 0.6s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.info-card[data-aos="fade-up"][data-delay="0"] {
-  animation-delay: 0.1s;
+.info-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.info-card[data-aos="fade-up"][data-delay="100"] {
-  animation-delay: 0.2s;
+.info-card:nth-child(1).visible {
+  transition-delay: 0.1s;
 }
 
-.info-card[data-aos="fade-up"][data-delay="200"] {
-  animation-delay: 0.3s;
+.info-card:nth-child(2).visible {
+  transition-delay: 0.2s;
+}
+
+.info-card:nth-child(3).visible {
+  transition-delay: 0.3s;
 }
 
 .info-card::before {
@@ -2266,7 +2271,12 @@ body {
   border: 1px solid var(--border-color);
   opacity: 0;
   transform: translateY(30px);
-  animation: slideInUp 0.6s ease-out 0.4s forwards;
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.about-details.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-subtitle {
@@ -2308,17 +2318,21 @@ body {
   cursor: default;
   opacity: 0;
   transform: scale(0.8);
-  animation: popIn 0.5s ease-out forwards;
 }
 
-.skill-tag:nth-child(1) { animation-delay: 0.5s; }
-.skill-tag:nth-child(2) { animation-delay: 0.55s; }
-.skill-tag:nth-child(3) { animation-delay: 0.6s; }
-.skill-tag:nth-child(4) { animation-delay: 0.65s; }
-.skill-tag:nth-child(5) { animation-delay: 0.7s; }
-.skill-tag:nth-child(6) { animation-delay: 0.75s; }
-.skill-tag:nth-child(7) { animation-delay: 0.8s; }
-.skill-tag:nth-child(8) { animation-delay: 0.85s; }
+.skill-tag.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.skill-tag:nth-child(1).visible { transition-delay: 0.5s; }
+.skill-tag:nth-child(2).visible { transition-delay: 0.55s; }
+.skill-tag:nth-child(3).visible { transition-delay: 0.6s; }
+.skill-tag:nth-child(4).visible { transition-delay: 0.65s; }
+.skill-tag:nth-child(5).visible { transition-delay: 0.7s; }
+.skill-tag:nth-child(6).visible { transition-delay: 0.75s; }
+.skill-tag:nth-child(7).visible { transition-delay: 0.8s; }
+.skill-tag:nth-child(8).visible { transition-delay: 0.85s; }
 
 @keyframes popIn {
   to {

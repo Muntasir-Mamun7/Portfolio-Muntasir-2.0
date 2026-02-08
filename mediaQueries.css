@@ -2,7 +2,7 @@
 
 /* Extra Large Screens */
 @media screen and (max-width: 1400px) {
-  #profile {
+  #home {
     gap: 3rem;
   }
   
@@ -35,7 +35,7 @@
     margin: 0;
   }
   
-  #profile {
+  #home {
     flex-direction: column;
     text-align: center;
     padding-top: 6rem;
@@ -222,7 +222,7 @@
     font-size: 0.85rem;
   }
   
-  #profile {
+  #home {
     padding-top: 5rem;
   }
   
@@ -411,7 +411,7 @@
     padding: 3rem 5%;
   }
   
-  #profile {
+  #home {
     flex-direction: row;
     gap: 2rem;
   }
@@ -441,6 +441,7 @@
   .profile-pic {
     width: 450px;
     height: 450px;
+    aspect-ratio: 1 / 1;
   }
 }
 

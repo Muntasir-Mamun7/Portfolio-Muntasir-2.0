@@ -623,13 +623,9 @@ section {
 
 
 
-.profile-pic-no-hover {
-  transform: scale(1.08) rotate(3deg) translateY(-20px);
-  box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
-  border-color: var(--accent-primary);
-}
 
 
+/* Hover effect removed from profile picture */
 /* Removed reduced motion hover effect from profile picture */
 @media (prefers-reduced-motion: reduce) {
   /* No hover effect on profile picture */
@@ -2663,7 +2659,7 @@ body {
   }
 }
 
-/* Font Awesome Icon Styles for Theme Toggle */
+/* Bootstrap Icons Styles for Theme Toggle */
 .theme-icon {
   font-size: 1.2rem;
   transition: transform 0.3s ease;

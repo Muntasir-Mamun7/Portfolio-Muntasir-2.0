@@ -21,7 +21,10 @@ class AIChatbot {
         email: "munmamun9@gmail.com",
         linkedin: "https://www.linkedin.com/in/muntasir-mamun-2769a821b/",
         github: "https://github.com/Muntasir-Mamun7",
-        experience: "2+ years in Software Development"
+        facebook: "https://www.facebook.com/muntasir.mamun",
+        instagram: "https://www.instagram.com/muntasir_mamun",
+        experience: "2+ years in Software Development",
+        projectsPage: "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html"
       },
       skills: {
         languages: ["Java", "Python", "JavaScript", "C", "C++", "SQL", "HTML/CSS"],
@@ -76,7 +79,7 @@ class AIChatbot {
         <div class="chatbot-header-content">
           <div class="chatbot-avatar">🤖</div>
           <div class="chatbot-header-info">
-            <h3>AI Assistant</h3>
+            <h3>MoRN</h3>
             <p>Online <span class="chatbot-status"></span></p>
           </div>
         </div>
@@ -139,8 +142,8 @@ class AIChatbot {
     messagesContainer.innerHTML = `
       <div class="welcome-message">
         <div class="welcome-message-icon">👋</div>
-        <h3>Hello! I'm Muntasir's AI Assistant</h3>
-        <p>I can answer questions about Muntasir's background, skills, projects, and much more. Feel free to ask me anything!</p>
+        <h3>Hello! I'm MoRN</h3>
+        <p>I'm Muntasir's AI assistant. I can answer questions about Muntasir's background, skills, projects, and general knowledge questions. Feel free to ask me anything!</p>
       </div>
     `;
     
@@ -219,12 +222,68 @@ class AIChatbot {
   getLocalResponse(message) {
     const kb = this.knowledgeBase;
 
+    // Current time
+    if (message.includes('time') || message.includes('what time')) {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true 
+      });
+      const dateString = now.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+      return `The current time is ${timeString} on ${dateString}.`;
+    }
+
+    // US President
+    if ((message.includes('president') || message.includes('potus')) && (message.includes('usa') || message.includes('us') || message.includes('america') || message.includes('united states'))) {
+      return `As of 2024, Joe Biden is the President of the United States (the 46th president). However, please verify with current sources as this information may change.`;
+    }
+
+    // General greetings with name
+    if (message.includes('your name') || message.includes('who are you')) {
+      return `I'm MoRN, Muntasir's AI assistant! I'm here to help answer questions about Muntasir's background, skills, projects, and general knowledge. How can I help you today?`;
+    }
+
+    // Projects - check this before generic "where" to avoid conflict
+    if (message.includes('project')) {
+      const projectList = kb.projects.map(p => 
+        `**${p.name}:** ${p.description} (Technologies: ${p.technologies.join(', ')})`
+      ).join('\n\n');
+      return `Here are some of ${kb.personal.name}'s notable projects:\n\n${projectList}\n\nYou can find all projects at: ${kb.personal.projectsPage}\n\nOr visit his GitHub: ${kb.personal.github}`;
+    }
+
+    // Social media links - check before generic keywords
+    if (message.includes('facebook') || message.includes('instagram') || message.includes('social media')) {
+      let response = `You can connect with ${kb.personal.name} on social media:\n\n`;
+      if (message.includes('facebook') || message.includes('social media')) {
+        response += `📘 **Facebook:** ${kb.personal.facebook}\n`;
+      }
+      if (message.includes('instagram') || message.includes('social media')) {
+        response += `📷 **Instagram:** ${kb.personal.instagram}\n`;
+      }
+      response += `💼 **LinkedIn:** ${kb.personal.linkedin}\n`;
+      response += `💻 **GitHub:** ${kb.personal.github}\n`;
+      response += `\nFeel free to connect and follow!`;
+      return response;
+    }
+
+    // Contact - updated to include social media
+    if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('linkedin') || message.includes('github')) {
+      return `You can connect with ${kb.personal.name} through:\n\n📧 **Email:** ${kb.personal.email}\n💼 **LinkedIn:** ${kb.personal.linkedin}\n💻 **GitHub:** ${kb.personal.github}\n📘 **Facebook:** ${kb.personal.facebook}\n📷 **Instagram:** ${kb.personal.instagram}\n\nFeel free to reach out for collaborations or opportunities!`;
+    }
+
     // About Muntasir
     if (message.includes('who') || message.includes('about') || message.includes('introduce')) {
       return `I'm ${kb.personal.name}, a passionate Computer Science student from ${kb.personal.origin}, currently pursuing my degree at ${kb.personal.university} in ${kb.personal.location}. I have ${kb.personal.experience} and specialize in web development and software engineering.`;
     }
 
-    // Location
+    // Location - check after more specific keywords
     if (message.includes('where') || message.includes('location') || message.includes('live')) {
       return `${kb.personal.name} is currently located in ${kb.personal.location}, studying at ${kb.personal.university}. He originally comes from ${kb.personal.origin}.`;
     }
@@ -239,19 +298,6 @@ class AIChatbot {
       const languages = kb.skills.languages.join(', ');
       const frameworks = kb.skills.frameworks.join(', ');
       return `${kb.personal.name} has expertise in multiple technologies:\n\n**Programming Languages:** ${languages}\n\n**Frameworks & Tools:** ${frameworks}\n\nHe specializes in ${kb.skills.expertise.join(', ')}.`;
-    }
-
-    // Projects
-    if (message.includes('project') || message.includes('work') || message.includes('built')) {
-      const projectList = kb.projects.map(p => 
-        `**${p.name}:** ${p.description} (Technologies: ${p.technologies.join(', ')})`
-      ).join('\n\n');
-      return `Here are some of ${kb.personal.name}'s notable projects:\n\n${projectList}\n\nYou can find more projects on his GitHub profile!`;
-    }
-
-    // Contact
-    if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('linkedin') || message.includes('github')) {
-      return `You can connect with ${kb.personal.name} through:\n\n📧 **Email:** ${kb.personal.email}\n💼 **LinkedIn:** ${kb.personal.linkedin}\n💻 **GitHub:** ${kb.personal.github}\n\nFeel free to reach out for collaborations or opportunities!`;
     }
 
     // Experience
@@ -341,12 +387,12 @@ class AIChatbot {
   getFallbackResponse(message) {
     // Greeting responses
     if (message.match(/^(hi|hello|hey|greetings)/)) {
-      return "Hello! 👋 I'm Muntasir's AI assistant. How can I help you today? You can ask me about his background, skills, projects, or contact information!";
+      return "Hello! 👋 I'm MoRN, Muntasir's AI assistant. How can I help you today? You can ask me about his background, skills, projects, contact information, or general questions!";
     }
 
     // Thank you
     if (message.includes('thank')) {
-      return "You're welcome! Feel free to ask if you have any other questions about Muntasir! 😊";
+      return "You're welcome! Feel free to ask if you have any other questions about Muntasir or anything else! 😊";
     }
 
     // Bye
@@ -356,14 +402,14 @@ class AIChatbot {
 
     // Help
     if (message.includes('help')) {
-      return "I can help you learn about:\n\n• Muntasir's background and education\n• His technical skills and expertise\n• Projects he's worked on\n• How to contact him\n• His experience and interests\n\nJust ask me anything!";
+      return "I can help you learn about:\n\n• Muntasir's background and education\n• His technical skills and expertise\n• Projects he's worked on\n• How to contact him (email, LinkedIn, GitHub, Facebook, Instagram)\n• His experience and interests\n• General knowledge (current time, world facts, etc.)\n\nJust ask me anything!";
     }
 
     // Default response for unknown questions
     const responses = [
-      "That's an interesting question! While I don't have specific information about that, I can tell you about Muntasir's skills, projects, education, or how to contact him. What would you like to know?",
-      "I'm not sure about that specific detail, but I'd be happy to share information about Muntasir's background, skills, or projects. What interests you most?",
-      "I might not have that exact information, but I can tell you about Muntasir's education at Nanjing University, his technical skills, or his project experience. What would you like to explore?",
+      "That's an interesting question! While I don't have specific information about that, I can tell you about Muntasir's skills, projects, education, contact information, or answer general questions. What would you like to know?",
+      "I'm not sure about that specific detail, but I'd be happy to share information about Muntasir's background, skills, projects, or answer general knowledge questions. What interests you most?",
+      "I might not have that exact information, but I can tell you about Muntasir's education at Nanjing University, his technical skills, project experience, or answer general questions. What would you like to explore?",
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];

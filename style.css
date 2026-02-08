@@ -383,7 +383,6 @@ nav.scrolled {
 /* ===== SECTIONS ===== */
 section {
   padding: 3rem 5%;
-  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -446,6 +445,12 @@ section {
   transform: scale(1.08) rotate(3deg);
   box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
   border-color: var(--accent-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-pic:hover {
+    transform: scale(1.05);
+  }
 }
 
 .section__text {
@@ -1242,6 +1247,13 @@ section {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0.2;
+  }
+}
+
 /* ===== ENHANCED PROFILE ANIMATIONS ===== */
 .typing-effect {
   position: relative;
@@ -1263,6 +1275,13 @@ section {
     opacity: 1;
   }
   51%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-effect::after {
+    animation: none;
     opacity: 0;
   }
 }

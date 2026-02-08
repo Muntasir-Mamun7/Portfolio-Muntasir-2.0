@@ -16,6 +16,11 @@
   --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
   --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
   
+  /* Border Widths */
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 4px;
+  
   /* Skill Progress Colors */
   --skill-progress-bg: #e8ecf1;
   --skill-progress-fill: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
@@ -216,7 +221,7 @@ nav {
   align-items: center;
   padding: 1.5rem 5%;
   background-color: var(--bg-primary);
-  border-bottom: 0.0625rem solid var(--border-color);
+  border-bottom: var(--border-thin) solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -271,7 +276,7 @@ nav.scrolled {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 0.125rem;
+  height: var(--border-medium);
   background: var(--accent-gradient);
   transition: width 0.3s ease;
 }
@@ -289,7 +294,7 @@ nav.scrolled {
 
 .theme-btn {
   background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
+  border: var(--border-medium) solid var(--border-color);
   border-radius: 50%;
   width: 2.8rem;
   height: 2.8rem;
@@ -363,7 +368,7 @@ nav.scrolled {
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
-  border-bottom: 0.0625rem solid var(--border-color);
+  border-bottom: var(--border-thin) solid var(--border-color);
 }
 
 .menu-links a:hover {
@@ -453,7 +458,7 @@ section {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-xl);
-  border: 0.3125rem solid var(--border-color);
+  border: 0.3rem solid var(--border-color);
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
   z-index: 1;
@@ -615,7 +620,7 @@ section {
   padding: 2rem;
   background: var(--card-bg);
   border-radius: 1.25rem;
-  border: 0.125rem solid var(--border-color);
+  border: var(--border-medium) solid var(--border-color);
   text-align: center;
   flex: 1;
   transition: all 0.3s ease;
@@ -642,8 +647,8 @@ section {
 .text-container {
   padding: 1.5rem;
   background: var(--bg-secondary);
-  border-radius: 0.9375rem;
-  border-left: 0.25rem solid var(--accent-primary);
+  border-radius: 1rem;
+  border-left: var(--border-thick) solid var(--accent-primary);
 }
 
 .text-container p {

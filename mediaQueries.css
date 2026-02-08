@@ -41,10 +41,7 @@
     gap: 2rem;
   }
   
-  .profile-pic {
-    width: 350px;
-    height: 350px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 3rem;
@@ -74,10 +71,7 @@
     font-size: 2rem;
   }
   
-  .profile-pic {
-    width: 300px;
-    height: 300px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 2.5rem;
@@ -128,10 +122,7 @@
     font-size: 1.2rem;
   }
   
-  .profile-pic {
-    width: 280px;
-    height: 280px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 2rem;
@@ -234,10 +225,7 @@
     padding-top: 5rem;
   }
   
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 1.8rem;
@@ -385,10 +373,7 @@
 
 /* Extra Small Phones */
 @media screen and (max-width: 480px) {
-  .profile-pic {
-    width: 220px;
-    height: 220px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 1.5rem;
@@ -399,18 +384,18 @@
   }
   
   .theme-btn {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     font-size: 1rem;
   }
   
   .hamburger-icon {
-    width: 25px;
-    height: 20px;
+    width: 1.5625rem;
+    height: 1.25rem;
   }
-  
+
   .menu-links {
-    width: 200px;
+    width: min(200px, 85vw);
   }
   
   .project-image {
@@ -430,10 +415,7 @@
     gap: 2rem;
   }
   
-  .profile-pic {
-    width: 200px;
-    height: 200px;
-  }
+  /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
     font-size: 1.8rem;

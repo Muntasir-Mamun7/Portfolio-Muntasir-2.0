@@ -340,3 +340,97 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(initializeSectionAnimations, 250);
 });
+
+// ===== ABOUT SECTION ANIMATIONS =====
+// Animate info cards on scroll
+const aboutHomeSection = document.getElementById('about-home');
+if (aboutHomeSection) {
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Trigger card animations
+        const infoCards = document.querySelectorAll('.info-card');
+        infoCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+        
+        // Trigger about details animation
+        const aboutDetails = document.querySelector('.about-details');
+        if (aboutDetails) {
+          setTimeout(() => {
+            aboutDetails.style.opacity = '1';
+            aboutDetails.style.transform = 'translateY(0)';
+          }, 400);
+        }
+        
+        // Trigger skill tags animation
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach((tag, index) => {
+          setTimeout(() => {
+            tag.style.opacity = '1';
+            tag.style.transform = 'scale(1)';
+          }, 500 + (index * 50));
+        });
+        
+        aboutObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  aboutObserver.observe(aboutHomeSection);
+}
+
+// Add parallax effect to info cards
+if (aboutHomeSection) {
+  let cardTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!cardTicking) {
+      window.requestAnimationFrame(() => {
+        const cards = document.querySelectorAll('.info-card');
+        const sectionTop = aboutHomeSection.offsetTop;
+        const scrolled = window.pageYOffset;
+        
+        if (scrolled > sectionTop - window.innerHeight && scrolled < sectionTop + aboutHomeSection.offsetHeight) {
+          cards.forEach((card, index) => {
+            const speed = 0.05 + (index * 0.02);
+            const yPos = -(scrolled - sectionTop) * speed;
+            card.style.transform = `translateY(${yPos}px)`;
+          });
+        }
+        
+        cardTicking = false;
+      });
+      cardTicking = true;
+    }
+  });
+}
+
+// Counter animation for experience years
+const experienceCard = document.querySelector('.info-card:nth-child(3) .info-detail');
+if (experienceCard && experienceCard.textContent.includes('2+')) {
+  const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let count = 0;
+        const target = 2;
+        const interval = setInterval(() => {
+          if (count < target) {
+            count++;
+            experienceCard.textContent = `${count}+ Years`;
+          } else {
+            clearInterval(interval);
+          }
+        }, 500);
+        experienceObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  const parentCard = experienceCard.closest('.info-card');
+  if (parentCard) {
+    experienceObserver.observe(parentCard);
+  }
+}

@@ -10,14 +10,118 @@ function toggleMenu() {
 window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
   const smokeContainer = document.getElementById('smoke-container');
+  const progressBar = document.getElementById('progress-bar');
+  const progressPercentage = document.getElementById('progress-percentage');
+  const loadingMessage = document.getElementById('loading-message');
+  const particleContainer = document.getElementById('particle-container');
   
-  const LOADING_DURATION = 1500; // Show loading for 1.5 seconds
-  const SMOKE_ANIMATION_DURATION = 9000; // Longest smoke animation is 9s (matches CSS smoke:nth-child(3))
-  const SMOKE_FADE_OUT_DURATION = 2000; // Fade out transition duration
+  // Loading messages that change during the loading process
+  const messages = [
+    'Initializing...',
+    'Loading resources...',
+    'Preparing experience...',
+    'Setting up interface...',
+    'Almost ready...',
+    'Welcome!'
+  ];
   
-  setTimeout(() => {
-    loadingScreen.classList.add('hidden');
-  }, LOADING_DURATION);
+  let currentProgress = 0;
+  let messageIndex = 0;
+  const TOTAL_DURATION = 3000; // Total loading time: 3 seconds
+  const PROGRESS_INTERVAL = 30; // Update every 30ms for smooth animation
+  const SMOKE_ANIMATION_DURATION = 9000;
+  const SMOKE_FADE_OUT_DURATION = 2000;
+  
+  // Create interactive particles
+  function createParticle() {
+    if (!particleContainer) return;
+    
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    // Random horizontal position
+    const startX = Math.random() * 100;
+    particle.style.left = startX + '%';
+    
+    // Random drift amount
+    const drift = (Math.random() - 0.5) * 200;
+    particle.style.setProperty('--particle-drift', drift + 'px');
+    
+    // Random animation duration
+    const duration = 2 + Math.random() * 2;
+    particle.style.animationDuration = duration + 's';
+    
+    // Random delay
+    const delay = Math.random() * 1;
+    particle.style.animationDelay = delay + 's';
+    
+    // Random size
+    const size = 2 + Math.random() * 4;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    
+    particleContainer.appendChild(particle);
+    
+    // Remove particle after animation
+    setTimeout(() => {
+      particle.remove();
+    }, (duration + delay) * 1000);
+  }
+  
+  // Create particles continuously during loading
+  const particleInterval = setInterval(() => {
+    createParticle();
+  }, 200);
+  
+  // Animate progress bar and percentage
+  const progressInterval = setInterval(() => {
+    if (currentProgress >= 100) {
+      clearInterval(progressInterval);
+      clearInterval(particleInterval);
+      
+      // Show final message
+      if (loadingMessage) {
+        loadingMessage.textContent = messages[messages.length - 1];
+      }
+      
+      // Hide loading screen
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+      }, 500);
+      
+      return;
+    }
+    
+    // Increment progress with slight randomness for natural feel
+    const increment = 2 + Math.random() * 3;
+    currentProgress = Math.min(currentProgress + increment, 100);
+    
+    // Update progress bar width
+    if (progressBar) {
+      progressBar.style.width = currentProgress + '%';
+    }
+    
+    // Update percentage text
+    if (progressPercentage) {
+      progressPercentage.textContent = Math.floor(currentProgress) + '%';
+    }
+    
+    // Update loading message based on progress
+    const messageThreshold = 100 / messages.length;
+    const newMessageIndex = Math.min(
+      Math.floor(currentProgress / messageThreshold),
+      messages.length - 1
+    );
+    
+    if (newMessageIndex !== messageIndex && loadingMessage) {
+      messageIndex = newMessageIndex;
+      loadingMessage.style.animation = 'none';
+      setTimeout(() => {
+        loadingMessage.textContent = messages[messageIndex];
+        loadingMessage.style.animation = 'fadeIn 0.5s ease-in-out';
+      }, 50);
+    }
+  }, PROGRESS_INTERVAL);
   
   // Trigger smoke fade-out after longest animation completes
   setTimeout(() => {

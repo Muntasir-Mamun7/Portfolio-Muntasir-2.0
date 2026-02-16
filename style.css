@@ -1131,6 +1131,138 @@ section {
   font-size: 1.05rem;
 }
 
+.text-container h2 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.text-container h3 {
+  color: var(--accent-primary);
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.text-container h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.text-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.text-container ul li {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.text-container ul li::before {
+  content: "▸";
+  color: var(--accent-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.text-container ol {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.text-container ol li {
+  counter-increment: item;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 0.8rem 0;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.text-container ol li::before {
+  content: counter(item) ".";
+  color: var(--accent-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.text-container a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text-container a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+.text-container strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.text-container em {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.publications {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  border: var(--border-thin) solid var(--border-color);
+}
+
+.skills-section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  border: var(--border-thin) solid var(--border-color);
+}
+
+.skills-section h4 {
+  color: var(--accent-primary);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.contact-links {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  border: var(--border-thin) solid var(--border-color);
+}
+
+.contact-links p {
+  margin: 0;
+  line-height: 2;
+}
+
+
 /* ===== ARROW ===== */
 .arrow {
   position: absolute;

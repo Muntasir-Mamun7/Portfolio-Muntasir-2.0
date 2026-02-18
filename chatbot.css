@@ -449,6 +449,11 @@
     height: 60px;
   }
 
+  /* Hide toggle button when chatbot is open so it doesn't cover the send button */
+  .chatbot-toggle.active {
+    display: none;
+  }
+
   .chatbot-toggle-icon {
     font-size: 26px;
   }
@@ -459,8 +464,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height adjusts when virtual keyboard opens */
     max-width: 100vw;
     max-height: 100vh;
+    max-height: 100dvh;
     border-radius: 0;
   }
 
@@ -522,11 +529,12 @@
 
   .chatbot-input-container {
     padding: 12px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 
   .chatbot-input {
     padding: 10px 14px;
-    font-size: 13px;
+    font-size: 16px; /* Prevent iOS auto-zoom on focus */
   }
 
   .chatbot-send-btn {
@@ -647,11 +655,12 @@
 
   .chatbot-input-container {
     padding: 10px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
   }
 
   .chatbot-input {
     padding: 9px 12px;
-    font-size: 12px;
+    font-size: 16px; /* Prevent iOS auto-zoom on focus */
     border-radius: 20px;
   }
 

@@ -1,11 +1,14 @@
 // ===== AI CHATBOT FUNCTIONALITY =====
 
+const MOBILE_BREAKPOINT = 600;
+
 class AIChatbot {
   constructor() {
     this.messages = [];
     this.isOpen = false;
     this.isTyping = false;
     this.knowledgeBase = this.initializeKnowledgeBase();
+    this._viewportResizeHandler = null;
     // Note: Future enhancement could integrate with AI APIs like Hugging Face
     this.init();
   }
@@ -120,6 +123,17 @@ class AIChatbot {
         this.sendMessage();
       }
     });
+
+    // Handle virtual keyboard on mobile: resize chatbot window so input stays visible
+    if (window.visualViewport) {
+      this._viewportResizeHandler = () => {
+        const chatWindow = document.getElementById('chatbot-window');
+        if (chatWindow && chatWindow.classList.contains('active') && window.innerWidth <= MOBILE_BREAKPOINT) {
+          chatWindow.style.height = window.visualViewport.height + 'px';
+        }
+      };
+      window.visualViewport.addEventListener('resize', this._viewportResizeHandler);
+    }
   }
 
   toggleChatbot() {
@@ -134,6 +148,7 @@ class AIChatbot {
     } else {
       window.classList.remove('active');
       toggleBtn.classList.remove('active');
+      window.style.height = ''; // Reset any JS-set height from keyboard handling
     }
   }
 

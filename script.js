@@ -85,8 +85,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS =====
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
+  threshold: 0,
+  rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -312,7 +312,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { 
-  threshold: 0.1,
+  threshold: 0,
   rootMargin: '-50px'
 });
 

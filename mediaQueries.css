@@ -45,7 +45,7 @@
   /* Profile picture is now responsive via clamp() in main CSS */
   
   .section__text h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
   .section-container {

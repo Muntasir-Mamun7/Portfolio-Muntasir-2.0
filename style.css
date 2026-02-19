@@ -713,7 +713,7 @@ section {
 }
 
 .section__text h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   margin: 1rem 0;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -721,6 +721,7 @@ section {
   background-clip: text;
   opacity: 0;
   animation: fadeInScale 1s ease forwards 0.3s;
+  white-space: nowrap;
 }
 
 @keyframes fadeInScale {
@@ -875,22 +876,22 @@ section {
   overflow: hidden;
 }
 
-.social-icon-link svg.orcid-icon {
+.social-icon-link svg.orcid-icon,
+.social-icon-link svg.wechat-icon {
   width: 1.1rem;
   height: 1.1rem;
 }
 
 .social-icon-link:hover {
-  transform: translateY(-6px) scale(1.12);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.45);
+  box-shadow: 0 6px 18px -3px rgba(102, 126, 234, 0.35);
   background: var(--bg-primary);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .social-icon-link:hover {
-    transform: translateY(-6px) scale(1.12) rotate(5deg);
+    /* No transform/translate - icons stay fixed in position */
   }
 }
 
@@ -981,13 +982,12 @@ section {
 }
 
 .icon:hover {
-  transform: translateY(-8px) scale(1.2);
-  filter: brightness(1.3) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.4));
+  filter: brightness(1.2) drop-shadow(0 4px 10px rgba(102, 126, 234, 0.3));
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .icon:hover {
-    transform: translateY(-8px) scale(1.2) rotate(5deg);
+    /* No transform/animation - icons stay fixed in position */
   }
 }
 
@@ -2065,19 +2065,7 @@ body {
   z-index: 1;
 }
 
-/* Floating Animation for Icons */
-@keyframes floatIcon {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.icon:hover {
-  animation: floatIcon 1s ease-in-out infinite;
-}
+/* Icons stay fixed in position on hover - no pop/float effect */
 
 /* Button Ripple Effect */
 .btn {

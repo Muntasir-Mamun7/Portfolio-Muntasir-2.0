@@ -1291,6 +1291,12 @@ section {
   width: 1.5rem;
 }
 
+.skill-check-icon {
+  font-size: 1.3rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
 .skill-bar {
   background: var(--skill-progress-bg);
   height: 8px;
@@ -1728,6 +1734,12 @@ section {
 .contact-icon {
   height: 2.5rem;
   width: 2.5rem;
+}
+
+.contact-icon-bi {
+  font-size: 2rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
 }
 
 
@@ -3628,4 +3640,51 @@ body {
   .about-lang-item:hover      { transform: translateY(-3px); }
   .wechat-qr-section:hover    { transform: translateY(-4px); }
   .about-connect-card:hover   { transform: translateY(-5px); }
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+#back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  pointer-events: none;
+  z-index: 999;
+}
+
+#back-to-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (hover: hover) {
+  #back-to-top-btn:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-3px);
+  }
+}
+
+/* ===== BLOG NEWSLETTER MEDIUM ICON & CTA ===== */
+.newsletter-medium-icon {
+  margin-right: 0.4rem;
+}
+
+.blog-medium-cta {
+  display: inline-block;
+  text-decoration: none;
 }

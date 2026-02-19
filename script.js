@@ -443,3 +443,25 @@ if (wechatQrImg && wechatQrFallback) {
     wechatQrFallback.style.display = 'block';
   });
 }
+
+// ===== BACK TO TOP BUTTON =====
+(function () {
+  const btn = document.createElement('button');
+  btn.id = 'back-to-top-btn';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.setAttribute('title', 'Back to top');
+  btn.innerHTML = '<i class="bi bi-arrow-up-short"></i>';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}());

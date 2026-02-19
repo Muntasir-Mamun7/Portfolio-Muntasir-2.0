@@ -428,3 +428,14 @@ if (experienceDetail) {
     experienceObserver.observe(parentCard);
   }
 }
+
+
+// WeChat QR code image fallback
+const wechatQrImg = document.getElementById('wechat-qr-img');
+const wechatQrFallback = document.getElementById('wechat-qr-fallback');
+if (wechatQrImg && wechatQrFallback) {
+  wechatQrImg.addEventListener('error', function () {
+    wechatQrImg.style.display = 'none';
+    wechatQrFallback.style.display = 'block';
+  });
+}

@@ -850,11 +850,106 @@ section {
 #socials-container {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.9rem;
   margin-top: 2rem;
   opacity: 0;
   animation: fadeInScale 1s ease forwards 1.5s;
 }
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon-link svg.orcid-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-6px) scale(1.12);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.45);
+  background: var(--bg-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .social-icon-link:hover {
+    transform: translateY(-6px) scale(1.12) rotate(5deg);
+  }
+}
+
+/* Individual social brand colours on hover */
+.social-icon-link[aria-label="LinkedIn"]:hover    { color: #0a66c2; border-color: #0a66c2; box-shadow: 0 10px 25px -5px rgba(10,102,194,0.4); }
+.social-icon-link[aria-label="GitHub"]:hover      { color: #333; border-color: #333; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+[data-theme="dark"] .social-icon-link[aria-label="GitHub"]:hover { color: #e6e6e6; border-color: #e6e6e6; }
+.social-icon-link[aria-label="ORCID"]:hover       { color: #a6ce39; border-color: #a6ce39; box-shadow: 0 10px 25px -5px rgba(166,206,57,0.4); }
+.social-icon-link[aria-label="Medium"]:hover      { color: #000; border-color: #000; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+[data-theme="dark"] .social-icon-link[aria-label="Medium"]:hover { color: #e6e6e6; border-color: #e6e6e6; }
+.social-icon-link[aria-label="X (Twitter)"]:hover { color: #000; border-color: #000; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+[data-theme="dark"] .social-icon-link[aria-label="X (Twitter)"]:hover { color: #e6e6e6; border-color: #e6e6e6; }
+.social-icon-link[aria-label="Instagram"]:hover   { color: #e1306c; border-color: #e1306c; box-shadow: 0 10px 25px -5px rgba(225,48,108,0.4); }
+.social-icon-link[aria-label="Facebook"]:hover    { color: #1877f2; border-color: #1877f2; box-shadow: 0 10px 25px -5px rgba(24,119,242,0.4); }
+
+/* ===== WECHAT QR CARD ===== */
+.wechat-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wechat-qr-popup {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  text-align: center;
+  min-width: 160px;
+}
+
+.wechat-qr-popup img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.wechat-qr-popup p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.wechat-card:hover .wechat-qr-popup {
+  display: block;
+}
+
+.social-icon-link[aria-label="WeChat"]:hover { color: #07c160; border-color: #07c160; box-shadow: 0 10px 25px -5px rgba(7,193,96,0.4); }
 
 .icon {
   cursor: pointer;
@@ -3420,10 +3515,92 @@ body {
 
 .about-connect-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* WeChat section within connect */
+.wechat-qr-section {
+  max-width: 340px;
   margin: 0 auto 3rem;
+  background: var(--card-bg);
+  border: 2px solid #07c160;
+  border-radius: 16px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.wechat-qr-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px -8px rgba(7,193,96,0.35);
+}
+
+.wechat-qr-section .wechat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.wechat-qr-section .wechat-header i {
+  font-size: 1.6rem;
+  color: #07c160;
+}
+
+.wechat-qr-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.wechat-qr-section .wechat-badge {
+  display: inline-block;
+  background: rgba(7,193,96,0.12);
+  color: #07c160;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.wechat-qr-section .wechat-qr-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  display: block;
+  margin: 0 auto 1rem;
+  background: #fff;
+}
+
+.wechat-qr-section p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.wechat-qr-fallback {
+  display: none;
+  padding: 2rem 0;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.wechat-qr-fallback i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .about-connect-card {

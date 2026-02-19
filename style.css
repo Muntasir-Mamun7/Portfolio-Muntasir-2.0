@@ -162,13 +162,6 @@
   50% { opacity: 0.6; transform: scale(0.8); }
 }
 
-/* Loading Screen Spinner Container */
-.loader-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 
 /* ===== SMOKE EFFECT ===== */
 .smoke-container {

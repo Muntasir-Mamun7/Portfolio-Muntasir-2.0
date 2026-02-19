@@ -70,7 +70,7 @@ class AIChatbot {
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'chatbot-toggle';
     toggleBtn.setAttribute('aria-label', 'Toggle AI Chatbot');
-    toggleBtn.innerHTML = '<span class="chatbot-toggle-icon">💬</span>';
+    toggleBtn.innerHTML = '<i class="bi bi-robot chatbot-toggle-icon"></i>';
     toggleBtn.id = 'chatbot-toggle';
 
     // Create chatbot window
@@ -80,7 +80,7 @@ class AIChatbot {
     chatbotWindow.innerHTML = `
       <div class="chatbot-header">
         <div class="chatbot-header-content">
-          <div class="chatbot-avatar">🤖</div>
+          <div class="chatbot-avatar"><i class="bi bi-robot"></i></div>
           <div class="chatbot-header-info">
             <h3>MoRN</h3>
             <p>Online <span class="chatbot-status"></span></p>
@@ -156,7 +156,7 @@ class AIChatbot {
     const messagesContainer = document.getElementById('chatbot-messages');
     messagesContainer.innerHTML = `
       <div class="welcome-message">
-        <div class="welcome-message-icon">👋</div>
+        <div class="welcome-message-icon"><i class="bi bi-stars"></i></div>
         <h3>Hello! I'm MoRN</h3>
         <p>I'm Muntasir's AI assistant. I can answer questions about Muntasir's background, skills, projects, and general knowledge questions. Feel free to ask me anything!</p>
       </div>
@@ -279,20 +279,20 @@ class AIChatbot {
     if (message.includes('facebook') || message.includes('instagram') || message.includes('social media')) {
       let response = `You can connect with ${kb.personal.name} on social media:\n\n`;
       if (message.includes('facebook') || message.includes('social media')) {
-        response += `📘 **Facebook:** ${kb.personal.facebook}\n`;
+        response += `Facebook: ${kb.personal.facebook}\n`;
       }
       if (message.includes('instagram') || message.includes('social media')) {
-        response += `📷 **Instagram:** ${kb.personal.instagram}\n`;
+        response += `Instagram: ${kb.personal.instagram}\n`;
       }
-      response += `💼 **LinkedIn:** ${kb.personal.linkedin}\n`;
-      response += `💻 **GitHub:** ${kb.personal.github}\n`;
+      response += `LinkedIn: ${kb.personal.linkedin}\n`;
+      response += `GitHub: ${kb.personal.github}\n`;
       response += `\nFeel free to connect and follow!`;
       return response;
     }
 
     // Contact - updated to include social media
     if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('linkedin') || message.includes('github')) {
-      return `You can connect with ${kb.personal.name} through:\n\n📧 **Email:** ${kb.personal.email}\n💼 **LinkedIn:** ${kb.personal.linkedin}\n💻 **GitHub:** ${kb.personal.github}\n📘 **Facebook:** ${kb.personal.facebook}\n📷 **Instagram:** ${kb.personal.instagram}\n\nFeel free to reach out for collaborations or opportunities!`;
+      return `You can connect with ${kb.personal.name} through:\n\n**Email:** ${kb.personal.email}\n**LinkedIn:** ${kb.personal.linkedin}\n**GitHub:** ${kb.personal.github}\n**Facebook:** ${kb.personal.facebook}\n**Instagram:** ${kb.personal.instagram}\n\nFeel free to reach out for collaborations or opportunities!`;
     }
 
     // About Muntasir
@@ -404,7 +404,7 @@ class AIChatbot {
   getFallbackResponse(message) {
     // Greeting responses
     if (message.match(/^(hi|hello|hey|greetings)/)) {
-      return "Hello! 👋 I'm MoRN, Muntasir's AI assistant. How can I help you today? You can ask me about his background, skills, projects, contact information, or general questions!";
+      return "Hello! I'm MoRN, Muntasir's AI assistant. How can I help you today? You can ask me about his background, skills, projects, contact information, or general questions!";
     }
 
     // Thank you
@@ -414,7 +414,7 @@ class AIChatbot {
 
     // Bye
     if (message.match(/^(bye|goodbye|see you)/)) {
-      return "Goodbye! Feel free to come back anytime you have questions. Have a great day! 👋";
+      return "Goodbye! Feel free to come back anytime you have questions. Have a great day!";
     }
 
     // Help
@@ -449,7 +449,7 @@ class AIChatbot {
       minute: '2-digit' 
     });
 
-    const avatar = sender === 'bot' ? '🤖' : '👤';
+    const avatar = sender === 'bot' ? '<i class="bi bi-robot"></i>' : '<i class="bi bi-person-fill"></i>';
     
     // Format text with markdown-like syntax
     const formattedText = this.formatMessage(text);
@@ -493,7 +493,7 @@ class AIChatbot {
     typingDiv.className = 'message bot';
     typingDiv.id = 'typing-indicator';
     typingDiv.innerHTML = `
-      <div class="message-avatar">🤖</div>
+      <div class="message-avatar"><i class="bi bi-robot"></i></div>
       <div class="typing-indicator">
         <div class="typing-dot"></div>
         <div class="typing-dot"></div>
@@ -525,5 +525,5 @@ class AIChatbot {
 let chatbot;
 document.addEventListener('DOMContentLoaded', () => {
   chatbot = new AIChatbot();
-  console.log('%c💬 AI Chatbot initialized!', 'color: #667eea; font-size: 14px; font-weight: bold;');
+  console.log('%cAI Chatbot initialized!', 'color: #667eea; font-size: 14px; font-weight: bold;');
 });

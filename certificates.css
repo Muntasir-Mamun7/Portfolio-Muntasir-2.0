@@ -151,7 +151,9 @@
 }
 
 .certificate-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: var(--accent-gradient);
   color: white;
   padding: 0.6rem 1.5rem;

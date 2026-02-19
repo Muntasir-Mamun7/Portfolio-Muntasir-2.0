@@ -30,6 +30,10 @@ themeToggleBtns.forEach(btn => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
+    // Brief rotation effect on click
+    btn.classList.add('rotating');
+    setTimeout(() => btn.classList.remove('rotating'), 400);
+    
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
@@ -40,9 +44,9 @@ function updateThemeIcon(theme) {
   const icons = document.querySelectorAll('.theme-icon');
   icons.forEach(icon => {
     if (theme === 'dark') {
-      icon.className = 'bi bi-sun-fill theme-icon';
+      icon.className = 'bi bi-brightness-high-fill theme-icon';
     } else {
-      icon.className = 'bi bi-moon-fill theme-icon';
+      icon.className = 'bi bi-moon-stars-fill theme-icon';
     }
   });
 }
@@ -188,7 +192,7 @@ document.addEventListener('keydown', (e) => {
 // Hover effects are handled by CSS - no JavaScript needed
 
 // ===== CONSOLE MESSAGE =====
-console.log('%c👋 Welcome to Muntasir\'s Portfolio!', 'color: #2c3e50; font-size: 20px; font-weight: bold;');
+console.log('%cWelcome to Muntasir\'s Portfolio!', 'color: #2c3e50; font-size: 20px; font-weight: bold;');
 console.log('%cInterested in the code? Check it out on GitHub!', 'color: #3498db; font-size: 14px;');
 console.log('%chttps://github.com/Muntasir-Mamun7', 'color: #34495e; font-size: 12px;');
 

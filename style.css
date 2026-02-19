@@ -2340,6 +2340,10 @@ body {
 
 .blog-icon {
   font-size: 4rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog-badge {
@@ -2690,35 +2694,13 @@ body {
 }
 
 .info-card:hover .info-icon {
-  transform: scale(1.2) rotate(5deg);
-  animation-play-state: paused;
+  transform: scale(1.15) rotate(5deg);
 }
 
 .info-icon {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.info-card:nth-child(1) .info-icon {
-  animation-delay: 0s;
-}
-
-.info-card:nth-child(2) .info-icon {
-  animation-delay: 0.2s;
-}
-
-.info-card:nth-child(3) .info-icon {
-  animation-delay: 0.4s;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  transition: transform 0.3s ease;
 }
 
 .info-card h3 {
@@ -2960,11 +2942,16 @@ body {
 /* Bootstrap Icons Styles for Theme Toggle */
 .theme-icon {
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
 .theme-btn:hover .theme-icon {
-  transform: scale(1.1);
+  transform: rotate(25deg) scale(1.15);
+}
+
+.theme-btn.rotating .theme-icon {
+  transform: rotate(360deg);
+  opacity: 0.7;
 }
 
 /* ===== TOOLS PAGE SPECIFIC STYLES ===== */

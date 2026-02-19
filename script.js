@@ -377,6 +377,25 @@ if (aboutHomeSection) {
   aboutObserver.observe(aboutHomeSection);
 }
 
+// ===== ABOUT PAGE (dedicated page) ANIMATIONS =====
+// On about.html there is no #about-home, so trigger animations per section
+if (!document.getElementById('about-home')) {
+  const aboutPageSections = document.querySelectorAll(
+    '#about, #about-research, #about-academics, #about-leadership, #about-skills-section, #about-connect'
+  );
+  const aboutPageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.info-card').forEach(el => el.classList.add('visible'));
+        entry.target.querySelectorAll('.about-details').forEach(el => el.classList.add('visible'));
+        entry.target.querySelectorAll('.skill-tag').forEach(el => el.classList.add('visible'));
+        aboutPageObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  aboutPageSections.forEach(sec => aboutPageObserver.observe(sec));
+}
+
 // Parallax effect removed to avoid conflicts with hover animations
 
 // Counter animation for experience years

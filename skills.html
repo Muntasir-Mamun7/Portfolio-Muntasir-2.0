@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="chatbot.css" />
     <!-- Bootstrap Icons for professional icons -->
     <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,13 +44,6 @@
           <div class="brand-ring brand-ring--inner"></div>
           <div class="brand-core"></div>
         </div>
-        <div class="loader-text">
-          <p class="loader-name">Muntasir Al Mamun</p>
-          <p class="loader-tagline">Blockchain Researcher &amp; CS Student</p>
-          <div class="loader-dots">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -55,6 +54,7 @@
       <div class="logo" onclick="location.href='index.html'">Muntasir Al Mamun</div>
       <div class="nav-center">
         <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="skills.html" class="active">Skills</a></li>
           <li><a href="tools.html">Tools</a></li>
@@ -84,6 +84,7 @@
             <span></span>
           </div>
           <div class="menu-links">
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
             <li><a href="about.html" onclick="toggleMenu()">About</a></li>
             <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
             <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>

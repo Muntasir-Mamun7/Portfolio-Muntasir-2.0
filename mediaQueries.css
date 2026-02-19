@@ -392,7 +392,6 @@
   
   .hamburger-icon {
     width: 1.5625rem;
-    height: 1.25rem;
   }
 
   .menu-links {
@@ -678,6 +677,186 @@
   .skill-tag {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
+  }
+}
+
+/* ===== ABOUT PAGE (about.html) RESPONSIVE ===== */
+@media screen and (max-width: 900px) {
+  #about-header {
+    padding: 4rem 5%;
+  }
+
+  #about-research,
+  #about-academics,
+  #about-leadership,
+  #about-skills-section,
+  #about-connect {
+    padding: 3.5rem 5%;
+  }
+
+  .about-edu-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-connect-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #about-header {
+    padding: 3rem 4%;
+  }
+
+  #about {
+    padding: 2.5rem 4%;
+  }
+
+  #about-research,
+  #about-academics,
+  #about-leadership,
+  #about-skills-section,
+  #about-connect {
+    padding: 3rem 4%;
+  }
+
+  .about-edu-info {
+    padding: 1.5rem;
+  }
+
+  .about-edu-info h3 {
+    font-size: 1.1rem;
+    word-break: break-word;
+  }
+
+  .about-honor-card {
+    padding: 1.2rem;
+  }
+
+  .about-role-card {
+    padding: 1.5rem;
+  }
+
+  .about-skill-category {
+    padding: 1.5rem;
+  }
+
+  .about-connect-card {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .about-connect-card i {
+    font-size: 1.5rem;
+  }
+
+  .about-highlight-card {
+    padding: 1.5rem;
+  }
+
+  .wechat-qr-section {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #about-header {
+    padding: 2.5rem 3%;
+  }
+
+  #about {
+    padding: 2rem 3%;
+  }
+
+  #about-research,
+  #about-academics,
+  #about-leadership,
+  #about-skills-section,
+  #about-connect {
+    padding: 2.5rem 3%;
+  }
+
+  .about-edu-info h3 {
+    font-size: 1rem;
+  }
+
+  .about-connect-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-connect-intro {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-connect-card {
+    padding: 1rem 1.2rem;
+  }
+
+  .about-connect-card .connect-info span {
+    font-size: 0.85rem;
+  }
+
+  .about-honors-grid {
+    gap: 1rem;
+  }
+
+  .about-leadership-grid {
+    gap: 1.5rem;
+  }
+
+  .about-role-card {
+    padding: 1.2rem;
+  }
+
+  .about-highlight-card {
+    padding: 1.2rem;
+  }
+
+  .about-publications h3 {
+    font-size: 1.1rem;
+  }
+
+  .about-bio-card {
+    padding: 1.5rem;
+  }
+
+  .about-lang-item {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-connect-card i {
+    font-size: 1.4rem;
+  }
+
+  .about-honor-card .honor-icon {
+    font-size: 1.3rem;
+  }
+
+  .about-highlight-icon {
+    font-size: 1.5rem;
+  }
+
+  .about-role-card .role-title {
+    font-size: 0.9rem;
+  }
+
+  .about-role-card h3 {
+    font-size: 1rem;
+  }
+
+  .about-skill-category h3 {
+    font-size: 0.95rem;
+  }
+
+  .wechat-qr-section .wechat-qr-img {
+    width: 130px;
+    height: 130px;
   }
 }
 

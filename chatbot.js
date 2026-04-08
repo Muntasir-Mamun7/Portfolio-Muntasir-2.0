@@ -26,7 +26,7 @@ class AIChatbot {
         github: "https://github.com/Muntasir-Mamun7",
         facebook: "https://www.facebook.com/muntasir.mamun",
         instagram: "https://www.instagram.com/muntasir_mamun",
-        experience: "2+ years in Software Development",
+        experience: "2+ years in software development, including Technical Intern at Yoongwin Co. (April 2026 – Present)",
         projectsPage: "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html"
       },
       skills: {

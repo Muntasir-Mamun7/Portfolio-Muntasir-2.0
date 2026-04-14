@@ -10,7 +10,7 @@
   --accent-primary: #2c3e50;
   --accent-secondary: #34495e;
   --accent-rgb: 44, 62, 80;
-  --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --accent-gradient: linear-gradient(135deg, #000000 0%, #555555 100%);
   --border-color: #dee2e6;
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
@@ -24,7 +24,7 @@
   
   /* Skill Progress Colors */
   --skill-progress-bg: #e9ecef;
-  --skill-progress-fill: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
+  --skill-progress-fill: linear-gradient(90deg, #000000 0%, #555555 100%);
   
   /* Card Colors */
   --card-bg: #ffffff;
@@ -39,10 +39,10 @@
   --text-primary: #f5f5f5;
   --text-secondary: #d1d1d1;
   --text-tertiary: #a8a8a8;
-  --accent-primary: #3498db;
-  --accent-secondary: #2980b9;
-  --accent-rgb: 52, 152, 219;
-  --accent-gradient: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+  --accent-primary: #e0e0e0;
+  --accent-secondary: #b0b0b0;
+  --accent-rgb: 224, 224, 224;
+  --accent-gradient: linear-gradient(135deg, #e0e0e0 0%, #888888 100%);
   --border-color: #3d3d3d;
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
@@ -50,7 +50,7 @@
   --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.8);
   
   --skill-progress-bg: #3d3d3d;
-  --skill-progress-fill: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+  --skill-progress-fill: linear-gradient(90deg, #e0e0e0 0%, #888888 100%);
   
   --card-bg: #2d2d2d;
   --card-hover-bg: #3d3d3d;
@@ -113,8 +113,8 @@
 .brand-ring--middle {
   width: 72px;
   height: 72px;
-  border-bottom-color: rgba(52, 152, 219, 0.65);
-  border-left-color: rgba(52, 152, 219, 0.2);
+  border-bottom-color: rgba(0, 0, 0, 0.65);
+  border-left-color: rgba(0, 0, 0, 0.2);
   animation: brandSpinCCW 1.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -192,7 +192,7 @@
 }
 
 [data-theme="dark"] .smoke {
-  background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
 }
 
 .smoke:nth-child(1) {
@@ -345,7 +345,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 20% 50%, rgba(44, 62, 80, 0.03) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.03) 0%, transparent 50%);
+              radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
   pointer-events: none;
@@ -2381,7 +2381,7 @@ body {
 }
 
 .featured-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #333333 0%, #000000 100%);
   color: white;
 }
 

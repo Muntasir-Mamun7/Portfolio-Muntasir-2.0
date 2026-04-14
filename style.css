@@ -844,7 +844,7 @@ section {
 
 .btn-color-1:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 35px -5px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(var(--accent-rgb), 0.45);
 }
 
 .btn-color-2 {
@@ -855,9 +855,9 @@ section {
 
 .btn-color-2:hover {
   background: var(--accent-primary);
-  color: white;
+  color: var(--bg-primary);
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(var(--accent-rgb), 0.35);
 }
 
 /* ===== SOCIALS ===== */
@@ -1788,35 +1788,6 @@ section {
     animation: none;
     opacity: 0;
   }
-}
-
-/* ===== ENHANCED BUTTON EFFECTS ===== */
-.btn-color-1,
-.btn-color-2 {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.btn-color-1::after,
-.btn-color-2::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-  z-index: -1;
-}
-
-.btn-color-1:active::after,
-.btn-color-2:active::after {
-  width: 300px;
-  height: 300px;
 }
 
 /* ===== FOOTER ===== */

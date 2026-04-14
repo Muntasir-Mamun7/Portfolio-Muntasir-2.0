@@ -249,6 +249,12 @@
     width: 100%;
     padding: 0.9rem;
   }
+
+  .btn:hover,
+  .btn-color-1:hover,
+  .btn-color-2:hover {
+    transform: translateY(-2px);
+  }
   
   #socials-container {
     gap: 1rem;

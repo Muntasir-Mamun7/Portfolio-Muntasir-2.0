@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta name="theme-color" content="#2c3e50" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -16,6 +15,34 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/" />
     <meta property="og:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muntasir Al Mamun - Blockchain Researcher &amp; Computer Science Student" />
+    <meta name="twitter:description" content="Blockchain Researcher at NJUPT specializing in blockchain-enabled UAV systems, spectrum security, and decentralized solutions for next-generation aerial networks." />
+    <meta name="twitter:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="canonical" href="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muntasir Al Mamun",
+      "url": "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/",
+      "email": "munmamun9@gmail.com",
+      "image": "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png",
+      "jobTitle": "Blockchain Researcher",
+      "affiliation": {
+        "@type": "EducationalOrganization",
+        "name": "Nanjing University of Posts and Telecommunications (NJUPT)"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/muntasirmamun7/",
+        "https://github.com/Muntasir-Mamun7",
+        "https://orcid.org/0009-0008-5640-5193",
+        "https://muntasirmamun7.medium.com/",
+        "https://x.com/MoRN__7"
+      ],
+      "knowsAbout": ["Blockchain", "UAV Systems", "Smart Contracts", "Spectrum Security", "Solidity", "Ethereum"]
+    }
+    </script>
     <title>Muntasir Al Mamun - Portfolio</title>
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
     <link rel="stylesheet" href="style.css" />
@@ -24,11 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- Bootstrap Icons for professional icons -->
@@ -91,12 +114,13 @@
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
+          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
           </div>
           <div class="menu-links">
+            <ul>
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
             <li><a href="about.html" onclick="toggleMenu()">About</a></li>
             <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
@@ -105,6 +129,7 @@
             <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
             <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -121,12 +146,13 @@
           secure spectrum management, and decentralized solutions for next-generation aerial networks.
         </p>
         <div class="btn-container">
-          <button
+          <a
+            href="Muntasir Al Mamun (11).pdf"
+            download
             class="btn btn-color-2"
-            onclick="window.open('Muntasir Al Mamun (11).pdf')"
           >
             Download Resume
-          </button>
+          </a>
           <button class="btn btn-color-1" onclick="location.href='#contact'">
             Contact Me
           </button>
@@ -158,7 +184,7 @@
               <svg class="wechat-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.063-6.122zm-3.81 3.357c.537 0 .972.44.972.984a.978.978 0 0 1-.972.984.978.978 0 0 1-.972-.984c0-.544.436-.984.972-.984zm7.621 0c.537 0 .972.44.972.984a.978.978 0 0 1-.972.984.978.978 0 0 1-.972-.984c0-.544.436-.984.972-.984z"/></svg>
             </a>
             <div class="wechat-qr-popup">
-              <img src="Images/muntasir-mamun-7.png" alt="WeChat QR Code" />
+              <img src="Images/muntasir-mamun-7.png" alt="WeChat QR Code" loading="lazy" />
               <p>Scan to add on WeChat</p>
             </div>
           </div>
@@ -169,6 +195,7 @@
           src="Images/MoRNGif.gif"
           alt="Muntasir Mamun"
           class="profile-pic"
+          loading="lazy"
         />
       </div>
     </section>
@@ -180,19 +207,19 @@
       <div class="about-home-container">
         <!-- Quick Info Cards -->
         <div class="about-info-cards">
-          <div class="info-card" data-aos="fade-up" data-delay="0">
+          <div class="info-card">
             <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <h3>Location</h3>
             <p class="info-detail">Nanjing, Jiangsu, China</p>
             <p class="info-sub">Originally from Bangladesh</p>
           </div>
-          <div class="info-card" data-aos="fade-up" data-delay="100">
+          <div class="info-card">
             <div class="info-icon"><i class="bi bi-mortarboard-fill"></i></div>
             <h3>Education</h3>
             <p class="info-detail">B.Eng. Computer Science</p>
             <p class="info-sub">NJUPT | GPA: 4.23/5.0</p>
           </div>
-          <div class="info-card" data-aos="fade-up" data-delay="200">
+          <div class="info-card">
             <div class="info-icon"><i class="bi bi-briefcase-fill"></i></div>
             <h3>Research Focus</h3>
             <p class="info-detail" data-counter="experience">Blockchain & UAV</p>
@@ -201,7 +228,7 @@
         </div>
         
         <!-- About Details -->
-        <div class="about-details" data-aos="fade-up" data-delay="300">
+        <div class="about-details">
           <div class="about-text">
             <h2 class="about-subtitle">Blockchain Researcher & Computer Science Student</h2>
             <p>
@@ -264,6 +291,21 @@
           </p>
         </div>
       </div>
+      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your Name" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your message…" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-color-1">Send Message</button>
+      </form>
     </section>
     <footer>
       <nav>

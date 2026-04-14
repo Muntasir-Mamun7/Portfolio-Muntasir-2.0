@@ -4,6 +4,8 @@ function toggleMenu() {
   const icon = document.querySelector('.hamburger-icon');
   menu.classList.toggle('open');
   icon.classList.toggle('open');
+  const isOpen = menu.classList.contains('open');
+  icon.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // ===== LOADING SCREEN =====
@@ -126,7 +128,7 @@ const animateSkillBars = () => {
 };
 
 // Trigger skill bars animation when skills section is visible
-const skillsSection = document.getElementById('skills');
+const skillsSection = document.getElementById('skills-main') || document.getElementById('skills');
 if (skillsSection) {
   const skillsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -184,6 +186,7 @@ document.addEventListener('keydown', (e) => {
     if (menu && icon && menu.classList.contains('open')) {
       menu.classList.remove('open');
       icon.classList.remove('open');
+      icon.setAttribute('aria-expanded', 'false');
     }
   }
 });
@@ -214,9 +217,10 @@ certificateItems.forEach(item => {
     modalImg.src = img.src;
     modalImg.alt = img.alt;
     
-    const closeBtn = document.createElement('span');
+    const closeBtn = document.createElement('button');
     closeBtn.innerHTML = '&times;';
-    closeBtn.style.cssText = 'position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001;';
+    closeBtn.setAttribute('aria-label', 'Close certificate');
+    closeBtn.style.cssText = 'position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; background: none; border: none; line-height: 1;';
     
     modalContent.appendChild(modalImg);
     modal.appendChild(closeBtn);
@@ -231,13 +235,25 @@ certificateItems.forEach(item => {
       }, 300);
     });
     
-    closeBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
+    const closeModal = (e) => {
+      if (e) e.stopPropagation();
       modal.style.opacity = '0';
       setTimeout(() => {
-        document.body.removeChild(modal);
+        if (document.body.contains(modal)) document.body.removeChild(modal);
       }, 300);
-    });
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on Escape key
+    const escHandler = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        document.removeEventListener('keydown', escHandler);
+      }
+    };
+    document.addEventListener('keydown', escHandler);
+    closeBtn.focus();
   });
 });
 
@@ -442,6 +458,17 @@ if (wechatQrImg && wechatQrFallback) {
     wechatQrImg.style.display = 'none';
     wechatQrFallback.style.display = 'block';
   });
+}
+
+// ===== CONTACT FORM =====
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+  const subject = `Portfolio Contact from ${name}`;
+  const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+  window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 // ===== BACK TO TOP BUTTON =====

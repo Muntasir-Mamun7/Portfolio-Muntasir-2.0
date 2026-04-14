@@ -20,21 +20,21 @@ class AIChatbot {
         location: "Nanjing, Jiangsu, China",
         origin: "Bangladesh",
         university: "Nanjing University of Posts and Telecommunications",
-        degree: "B.Sc. Computer Science",
+        degree: "B.Eng. Computer Science & Technology",
         email: "munmamun9@gmail.com",
-        linkedin: "https://www.linkedin.com/in/muntasir-mamun-2769a821b/",
+        linkedin: "https://www.linkedin.com/in/muntasirmamun7/",
         github: "https://github.com/Muntasir-Mamun7",
-        facebook: "https://www.facebook.com/muntasir.mamun",
-        instagram: "https://www.instagram.com/muntasir_mamun",
-        experience: "2+ years in software development, including Technical Intern at Yoongwin Co. (April 2026 – Present)",
+        facebook: "https://www.facebook.com/Muntasir0724/",
+        instagram: "https://www.instagram.com/morn.m7/",
+        experience: "Published research in Springer Nature and Blockchain Journal, with active work on UAV authentication systems using Proof-of-History blockchain",
         projectsPage: "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html"
       },
       skills: {
-        languages: ["Java", "Python", "JavaScript", "C", "C++", "SQL", "HTML/CSS"],
-        frameworks: ["React", "Node.js", "Express", "Spring Boot", "Django"],
-        databases: ["MySQL", "MongoDB", "PostgreSQL"],
-        tools: ["Git", "GitHub", "VS Code", "IntelliJ IDEA", "Docker"],
-        expertise: ["Web Development", "Software Engineering", "Problem Solving", "Data Structures & Algorithms"]
+        languages: ["Java", "Python", "JavaScript", "C", "C++", "Solidity", "HTML/CSS"],
+        frameworks: ["React", "Node.js", "Web3.js", "Hardhat", "AirSim"],
+        databases: ["MySQL"],
+        tools: ["Git", "GitHub", "VS Code", "Docker", "MetaMask", "IPFS"],
+        expertise: ["Blockchain Development", "UAV Systems", "Smart Contracts", "Spectrum Security", "Decentralized Solutions"]
       },
       projects: [
         {
@@ -253,13 +253,6 @@ class AIChatbot {
         day: 'numeric' 
       });
       return `The current time is ${timeString} on ${dateString}.`;
-    }
-
-    // US President
-    const isUSQuery = message.includes('usa') || /\bus\b/.test(message) || 
-                     message.includes('america') || message.includes('united states');
-    if ((message.includes('president') || message.includes('potus')) && isUSQuery) {
-      return `As of 2024, Joe Biden is the President of the United States (the 46th president). However, please verify with current sources as this information may change.`;
     }
 
     // General greetings with name

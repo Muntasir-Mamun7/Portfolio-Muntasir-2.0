@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#2c3e50" />
+    <meta name="description" content="Page not found — Muntasir Al Mamun Portfolio" />
+    <title>404 – Page Not Found | Muntasir Al Mamun</title>
+    <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #not-found-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        gap: 1.5rem;
+      }
+      .not-found-code {
+        font-size: clamp(6rem, 20vw, 12rem);
+        font-weight: 700;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+      .not-found-title {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .not-found-message {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 500px;
+      }
+      .not-found-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='index.html'">
+        <img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" />
+        <span>Muntasir Al Mamun</span>
+      </div>
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars-fill theme-icon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='index.html'">
+        <img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" />
+        <span>Muntasir</span>
+      </div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars-fill theme-icon"></i>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="not-found-section">
+      <div class="not-found-code" aria-hidden="true">404</div>
+      <h1 class="not-found-title">Page Not Found</h1>
+      <p class="not-found-message">
+        Oops! The page you're looking for doesn't exist or has been moved.
+        Let's get you back on track.
+      </p>
+      <div class="not-found-actions">
+        <a href="index.html" class="btn btn-color-1">
+          <i class="bi bi-house-fill"></i> Go Home
+        </a>
+        <a href="projects.html" class="btn btn-color-2">
+          <i class="bi bi-grid-fill"></i> View Projects
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <nav>
+        <div class="nav-link-container">
+          <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2025 Muntasir Al Mamun. All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

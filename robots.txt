@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/sitemap.xml

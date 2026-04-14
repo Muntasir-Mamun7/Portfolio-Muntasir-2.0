@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta name="theme-color" content="#2c3e50" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -16,6 +15,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html" />
     <meta property="og:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projects - Muntasir Al Mamun | Blockchain &amp; UAV Research" />
+    <meta name="twitter:description" content="Explore blockchain and UAV research projects by Muntasir Al Mamun, including UAVSpectrumChain and other software development projects." />
+    <meta name="twitter:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="canonical" href="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html" />
     <title>Projects - Muntasir Al Mamun</title>
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
     <link rel="stylesheet" href="style.css" />
@@ -32,11 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -84,12 +84,13 @@
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
+          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
           </div>
           <div class="menu-links">
+            <ul>
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
             <li><a href="about.html" onclick="toggleMenu()">About</a></li>
             <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
@@ -98,6 +99,7 @@
             <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
             <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
             <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -157,18 +159,26 @@
               <span class="tag">Hardhat</span>
             </div>
             <div class="btn-container">
-              <button
+              <a
+                href="https://github.com/Muntasir-Mamun7?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7'"
               >
+
                 GitHub
-              </button>
-              <button
+
+              </a>
+              <a
+                href="https://doi.org/10.1007/978-981-95-4142-3_3"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-1 project-btn"
-                onclick="location.href='https://doi.org/10.1007/978-981-95-4142-3_3'"
               >
+
                 Read Paper
-              </button>
+
+              </a>
             </div>
           </div>
         </div>
@@ -177,7 +187,7 @@
           <div class="project-image">
             <img
               src="Images/project-2.jpg"
-              alt="Baymax 2.3 Project"
+              alt="Baymax 2.3 Project" loading="lazy"
             />
           </div>
           <div class="project-content">
@@ -203,18 +213,26 @@
               <span class="tag">JavaScript</span>
             </div>
             <div class="btn-container">
-              <button
+              <a
+                href="https://github.com/Muntasir-Mamun7/baymax-2.3"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2.3'"
               >
+
                 Github
-              </button>
-              <button
+
+              </a>
+              <a
+                href="https://muntasir-mamun7.github.io/baymax-2.3/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-1 project-btn"
-                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2.3/'"
               >
+
                 Live Demo
-              </button>
+
+              </a>
             </div>
           </div>
         </div>
@@ -223,7 +241,7 @@
           <div class="project-image">
             <img
               src="Images/beatChimpGif.gif"
-              alt="Beat Chimp Memory Test"
+              alt="Beat Chimp Memory Test" loading="lazy"
             />
           </div>
           <div class="project-content">
@@ -248,18 +266,26 @@
               <span class="tag">Game Dev</span>
             </div>
             <div class="btn-container">
-              <button
+              <a
+                href="https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/tag/v1.0"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/tag/v1.0'"
               >
+
                 Github
-              </button>
-              <button
+
+              </a>
+              <a
+                href="https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/download/v1.0/Tutorial.VIDEO.mp4"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-1 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/BeatChimp-MemoryTest/releases/download/v1.0/Tutorial.VIDEO.mp4'"
               >
+
                 Demo Video
-              </button>
+
+              </a>
             </div>
           </div>
         </div>
@@ -268,7 +294,7 @@
           <div class="project-image">
             <img
               src="Images/project-1.png"
-              alt="Baymax 2.0 Project"
+              alt="Baymax 2.0 Project" loading="lazy"
             />
           </div>
           <div class="project-content">
@@ -293,18 +319,26 @@
               <span class="tag">JavaScript</span>
             </div>
             <div class="btn-container">
-              <button
+              <a
+                href="https://github.com/Muntasir-Mamun7/baymax-2-0"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/baymax-2-0'"
               >
+
                 Github
-              </button>
-              <button
+
+              </a>
+              <a
+                href="https://muntasir-mamun7.github.io/baymax-2-0/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-1 project-btn"
-                onclick="location.href='https://muntasir-mamun7.github.io/baymax-2-0/'"
               >
+
                 Live Demo
-              </button>
+
+              </a>
             </div>
           </div>
         </div>
@@ -313,7 +347,7 @@
           <div class="project-image">
             <img
               src="Images/project-3.jpg"
-              alt="G3 Architecture Project"
+              alt="G3 Architecture Project" loading="lazy"
             />
           </div>
           <div class="project-content">
@@ -338,18 +372,26 @@
               <span class="tag">Design</span>
             </div>
             <div class="btn-container">
-              <button
+              <a
+                href="https://github.com/Muntasir-Mamun7/g3-arch"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Muntasir-Mamun7/g3-arch'"
               >
+
                 Github
-              </button>
-              <button
+
+              </a>
+              <a
+                href="https://muntasir-mamun7.github.io/g3-arch/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn btn-color-1 project-btn"
-                onclick="location.href='https://muntasir-mamun7.github.io/g3-arch/'"
               >
+
                 Live Demo
-              </button>
+
+              </a>
             </div>
           </div>
         </div>

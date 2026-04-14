@@ -801,6 +801,11 @@ section {
   z-index: 1;
 }
 
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
 .btn::before {
   content: '';
   position: absolute;
@@ -1757,6 +1762,52 @@ section {
   flex-shrink: 0;
 }
 
+/* ===== CONTACT FORM ===== */
+.contact-form {
+  max-width: 600px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.85rem 1.2rem;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+}
+
+.contact-form button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
 
 /* ===== ENHANCED PROFILE ANIMATIONS ===== */
 .typing-effect {
@@ -2357,6 +2408,11 @@ body {
 
 .featured-badge {
   background: linear-gradient(135deg, #333333 0%, #000000 100%);
+  color: white;
+}
+
+.coming-soon-badge {
+  background: #6c757d;
   color: white;
 }
 

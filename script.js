@@ -460,6 +460,27 @@ if (wechatQrImg && wechatQrFallback) {
   });
 }
 
+// ===== WECHAT POPUP - MOBILE TOUCH SUPPORT =====
+// CSS :hover doesn't trigger on touch devices, so toggle the popup on click/tap
+(function () {
+  const wechatCard = document.querySelector('.wechat-card');
+  if (!wechatCard) return;
+  const wechatPopup = wechatCard.querySelector('.wechat-qr-popup');
+  if (!wechatPopup) return;
+
+  // Toggle popup open/closed on click (works on both mouse and touch)
+  wechatCard.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const isVisible = wechatPopup.style.display === 'block';
+    wechatPopup.style.display = isVisible ? '' : 'block';
+  });
+
+  // Close popup when clicking anywhere else on the page
+  document.addEventListener('click', function () {
+    wechatPopup.style.display = '';
+  });
+}());
+
 // ===== CONTACT FORM =====
 function handleContactSubmit(e) {
   e.preventDefault();

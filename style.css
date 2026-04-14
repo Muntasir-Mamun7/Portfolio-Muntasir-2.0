@@ -2690,7 +2690,7 @@ body {
 }
 
 .info-card:hover .info-icon {
-  transform: scale(1.15) rotate(5deg);
+  /* Icons stay fixed in position on hover */
 }
 
 .info-icon {
@@ -2888,7 +2888,7 @@ body {
 }
 
 .tool-card:hover .tool-icon {
-  transform: scale(1.15) rotate(5deg);
+  /* Icons stay fixed in position on hover */
 }
 
 .tool-card h3 {

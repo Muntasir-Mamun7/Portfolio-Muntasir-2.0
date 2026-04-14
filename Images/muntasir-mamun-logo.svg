@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Muntasir Al Mamun Logo">
+  <title>Muntasir Al Mamun</title>
+  <defs>
+    <!-- Primary gradient: site brand colours #2c3e50 → #3498db -->
+    <linearGradient id="mm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#2c3e50"/>
+      <stop offset="100%" stop-color="#3498db"/>
+    </linearGradient>
+    <!-- Subtle inner highlight for depth -->
+    <radialGradient id="mm-glow" cx="30%" cy="28%" r="60%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- App-icon rounded square background -->
+  <rect width="100" height="100" rx="22" fill="url(#mm-bg)"/>
+  <rect width="100" height="100" rx="22" fill="url(#mm-glow)"/>
+
+  <!--
+    Bold geometric "M" letterform
+    ─────────────────────────────
+    Outer bounds : x 14–86  y 11–68  (72 × 57 px)
+    Side strokes : 13 px wide each (x 14–27 and x 73–86)
+    Centre V peak: (50, 43)
+    Inner V cut  : rises to y 31 on each side, bottom slot at y 58 (x 46–54)
+  -->
+  <path d="
+    M 14,68
+    L 14,11
+    L 27,11
+    L 50,43
+    L 73,11
+    L 86,11
+    L 86,68
+    L 73,68
+    L 73,31
+    L 54,58
+    L 46,58
+    L 27,31
+    L 27,68
+    Z
+  " fill="#ffffff"/>
+
+  <!--
+    Code-bracket accent  < / >
+    Sits cleanly below the M on the gradient background.
+    Subtle white strokes represent developer / tech work.
+    Centred at x=50, occupying y 75–89.
+  -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.80" stroke-width="2.4"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- < -->
+    <polyline points="42,75 35,82 42,89"/>
+    <!-- / -->
+    <line x1="51" y1="75" x2="47" y2="89"/>
+    <!-- > -->
+    <polyline points="55,75 62,82 55,89"/>
+  </g>
+</svg>

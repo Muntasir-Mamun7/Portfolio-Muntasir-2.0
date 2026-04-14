@@ -434,6 +434,9 @@ nav.scrolled {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 1.5rem;
   font-weight: 700;
   background: var(--accent-gradient);
@@ -441,6 +444,14 @@ nav.scrolled {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   cursor: pointer;
+}
+
+.logo-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: block;
 }
 
 .nav-links {

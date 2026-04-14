@@ -1,60 +1,88 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Muntasir Al Mamun Logo">
   <title>Muntasir Al Mamun</title>
   <defs>
-    <!-- Primary gradient: site brand colours #2c3e50 → #3498db -->
-    <linearGradient id="mm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#2c3e50"/>
-      <stop offset="100%" stop-color="#3498db"/>
+    <!-- Deep midnight-navy background -->
+    <linearGradient id="mm-bg" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%"   stop-color="#0b1a30"/>
+      <stop offset="100%" stop-color="#172848"/>
     </linearGradient>
-    <!-- Subtle inner highlight for depth -->
-    <radialGradient id="mm-glow" cx="30%" cy="28%" r="60%">
-      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    <!-- Metallic gold for the M letterform -->
+    <linearGradient id="mm-gold" x1="0%" y1="0%" x2="15%" y2="100%">
+      <stop offset="0%"   stop-color="#f5e07a"/>
+      <stop offset="45%"  stop-color="#e8c050"/>
+      <stop offset="100%" stop-color="#bf8c22"/>
+    </linearGradient>
+    <!-- Radial inner glow for depth -->
+    <radialGradient id="mm-glow" cx="38%" cy="28%" r="58%">
+      <stop offset="0%"   stop-color="#1a3a70" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#0b1a30" stop-opacity="0"/>
     </radialGradient>
+    <!-- Drop shadow on the M letterform -->
+    <filter id="mm-drop" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.8"
+                    flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <!-- Soft glow around code brackets -->
+    <filter id="mm-code-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
-  <!-- App-icon rounded square background -->
-  <rect width="100" height="100" rx="22" fill="url(#mm-bg)"/>
-  <rect width="100" height="100" rx="22" fill="url(#mm-glow)"/>
+  <!-- ─── Background ─────────────────────────────────── -->
+  <rect width="100" height="100" rx="20" fill="url(#mm-bg)"/>
+  <rect width="100" height="100" rx="20" fill="url(#mm-glow)"/>
 
-  <!--
-    Bold geometric "M" letterform
-    ─────────────────────────────
-    Outer bounds : x 14–86  y 11–68  (72 × 57 px)
-    Side strokes : 13 px wide each (x 14–27 and x 73–86)
-    Centre V peak: (50, 43)
-    Inner V cut  : rises to y 31 on each side, bottom slot at y 58 (x 46–54)
-  -->
-  <path d="
-    M 14,68
-    L 14,11
-    L 27,11
-    L 50,43
-    L 73,11
-    L 86,11
-    L 86,68
-    L 73,68
-    L 73,31
-    L 54,58
-    L 46,58
-    L 27,31
-    L 27,68
-    Z
-  " fill="#ffffff"/>
+  <!-- ─── Thin inner decorative border ───────────────── -->
+  <rect x="4.5" y="4.5" width="91" height="91" rx="15.5"
+        fill="none" stroke="#c9a040" stroke-opacity="0.38" stroke-width="0.8"/>
 
+  <!-- ─── Corner L-bracket accents (elegant frame) ───── -->
+  <!-- top-left -->
+  <polyline points="19,5.5 9,5.5 5.5,9 5.5,19"
+            fill="none" stroke="#c9a040" stroke-opacity="0.60"
+            stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- top-right -->
+  <polyline points="81,5.5 91,5.5 94.5,9 94.5,19"
+            fill="none" stroke="#c9a040" stroke-opacity="0.60"
+            stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- bottom-left -->
+  <polyline points="19,94.5 9,94.5 5.5,91 5.5,81"
+            fill="none" stroke="#c9a040" stroke-opacity="0.60"
+            stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- bottom-right -->
+  <polyline points="81,94.5 91,94.5 94.5,91 94.5,81"
+            fill="none" stroke="#c9a040" stroke-opacity="0.60"
+            stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ─── Metallic gold "M" letterform ───────────────── -->
   <!--
-    Code-bracket accent  < / >
-    Sits cleanly below the M on the gradient background.
-    Subtle white strokes represent developer / tech work.
-    Centred at x=50, occupying y 75–89.
+    Outer bounds : x 14–86  y 13–66
+    Side strokes : 13 px wide (x 14–27 and x 73–86)
+    Centre V peak: (50, 44)
+    Inner V cut  : rises to y 33 on each side, bottom slot at y 57 (x 46–54)
   -->
-  <g fill="none" stroke="#ffffff" stroke-opacity="0.80" stroke-width="2.4"
-     stroke-linecap="round" stroke-linejoin="round">
+  <path d="M 14,66 L 14,13 L 27,13 L 50,44 L 73,13
+           L 86,13 L 86,66 L 73,66 L 73,33 L 54,57
+           L 46,57 L 27,33 L 27,66 Z"
+        fill="url(#mm-gold)" filter="url(#mm-drop)"/>
+
+  <!-- ─── Subtle gold separator line ─────────────────── -->
+  <line x1="24" y1="71" x2="76" y2="71"
+        stroke="#c9a040" stroke-opacity="0.32" stroke-width="0.7"/>
+
+  <!-- ─── Electric-blue code-bracket accent  < / > ───── -->
+  <g fill="none" stroke="#5bc8f5" stroke-width="2.3"
+     stroke-linecap="round" stroke-linejoin="round"
+     filter="url(#mm-code-glow)">
     <!-- < -->
-    <polyline points="42,75 35,82 42,89"/>
+    <polyline points="39,75 33,82 39,89"/>
     <!-- / -->
-    <line x1="51" y1="75" x2="47" y2="89"/>
+    <line x1="50" y1="75" x2="46" y2="89"/>
     <!-- > -->
-    <polyline points="55,75 62,82 55,89"/>
+    <polyline points="53,75 59,82 53,89"/>
   </g>
 </svg>

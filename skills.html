@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta name="theme-color" content="#2c3e50" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -16,6 +15,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/skills.html" />
     <meta property="og:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Technical Skills - Muntasir Al Mamun" />
+    <meta name="twitter:description" content="Explore the technical skills of Muntasir Al Mamun: Solidity, Smart Contracts, Web3.js, AirSim, PX4, Python, C/C++ and more." />
+    <meta name="twitter:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="canonical" href="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/skills.html" />
     <title>Technical Skills - Muntasir Al Mamun</title>
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
     <link rel="stylesheet" href="style.css" />
@@ -32,11 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -84,12 +84,13 @@
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
+          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
           </div>
           <div class="menu-links">
+            <ul>
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
             <li><a href="about.html" onclick="toggleMenu()">About</a></li>
             <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
@@ -98,6 +99,7 @@
             <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
             <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
             <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
           </div>
         </div>
       </div>

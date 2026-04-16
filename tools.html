@@ -121,9 +121,9 @@
     <section id="utility-tools">
       <div class="awt-wrapper">
         <div class="awt-section-intro">
-          <p class="section__text__p1">AI-Powered</p>
-          <h2 class="title">Writing Assistant</h2>
-          <p class="awt-intro-text">Real-time word statistics and AI grammar analysis — both powered by the same text input.</p>
+          <p class="section__text__p1">Meet</p>
+          <h2 class="title">MoRN.AI</h2>
+          <p class="awt-intro-text">Real-time word statistics and MoRN.AI grammar analysis — both powered by the same text input.</p>
         </div>
 
         <div class="awt-card">
@@ -133,12 +133,12 @@
               <i class="bi bi-stars"></i>
             </div>
             <div class="awt-card-header-text">
-              <h3>Word Counter &amp; Grammar Checker</h3>
-              <p>Type or paste your text below — stats update live and AI checks your grammar.</p>
+              <h3>MoRN.AI — Word Counter &amp; Grammar Checker</h3>
+              <p>Type or paste your text below — stats update live and MoRN.AI checks your grammar.</p>
             </div>
             <div class="awt-ai-badge">
               <span class="awt-ai-dot"></span>
-              AI Ready
+              MoRN.AI
             </div>
           </div>
 
@@ -179,7 +179,7 @@
             <textarea
               id="awt-input"
               class="awt-textarea"
-              placeholder="Start typing or paste your text here — word counts update instantly and you can check grammar with AI below…"
+              placeholder="Start typing or paste your text here — word counts update instantly and you can check grammar with MoRN.AI below…"
               aria-label="Shared text input for word counter and grammar checker"
               rows="10"
             ></textarea>
@@ -201,9 +201,9 @@
                 <span>Copy</span>
               </button>
             </div>
-            <button class="awt-btn awt-btn-ai" id="awt-grammar-btn" aria-label="Check grammar with AI">
+            <button class="awt-btn awt-btn-ai" id="awt-grammar-btn" aria-label="Check grammar with MoRN.AI">
               <i class="bi bi-robot"></i>
-              <span>Check Grammar with AI</span>
+              <span>Check with MoRN.AI</span>
               <span class="awt-btn-arrow">→</span>
             </button>
           </div>
@@ -216,7 +216,7 @@
                 <div class="awt-spinner-core"><i class="bi bi-robot"></i></div>
               </div>
               <div class="awt-loading-text">
-                <span>AI is analyzing your text…</span>
+                <span>MoRN.AI is analyzing your text…</span>
                 <span class="awt-loading-sub">Checking grammar, spelling &amp; style</span>
               </div>
             </div>
@@ -459,7 +459,7 @@
         grammarBtn.addEventListener('click', function () {
           var text = input.value.trim();
           if (!text) {
-            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--info"><i class="bi bi-info-circle-fill"></i><span>Please enter some text before checking grammar.</span></div>';
+            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--info"><i class="bi bi-info-circle-fill"></i><span>Please enter some text before checking with MoRN.AI.</span></div>';
             return;
           }
           loading.style.display = 'flex';
@@ -481,19 +481,19 @@
           .catch(function () {
             loading.style.display = 'none';
             grammarBtn.disabled = false;
-            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--error"><i class="bi bi-exclamation-triangle-fill"></i><span>Could not reach the AI grammar service. Please check your connection and try again.</span></div>';
+            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--error"><i class="bi bi-exclamation-triangle-fill"></i><span>Could not reach MoRN.AI. Please check your connection and try again.</span></div>';
           });
         });
 
         // ── Render grammar results ────────────────────────────────────────────
         function renderResults(data, originalText) {
           if (!data.matches || data.matches.length === 0) {
-            results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-patch-check-fill"></i></div><div><strong>No issues found!</strong><p>Your text looks great — the AI found no grammar, spelling or style problems.</p></div></div>';
+            results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-patch-check-fill"></i></div><div><strong>No issues found!</strong><p>Your text looks great — MoRN.AI found no grammar, spelling or style problems.</p></div></div>';
             return;
           }
 
           var count = data.matches.length;
-          var html  = '<div class="awt-gr-summary"><div class="awt-gr-summary-icon"><i class="bi bi-cpu-fill"></i></div><div><strong>AI found ' + count + ' issue' + (count > 1 ? 's' : '') + '</strong><span>Click a suggestion to apply it instantly</span></div></div>';
+          var html  = '<div class="awt-gr-summary"><div class="awt-gr-summary-icon"><i class="bi bi-cpu-fill"></i></div><div><strong>MoRN.AI found ' + count + ' issue' + (count > 1 ? 's' : '') + '</strong><span>Click a suggestion to apply it instantly</span></div></div>';
 
           html += '<div class="awt-gr-list">';
           data.matches.forEach(function (match, idx) {
@@ -517,7 +517,7 @@
             html += '</div>';
             html += '<div class="awt-gr-context">…' + highlighted + '…</div>';
             if (suggestions.length > 0) {
-              html += '<div class="awt-gr-suggestions"><span class="awt-gr-sug-label"><i class="bi bi-lightbulb-fill"></i> AI Suggestions:</span><div class="awt-gr-sug-chips">';
+              html += '<div class="awt-gr-suggestions"><span class="awt-gr-sug-label"><i class="bi bi-lightbulb-fill"></i> MoRN.AI Suggestions:</span><div class="awt-gr-sug-chips">';
               suggestions.forEach(function (s) {
                 html += '<button class="awt-gr-sug-chip" data-offset="' + match.offset + '" data-length="' + match.length + '" data-value="' + esc(s) + '">' + esc(s) + '</button>';
               });
@@ -536,7 +536,7 @@
               var value  = this.dataset.value;
               input.value = input.value.substring(0, offset) + value + input.value.substring(offset + length);
               updateStats();
-              results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-arrow-repeat"></i></div><div><strong>Suggestion applied!</strong><p>Click "Check Grammar with AI" again to re-analyze the updated text.</p></div></div>';
+              results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-arrow-repeat"></i></div><div><strong>Suggestion applied!</strong><p>Click "Check with MoRN.AI" again to re-analyze the updated text.</p></div></div>';
             });
           });
         }

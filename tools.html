@@ -117,6 +117,115 @@
       </div>
     </section>
 
+    <!-- AI Writing Assistant (Word Counter + Grammar Checker) — First Position -->
+    <section id="utility-tools">
+      <div class="awt-wrapper">
+        <div class="awt-section-intro">
+          <p class="section__text__p1">AI-Powered</p>
+          <h2 class="title">Writing Assistant</h2>
+          <p class="awt-intro-text">Real-time word statistics and AI grammar analysis — both powered by the same text input.</p>
+        </div>
+
+        <div class="awt-card">
+          <!-- Card Header -->
+          <div class="awt-card-header">
+            <div class="awt-card-header-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+            <div class="awt-card-header-text">
+              <h3>Word Counter &amp; Grammar Checker</h3>
+              <p>Type or paste your text below — stats update live and AI checks your grammar.</p>
+            </div>
+            <div class="awt-ai-badge">
+              <span class="awt-ai-dot"></span>
+              AI Ready
+            </div>
+          </div>
+
+          <!-- Live Stats Strip -->
+          <div class="awt-stats-strip">
+            <div class="awt-stat-chip">
+              <span class="awt-stat-chip-val" id="awt-words">0</span>
+              <span class="awt-stat-chip-lbl">Words</span>
+            </div>
+            <div class="awt-stat-chip">
+              <span class="awt-stat-chip-val" id="awt-chars">0</span>
+              <span class="awt-stat-chip-lbl">Characters</span>
+            </div>
+            <div class="awt-stat-chip">
+              <span class="awt-stat-chip-val" id="awt-chars-ns">0</span>
+              <span class="awt-stat-chip-lbl">No-Space Chars</span>
+            </div>
+            <div class="awt-stat-chip">
+              <span class="awt-stat-chip-val" id="awt-sentences">0</span>
+              <span class="awt-stat-chip-lbl">Sentences</span>
+            </div>
+            <div class="awt-stat-chip">
+              <span class="awt-stat-chip-val" id="awt-paragraphs">0</span>
+              <span class="awt-stat-chip-lbl">Paragraphs</span>
+            </div>
+            <div class="awt-stat-chip awt-stat-chip--accent">
+              <span class="awt-stat-chip-val" id="awt-read-time">0 min</span>
+              <span class="awt-stat-chip-lbl">Read Time</span>
+            </div>
+            <div class="awt-stat-chip awt-stat-chip--accent">
+              <span class="awt-stat-chip-val" id="awt-speak-time">0 min</span>
+              <span class="awt-stat-chip-lbl">Speak Time</span>
+            </div>
+          </div>
+
+          <!-- Shared Textarea -->
+          <div class="awt-editor-area">
+            <textarea
+              id="awt-input"
+              class="awt-textarea"
+              placeholder="Start typing or paste your text here — word counts update instantly and you can check grammar with AI below…"
+              aria-label="Shared text input for word counter and grammar checker"
+              rows="10"
+            ></textarea>
+            <div class="awt-editor-footer">
+              <span class="awt-char-live" id="awt-char-live">0 characters</span>
+              <span class="awt-editor-hint"><i class="bi bi-info-circle"></i> Stats update as you type</span>
+            </div>
+          </div>
+
+          <!-- Action Bar -->
+          <div class="awt-action-bar">
+            <div class="awt-action-left">
+              <button class="awt-btn awt-btn-ghost" id="awt-clear-btn" aria-label="Clear text">
+                <i class="bi bi-trash3"></i>
+                <span>Clear</span>
+              </button>
+              <button class="awt-btn awt-btn-ghost" id="awt-copy-btn" aria-label="Copy text">
+                <i class="bi bi-clipboard2"></i>
+                <span>Copy</span>
+              </button>
+            </div>
+            <button class="awt-btn awt-btn-ai" id="awt-grammar-btn" aria-label="Check grammar with AI">
+              <i class="bi bi-robot"></i>
+              <span>Check Grammar with AI</span>
+              <span class="awt-btn-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- Grammar Results Panel -->
+          <div id="awt-grammar-panel" class="awt-grammar-panel" aria-live="polite">
+            <div id="awt-grammar-loading" class="awt-grammar-loading" style="display:none;">
+              <div class="awt-grammar-spinner">
+                <div class="awt-spinner-ring"></div>
+                <div class="awt-spinner-core"><i class="bi bi-robot"></i></div>
+              </div>
+              <div class="awt-loading-text">
+                <span>AI is analysing your text…</span>
+                <span class="awt-loading-sub">Checking grammar, spelling &amp; style</span>
+              </div>
+            </div>
+            <div id="awt-grammar-results" class="awt-grammar-results"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Tools Main Content -->
     <section id="tools-main">
       <div class="tools-container">
@@ -234,83 +343,6 @@
       </div>
     </section>
 
-    <!-- Utility Tools Section -->
-    <section id="utility-tools">
-      <div class="utility-tools-container">
-        <p class="section__text__p1">Online</p>
-        <h2 class="title">Utility Tools</h2>
-        <p class="utility-tools-intro">
-          Handy browser-based tools to help with everyday writing tasks — no login required.
-        </p>
-
-        <!-- Word Counter Tool -->
-        <div class="utility-tool-card" id="word-counter-tool">
-          <div class="utility-tool-header">
-            <div class="utility-tool-icon"><i class="bi bi-alphabet-uppercase"></i></div>
-            <div>
-              <h3>Word Counter</h3>
-              <p>Count words, characters, sentences, paragraphs &amp; estimate reading time.</p>
-            </div>
-          </div>
-          <textarea
-            id="word-counter-input"
-            class="utility-textarea"
-            placeholder="Start typing or paste your text here…"
-            aria-label="Text input for word counter"
-            rows="8"
-          ></textarea>
-          <div class="word-counter-stats">
-            <div class="stat-badge"><span class="stat-value" id="wc-words">0</span><span class="stat-label">Words</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-chars">0</span><span class="stat-label">Characters</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-chars-no-space">0</span><span class="stat-label">Chars (no spaces)</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-sentences">0</span><span class="stat-label">Sentences</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-paragraphs">0</span><span class="stat-label">Paragraphs</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-read-time">0 min</span><span class="stat-label">Read Time</span></div>
-            <div class="stat-badge"><span class="stat-value" id="wc-speak-time">0 min</span><span class="stat-label">Speak Time</span></div>
-          </div>
-          <div class="utility-tool-actions">
-            <button class="utility-btn utility-btn-secondary" id="wc-clear-btn" aria-label="Clear text">
-              <i class="bi bi-trash"></i> Clear
-            </button>
-            <button class="utility-btn utility-btn-secondary" id="wc-copy-btn" aria-label="Copy text">
-              <i class="bi bi-clipboard"></i> Copy Text
-            </button>
-          </div>
-        </div>
-
-        <!-- Grammar Checker Tool -->
-        <div class="utility-tool-card" id="grammar-checker-tool">
-          <div class="utility-tool-header">
-            <div class="utility-tool-icon"><i class="bi bi-pencil-square"></i></div>
-            <div>
-              <h3>Grammar &amp; Spell Checker</h3>
-              <p>Check English grammar and spelling powered by LanguageTool.</p>
-            </div>
-          </div>
-          <textarea
-            id="grammar-input"
-            class="utility-textarea"
-            placeholder="Paste your English text here to check grammar and spelling…"
-            aria-label="Text input for grammar checker"
-            rows="8"
-          ></textarea>
-          <div class="utility-tool-actions">
-            <button class="utility-btn utility-btn-primary" id="grammar-check-btn" aria-label="Check grammar">
-              <i class="bi bi-search"></i> Check Grammar
-            </button>
-            <button class="utility-btn utility-btn-secondary" id="grammar-clear-btn" aria-label="Clear grammar text">
-              <i class="bi bi-trash"></i> Clear
-            </button>
-          </div>
-          <div id="grammar-loading" class="grammar-loading" style="display:none;">
-            <div class="grammar-spinner"></div>
-            <span>Checking your text…</span>
-          </div>
-          <div id="grammar-results" class="grammar-results" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
     <!-- Back to Home -->
     <section id="back-to-home">
       <button class="btn btn-color-1" onclick="location.href='index.html'">
@@ -337,18 +369,25 @@
     
     <script src="script.js" defer></script>
     <script>
-      // ===== WORD COUNTER =====
+      // ===== AI WRITING ASSISTANT — Unified Word Counter + Grammar Checker =====
       (function () {
-        var input = document.getElementById('word-counter-input');
-        var clearBtn = document.getElementById('wc-clear-btn');
-        var copyBtn = document.getElementById('wc-copy-btn');
+        var input      = document.getElementById('awt-input');
+        var clearBtn   = document.getElementById('awt-clear-btn');
+        var copyBtn    = document.getElementById('awt-copy-btn');
+        var grammarBtn = document.getElementById('awt-grammar-btn');
+        var loading    = document.getElementById('awt-grammar-loading');
+        var results    = document.getElementById('awt-grammar-results');
+        var charLive   = document.getElementById('awt-char-live');
 
+        if (!input) return;
+
+        // ── Counting helpers ──────────────────────────────────────────────────
         function countWords(text) {
           return text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
         }
         function countSentences(text) {
-          var matches = text.match(/[^.!?]*[.!?]+/g);
-          return matches ? matches.length : (text.trim() ? 1 : 0);
+          var m = text.match(/[^.!?]*[.!?]+/g);
+          return m ? m.length : (text.trim() ? 1 : 0);
         }
         function countParagraphs(text) {
           return text.trim() === '' ? 0 : text.split(/\n\s*\n+/).filter(function (p) { return p.trim() !== ''; }).length;
@@ -362,64 +401,70 @@
           return mins < 1 ? '< 1 min' : mins + ' min';
         }
 
-        function update() {
-          var text = input.value;
+        // ── Animate stat chip when value changes ─────────────────────────────
+        function setChip(id, val) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          if (el.textContent !== String(val)) {
+            el.textContent = val;
+            el.classList.remove('awt-stat-pulse');
+            void el.offsetWidth; // reflow
+            el.classList.add('awt-stat-pulse');
+          }
+        }
+
+        // ── Live word-counter update ──────────────────────────────────────────
+        function updateStats() {
+          var text  = input.value;
           var words = countWords(text);
-          document.getElementById('wc-words').textContent = words;
-          document.getElementById('wc-chars').textContent = text.length;
-          document.getElementById('wc-chars-no-space').textContent = text.replace(/\s/g, '').length;
-          document.getElementById('wc-sentences').textContent = countSentences(text);
-          document.getElementById('wc-paragraphs').textContent = countParagraphs(text);
-          document.getElementById('wc-read-time').textContent = readTime(words);
-          document.getElementById('wc-speak-time').textContent = speakTime(words);
+          setChip('awt-words',      words);
+          setChip('awt-chars',      text.length);
+          setChip('awt-chars-ns',   text.replace(/\s/g, '').length);
+          setChip('awt-sentences',  countSentences(text));
+          setChip('awt-paragraphs', countParagraphs(text));
+          setChip('awt-read-time',  readTime(words));
+          setChip('awt-speak-time', speakTime(words));
+          if (charLive) charLive.textContent = text.length + ' character' + (text.length !== 1 ? 's' : '');
         }
 
-        if (input) {
-          input.addEventListener('input', update);
-          clearBtn.addEventListener('click', function () {
-            input.value = '';
-            update();
-            input.focus();
-          });
-          copyBtn.addEventListener('click', function () {
-            if (!input.value) return;
-            navigator.clipboard.writeText(input.value).then(function () {
-              var orig = copyBtn.innerHTML;
-              copyBtn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
-              setTimeout(function () { copyBtn.innerHTML = orig; }, 2000);
-            }).catch(function () {
-              input.select();
-              document.execCommand('copy');
-            });
-          });
-        }
-      })();
+        input.addEventListener('input', updateStats);
 
-      // ===== GRAMMAR CHECKER =====
-      (function () {
-        var checkBtn = document.getElementById('grammar-check-btn');
-        var clearBtn = document.getElementById('grammar-clear-btn');
-        var input = document.getElementById('grammar-input');
-        var loading = document.getElementById('grammar-loading');
-        var results = document.getElementById('grammar-results');
-
-        if (!checkBtn) return;
-
+        // ── Clear ─────────────────────────────────────────────────────────────
         clearBtn.addEventListener('click', function () {
           input.value = '';
+          updateStats();
           results.innerHTML = '';
           input.focus();
         });
 
-        checkBtn.addEventListener('click', function () {
+        // ── Copy ─────────────────────────────────────────────────────────────
+        copyBtn.addEventListener('click', function () {
+          if (!input.value) return;
+          var icon = copyBtn.querySelector('span:first-of-type') || copyBtn;
+          navigator.clipboard.writeText(input.value).then(function () {
+            var orig = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="bi bi-check2-circle"></i><span>Copied!</span>';
+            copyBtn.classList.add('awt-btn-copied');
+            setTimeout(function () {
+              copyBtn.innerHTML = orig;
+              copyBtn.classList.remove('awt-btn-copied');
+            }, 2000);
+          }).catch(function () {
+            input.select();
+            document.execCommand('copy');
+          });
+        });
+
+        // ── AI Grammar Check ─────────────────────────────────────────────────
+        grammarBtn.addEventListener('click', function () {
           var text = input.value.trim();
           if (!text) {
-            results.innerHTML = '<p class="grammar-empty">Please enter some text to check.</p>';
+            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--info"><i class="bi bi-info-circle-fill"></i><span>Please enter some text before checking grammar.</span></div>';
             return;
           }
           loading.style.display = 'flex';
           results.innerHTML = '';
-          checkBtn.disabled = true;
+          grammarBtn.disabled = true;
 
           var body = 'text=' + encodeURIComponent(text) + '&language=en-US&enabledOnly=false';
           fetch('https://api.languagetool.org/v2/check', {
@@ -427,72 +472,76 @@
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: body
           })
-          .then(function (res) { return res.json(); })
+          .then(function (r) { return r.json(); })
           .then(function (data) {
             loading.style.display = 'none';
-            checkBtn.disabled = false;
-            renderGrammarResults(data, text);
+            grammarBtn.disabled = false;
+            renderResults(data, text);
           })
           .catch(function () {
             loading.style.display = 'none';
-            checkBtn.disabled = false;
-            results.innerHTML = '<p class="grammar-error"><i class="bi bi-exclamation-triangle-fill"></i> Could not reach the grammar service. Please check your internet connection and try again.</p>';
+            grammarBtn.disabled = false;
+            results.innerHTML = '<div class="awt-gr-notice awt-gr-notice--error"><i class="bi bi-exclamation-triangle-fill"></i><span>Could not reach the AI grammar service. Please check your connection and try again.</span></div>';
           });
         });
 
-        function renderGrammarResults(data, originalText) {
+        // ── Render grammar results ────────────────────────────────────────────
+        function renderResults(data, originalText) {
           if (!data.matches || data.matches.length === 0) {
-            results.innerHTML = '<div class="grammar-all-clear"><i class="bi bi-patch-check-fill"></i><span>No issues found! Your text looks great.</span></div>';
+            results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-patch-check-fill"></i></div><div><strong>No issues found!</strong><p>Your text looks great — the AI found no grammar, spelling or style problems.</p></div></div>';
             return;
           }
 
           var count = data.matches.length;
-          var html = '<div class="grammar-summary"><i class="bi bi-exclamation-circle-fill"></i> <strong>' + count + ' issue' + (count > 1 ? 's' : '') + '</strong> found</div>';
+          var html  = '<div class="awt-gr-summary"><div class="awt-gr-summary-icon"><i class="bi bi-cpu-fill"></i></div><div><strong>AI found ' + count + ' issue' + (count > 1 ? 's' : '') + '</strong><span>Click a suggestion to apply it instantly</span></div></div>';
 
-          html += '<div class="grammar-issues-list">';
+          html += '<div class="awt-gr-list">';
           data.matches.forEach(function (match, idx) {
-            var snippetStart = Math.max(0, match.offset - 20);
-            var snippetEnd = Math.min(originalText.length, match.offset + match.length + 20);
-            var snippet = originalText.substring(snippetStart, snippetEnd);
-            var issueWord = originalText.substring(match.offset, match.offset + match.length);
-            var issueOffsetInSnippet = match.offset - snippetStart;
-            var highlightedSnippet = escapeHtml(snippet.substring(0, issueOffsetInSnippet))
-              + '<mark>' + escapeHtml(issueWord) + '</mark>'
-              + escapeHtml(snippet.substring(issueOffsetInSnippet + issueWord.length));
-            var suggestions = (match.replacements || []).slice(0, 5).map(function (r) { return r.value; });
+            var issueType = match.rule && match.rule.issueType ? match.rule.issueType : 'suggestion';
+            var typeClass  = 'awt-gr-tag--' + issueType.split('_')[0];
+            var snippetStart = Math.max(0, match.offset - 25);
+            var snippetEnd   = Math.min(originalText.length, match.offset + match.length + 25);
+            var snippet      = originalText.substring(snippetStart, snippetEnd);
+            var issueWord    = originalText.substring(match.offset, match.offset + match.length);
+            var relOff       = match.offset - snippetStart;
+            var highlighted  = esc(snippet.substring(0, relOff))
+              + '<mark class="awt-gr-mark">' + esc(issueWord) + '</mark>'
+              + esc(snippet.substring(relOff + issueWord.length));
+            var suggestions = (match.replacements || []).slice(0, 6).map(function (r) { return r.value; });
 
-            html += '<div class="grammar-issue-item">';
-            html += '<div class="grammar-issue-header">';
-            html += '<span class="grammar-issue-num">' + (idx + 1) + '</span>';
-            html += '<span class="grammar-issue-type">' + escapeHtml(match.rule && match.rule.issueType ? match.rule.issueType.replace(/_/g, ' ') : 'suggestion') + '</span>';
+            html += '<div class="awt-gr-item">';
+            html += '<div class="awt-gr-item-head">';
+            html += '<span class="awt-gr-num">' + (idx + 1) + '</span>';
+            html += '<span class="awt-gr-tag ' + typeClass + '">' + esc(issueType.replace(/_/g, ' ')) + '</span>';
+            html += '<span class="awt-gr-msg">' + esc(match.message) + '</span>';
             html += '</div>';
-            html += '<p class="grammar-issue-msg">' + escapeHtml(match.message) + '</p>';
-            html += '<p class="grammar-issue-context">…' + highlightedSnippet + '…</p>';
+            html += '<div class="awt-gr-context">…' + highlighted + '…</div>';
             if (suggestions.length > 0) {
-              html += '<div class="grammar-suggestions"><span>Suggestions:</span>';
+              html += '<div class="awt-gr-suggestions"><span class="awt-gr-sug-label"><i class="bi bi-lightbulb-fill"></i> AI Suggestions:</span><div class="awt-gr-sug-chips">';
               suggestions.forEach(function (s) {
-                html += '<button class="grammar-suggestion-btn" data-offset="' + match.offset + '" data-length="' + match.length + '" data-value="' + escapeHtml(s) + '">' + escapeHtml(s) + '</button>';
+                html += '<button class="awt-gr-sug-chip" data-offset="' + match.offset + '" data-length="' + match.length + '" data-value="' + esc(s) + '">' + esc(s) + '</button>';
               });
-              html += '</div>';
+              html += '</div></div>';
             }
             html += '</div>';
           });
           html += '</div>';
           results.innerHTML = html;
 
-          results.querySelectorAll('.grammar-suggestion-btn').forEach(function (btn) {
+          // Apply suggestion — updates shared textarea and re-runs word counter
+          results.querySelectorAll('.awt-gr-sug-chip').forEach(function (btn) {
             btn.addEventListener('click', function () {
               var offset = parseInt(this.dataset.offset);
               var length = parseInt(this.dataset.length);
-              var value = this.dataset.value;
-              var current = input.value;
-              input.value = current.substring(0, offset) + value + current.substring(offset + length);
-              results.innerHTML = '<div class="grammar-all-clear"><i class="bi bi-arrow-repeat"></i><span>Applied! Click "Check Grammar" again to re-check.</span></div>';
+              var value  = this.dataset.value;
+              input.value = input.value.substring(0, offset) + value + input.value.substring(offset + length);
+              updateStats();
+              results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-arrow-repeat"></i></div><div><strong>Suggestion applied!</strong><p>Click "Check Grammar with AI" again to re-analyse the updated text.</p></div></div>';
             });
           });
         }
 
-        function escapeHtml(str) {
+        function esc(str) {
           return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
       })();

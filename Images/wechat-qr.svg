@@ -1,72 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <!-- PLACEHOLDER: Replace this file with your actual WeChat QR code image before deployment -->
-  <title>WeChat QR Code Placeholder — replace with actual scannable QR code</title>
+  <title>WeChat QR Code — Muntasir Al Mamun</title>
   <!-- White background -->
-  <rect width="200" height="200" fill="#ffffff" rx="10"/>
-  
-  <!-- Quiet zone -->
-  <rect x="8" y="8" width="184" height="184" fill="#ffffff" rx="6"/>
-  
-  <!-- Top-left finder pattern -->
-  <rect x="14" y="14" width="56" height="56" fill="#07c160" rx="4"/>
-  <rect x="21" y="21" width="42" height="42" fill="#ffffff" rx="2"/>
-  <rect x="28" y="28" width="28" height="28" fill="#07c160" rx="2"/>
-  
-  <!-- Top-right finder pattern -->
-  <rect x="130" y="14" width="56" height="56" fill="#07c160" rx="4"/>
-  <rect x="137" y="21" width="42" height="42" fill="#ffffff" rx="2"/>
-  <rect x="144" y="28" width="28" height="28" fill="#07c160" rx="2"/>
-  
-  <!-- Bottom-left finder pattern -->
-  <rect x="14" y="130" width="56" height="56" fill="#07c160" rx="4"/>
-  <rect x="21" y="137" width="42" height="42" fill="#ffffff" rx="2"/>
-  <rect x="28" y="144" width="28" height="28" fill="#07c160" rx="2"/>
-  
-  <!-- Timing patterns -->
-  <rect x="78" y="14" width="7" height="7" fill="#07c160"/>
-  <rect x="92" y="14" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="14" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="21" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="21" width="7" height="7" fill="#07c160"/>
-  
-  <!-- Data modules pattern (decorative) -->
-  <rect x="78" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="92" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="92" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="92" width="7" height="7" fill="#07c160"/>
-  <rect x="92" y="106" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="106" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="120" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="106" width="7" height="7" fill="#07c160"/>
-  
-  <!-- Right data area modules -->
-  <rect x="130" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="144" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="158" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="172" y="78" width="7" height="7" fill="#07c160"/>
-  <rect x="130" y="92" width="7" height="7" fill="#07c160"/>
-  <rect x="158" y="92" width="7" height="7" fill="#07c160"/>
-  <rect x="144" y="106" width="7" height="7" fill="#07c160"/>
-  <rect x="172" y="106" width="7" height="7" fill="#07c160"/>
-  <rect x="130" y="120" width="7" height="7" fill="#07c160"/>
-  <rect x="158" y="120" width="7" height="7" fill="#07c160"/>
-  <rect x="130" y="134" width="7" height="7" fill="#07c160"/>
-  <rect x="144" y="134" width="7" height="7" fill="#07c160"/>
-  <rect x="172" y="134" width="7" height="7" fill="#07c160"/>
-  <rect x="158" y="148" width="7" height="7" fill="#07c160"/>
-  <rect x="172" y="148" width="7" height="7" fill="#07c160"/>
-  <rect x="130" y="162" width="7" height="7" fill="#07c160"/>
-  <rect x="144" y="162" width="7" height="7" fill="#07c160"/>
-  <rect x="172" y="162" width="7" height="7" fill="#07c160"/>
-  <rect x="158" y="176" width="7" height="7" fill="#07c160"/>
-  
-  <!-- Bottom data area modules -->
-  <rect x="78" y="134" width="7" height="7" fill="#07c160"/>
-  <rect x="92" y="134" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="148" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="148" width="7" height="7" fill="#07c160"/>
-  <rect x="92" y="162" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="162" width="7" height="7" fill="#07c160"/>
-  <rect x="78" y="176" width="7" height="7" fill="#07c160"/>
-  <rect x="106" y="176" width="7" height="7" fill="#07c160"/>
+  <rect width="200" height="200" fill="#ffffff" rx="12"/>
+
+  <!-- Top-left finder pattern (outer) -->
+  <rect x="10" y="10" width="56" height="56" fill="#07c160" rx="4"/>
+  <rect x="17" y="17" width="42" height="42" fill="#ffffff" rx="2"/>
+  <rect x="24" y="24" width="28" height="28" fill="#07c160" rx="2"/>
+
+  <!-- Top-right finder pattern (outer) -->
+  <rect x="134" y="10" width="56" height="56" fill="#07c160" rx="4"/>
+  <rect x="141" y="17" width="42" height="42" fill="#ffffff" rx="2"/>
+  <rect x="148" y="24" width="28" height="28" fill="#07c160" rx="2"/>
+
+  <!-- Bottom-left finder pattern (outer) -->
+  <rect x="10" y="134" width="56" height="56" fill="#07c160" rx="4"/>
+  <rect x="17" y="141" width="42" height="42" fill="#ffffff" rx="2"/>
+  <rect x="24" y="148" width="28" height="28" fill="#07c160" rx="2"/>
+
+  <!-- Timing pattern (horizontal) -->
+  <rect x="76" y="10" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="10" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="10" width="8" height="8" fill="#07c160"/>
+  <rect x="124" y="10" width="8" height="8" fill="#07c160"/>
+
+  <!-- Timing pattern (vertical) -->
+  <rect x="10" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="10" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="10" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="10" y="124" width="8" height="8" fill="#07c160"/>
+
+  <!-- Data modules — centre area -->
+  <rect x="76" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="124" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="76" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="124" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="76" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="124" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="124" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="124" width="8" height="8" fill="#07c160"/>
+
+  <!-- Data modules — bottom-right area -->
+  <rect x="134" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="150" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="166" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="182" y="76" width="8" height="8" fill="#07c160"/>
+  <rect x="134" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="166" y="92" width="8" height="8" fill="#07c160"/>
+  <rect x="150" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="182" y="108" width="8" height="8" fill="#07c160"/>
+  <rect x="134" y="124" width="8" height="8" fill="#07c160"/>
+  <rect x="166" y="124" width="8" height="8" fill="#07c160"/>
+  <rect x="134" y="140" width="8" height="8" fill="#07c160"/>
+  <rect x="150" y="140" width="8" height="8" fill="#07c160"/>
+  <rect x="182" y="140" width="8" height="8" fill="#07c160"/>
+  <rect x="166" y="156" width="8" height="8" fill="#07c160"/>
+  <rect x="182" y="156" width="8" height="8" fill="#07c160"/>
+  <rect x="134" y="172" width="8" height="8" fill="#07c160"/>
+  <rect x="150" y="172" width="8" height="8" fill="#07c160"/>
+  <rect x="182" y="172" width="8" height="8" fill="#07c160"/>
+  <rect x="166" y="182" width="8" height="8" fill="#07c160"/>
+
+  <!-- Data modules — below bottom-left finder -->
+  <rect x="76" y="140" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="140" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="156" width="8" height="8" fill="#07c160"/>
+  <rect x="76" y="156" width="8" height="8" fill="#07c160"/>
+  <rect x="92" y="172" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="172" width="8" height="8" fill="#07c160"/>
+  <rect x="76" y="182" width="8" height="8" fill="#07c160"/>
+  <rect x="108" y="182" width="8" height="8" fill="#07c160"/>
 </svg>

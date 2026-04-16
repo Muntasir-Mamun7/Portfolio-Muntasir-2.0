@@ -758,15 +758,15 @@
 
 /* Dark Mode Specific Adjustments */
 [data-theme="dark"] .chatbot-window {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 212, 255, 0.06);
 }
 
 [data-theme="dark"] .chatbot-toggle {
-  box-shadow: 0 4px 20px rgba(129, 140, 248, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
 }
 
 [data-theme="dark"] .chatbot-toggle:hover {
-  box-shadow: 0 6px 25px rgba(129, 140, 248, 0.6);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.55);
 }
 
 /* Error Message */

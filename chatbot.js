@@ -514,9 +514,14 @@ class AIChatbot {
   }
 }
 
-// Initialize chatbot when DOM is ready
+// Initialize chatbot when DOM is ready (handles both inline and dynamic loading)
 let chatbot;
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    chatbot = new AIChatbot();
+    console.log('%cAI Chatbot initialized!', 'color: #667eea; font-size: 14px; font-weight: bold;');
+  });
+} else {
   chatbot = new AIChatbot();
   console.log('%cAI Chatbot initialized!', 'color: #667eea; font-size: 14px; font-weight: bold;');
-});
+}

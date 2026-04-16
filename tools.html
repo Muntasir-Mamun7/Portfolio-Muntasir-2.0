@@ -216,7 +216,7 @@
                 <div class="awt-spinner-core"><i class="bi bi-robot"></i></div>
               </div>
               <div class="awt-loading-text">
-                <span>AI is analysing your text…</span>
+                <span>AI is analyzing your text…</span>
                 <span class="awt-loading-sub">Checking grammar, spelling &amp; style</span>
               </div>
             </div>
@@ -536,13 +536,13 @@
               var value  = this.dataset.value;
               input.value = input.value.substring(0, offset) + value + input.value.substring(offset + length);
               updateStats();
-              results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-arrow-repeat"></i></div><div><strong>Suggestion applied!</strong><p>Click "Check Grammar with AI" again to re-analyse the updated text.</p></div></div>';
+              results.innerHTML = '<div class="awt-gr-allclear"><div class="awt-gr-allclear-icon"><i class="bi bi-arrow-repeat"></i></div><div><strong>Suggestion applied!</strong><p>Click "Check Grammar with AI" again to re-analyze the updated text.</p></div></div>';
             });
           });
         }
 
         function esc(str) {
-          return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
       })();
     </script>

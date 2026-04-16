@@ -451,9 +451,14 @@
 
           html += '<div class="grammar-issues-list">';
           data.matches.forEach(function (match, idx) {
-            var snippet = originalText.substring(Math.max(0, match.offset - 20), match.offset + match.length + 20);
+            var snippetStart = Math.max(0, match.offset - 20);
+            var snippetEnd = Math.min(originalText.length, match.offset + match.length + 20);
+            var snippet = originalText.substring(snippetStart, snippetEnd);
             var issueWord = originalText.substring(match.offset, match.offset + match.length);
-            var highlightedSnippet = snippet.replace(issueWord, '<mark>' + escapeHtml(issueWord) + '</mark>');
+            var issueOffsetInSnippet = match.offset - snippetStart;
+            var highlightedSnippet = escapeHtml(snippet.substring(0, issueOffsetInSnippet))
+              + '<mark>' + escapeHtml(issueWord) + '</mark>'
+              + escapeHtml(snippet.substring(issueOffsetInSnippet + issueWord.length));
             var suggestions = (match.replacements || []).slice(0, 5).map(function (r) { return r.value; });
 
             html += '<div class="grammar-issue-item">';

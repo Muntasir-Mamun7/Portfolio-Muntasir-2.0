@@ -3921,11 +3921,6 @@ body {
   color: #fff;
 }
 
-[data-theme="light"] .utility-btn-primary {
-  background: var(--accent-primary);
-  color: #fff;
-}
-
 .utility-btn-primary:hover:not(:disabled) {
   opacity: 0.88;
   transform: translateY(-2px);
@@ -4041,10 +4036,6 @@ body {
   flex-shrink: 0;
 }
 
-[data-theme="light"] .grammar-issue-num {
-  color: #fff;
-}
-
 .grammar-issue-type {
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -4102,10 +4093,6 @@ body {
 
 .grammar-suggestion-btn:hover {
   background: var(--accent-primary);
-  color: #fff;
-}
-
-[data-theme="light"] .grammar-suggestion-btn:hover {
   color: #fff;
 }
 

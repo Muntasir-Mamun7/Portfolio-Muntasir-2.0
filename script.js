@@ -11,10 +11,16 @@ function toggleMenu() {
 // ===== LOADING SCREEN =====
 window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
-  const LOADING_SCREEN_DURATION = 1600; // ms visible before fade-out transition begins
+  if (loadingScreen) loadingScreen.classList.add('hidden');
+});
+
+// ===== LAZY LOAD CHATBOT =====
+window.addEventListener('load', () => {
   setTimeout(() => {
-    loadingScreen.classList.add('hidden');
-  }, LOADING_SCREEN_DURATION);
+    const s = document.createElement('script');
+    s.src = 'chatbot.js';
+    document.body.appendChild(s);
+  }, 2000);
 });
 
 // ===== DARK/LIGHT MODE TOGGLE =====
@@ -53,26 +59,41 @@ function updateThemeIcon(theme) {
   });
 }
 
-// ===== SCROLL PROGRESS INDICATOR =====
-window.addEventListener('scroll', () => {
-  const scrollProgress = document.getElementById('scroll-progress');
-  const windowHeight = window.innerHeight;
-  const documentHeight = document.documentElement.scrollHeight;
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-  scrollProgress.style.width = scrollPercentage + '%';
-});
-
-// ===== STICKY NAVIGATION WITH SHADOW =====
+// ===== UNIFIED SCROLL HANDLER (single rAF-throttled listener) =====
 const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
+let scrollTicking = false;
+function onScroll() {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(() => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Scroll progress indicator
+      const scrollProgress = document.getElementById('scroll-progress');
+      if (scrollProgress) {
+        scrollProgress.style.width = ((scrollY / (documentHeight - windowHeight)) * 100) + '%';
+      }
+
+      // Sticky nav shadow
+      if (nav) nav.classList.toggle('scrolled', scrollY > 100);
+
+      // Parallax (desktop only)
+      if (window.innerWidth >= 1200) {
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) heroVisual.style.transform = `translateY(${scrollY * 0.3}px)`;
+      }
+
+      // Back to top button visibility
+      const backToTopBtn = document.getElementById('back-to-top-btn');
+      if (backToTopBtn) backToTopBtn.classList.toggle('visible', scrollY > 400);
+
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
-});
+}
+window.addEventListener('scroll', onScroll, { passive: true });
 
 // ===== SMOOTH SCROLL FOR NAVIGATION LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -293,24 +314,7 @@ if (heroSection) {
 }
 
 // ===== ENHANCED SCROLL ANIMATIONS =====
-// Add parallax effect to hero section with performance optimization
-let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      const heroSection = document.getElementById('hero-section');
-      if (heroSection && window.innerWidth >= 1200) {
-        const scrolled = window.pageYOffset;
-        const heroVisual = document.querySelector('.hero-visual');
-        if (heroVisual) {
-          heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-      }
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
+// Parallax effect is handled in the unified scroll handler above
 
 // ===== SMOOTH PAGE TRANSITIONS =====
 // Add fade-in effect for page sections
@@ -500,14 +504,6 @@ function handleContactSubmit(e) {
   btn.setAttribute('title', 'Back to top');
   btn.innerHTML = '<i class="bi bi-arrow-up-short"></i>';
   document.body.appendChild(btn);
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-  });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

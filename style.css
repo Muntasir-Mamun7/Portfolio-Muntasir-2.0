@@ -1,4 +1,28 @@
 /* ===== CSS VARIABLES ===== */
+
+/* ===== SKIP TO MAIN CONTENT (Accessibility) ===== */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  background: var(--accent-primary, #2c3e50);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ===== CSS VARIABLES ===== */
 :root {
   /* Light Mode Colors - Elegant & Clean */
   --bg-primary: #ffffff;
@@ -4427,6 +4451,63 @@ body {
 
 @media screen and (max-width: 420px) {
   .awt-stat-chip-lbl { font-size: 0.62rem; letter-spacing: 0; }
+}
+
+/* ===== BUTTON RESET FOR HAMBURGER ICON ===== */
+button.hamburger-icon {
+  background: none;
+  border: none;
+  outline-offset: 4px;
+}
+
+/* ===== SHARE BUTTONS (Blog) ===== */
+.blog-share {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.blog-share-label {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  color: #fff;
+}
+
+.share-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+
+.share-linkedin {
+  background-color: #0077b5;
+}
+
+.share-twitter {
+  background-color: #000;
+}
+
+/* ===== CONTACT FORM STATUS ===== */
+.form-status {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #198754;
+  font-weight: 500;
+  min-height: 1.4em;
 }
 
 

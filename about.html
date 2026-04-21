@@ -15,13 +15,18 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/about.html" />
     <meta property="og:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MoRN__7" />
     <meta name="twitter:title" content="About - Muntasir Al Mamun | Blockchain Researcher" />
     <meta name="twitter:description" content="Learn about Muntasir Al Mamun — blockchain researcher at NJUPT with published research in Springer Nature and expertise in UAV systems and smart contracts." />
     <meta name="twitter:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta name="keywords" content="Muntasir Al Mamun, blockchain researcher, UAV systems, smart contracts, NJUPT, computer science, Bangladesh, Nanjing, about" />
     <link rel="canonical" href="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/about.html" />
     <title>About Me - Muntasir Al Mamun</title>
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
@@ -41,6 +46,7 @@
     />
   </head>
   <body>
+    <a href="#about-header" class="skip-link">Skip to main content</a>
     <!-- Loading Screen -->
     <div id="loading-screen">
       <div class="loader-content">
@@ -84,11 +90,11 @@
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
+          <button class="hamburger-icon" type="button" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
           <div class="menu-links">
             <ul>
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
@@ -106,7 +112,7 @@
     </nav>
 
     <!-- About Header -->
-    <section id="about-header">
+    <section id="about-header" tabindex="-1">
       <div class="header-content">
         <p class="section__text__p1">Get To Know More</p>
         <h1 class="title">About Me</h1>

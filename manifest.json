@@ -1,0 +1,26 @@
+{
+  "name": "Muntasir Al Mamun — Portfolio",
+  "short_name": "MoRN Portfolio",
+  "description": "Blockchain Researcher & Computer Science Student at NJUPT specializing in blockchain-enabled UAV systems and decentralized solutions.",
+  "start_url": "/Portfolio-Muntasir-2.0/",
+  "scope": "/Portfolio-Muntasir-2.0/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#2c3e50",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "Images/Muntasir_AL_Mamun_logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Images/Muntasir_AL_Mamun_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

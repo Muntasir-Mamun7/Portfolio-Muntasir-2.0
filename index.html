@@ -15,10 +15,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/" />
     <meta property="og:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MoRN__7" />
     <meta name="twitter:title" content="Muntasir Al Mamun - Blockchain Researcher &amp; Computer Science Student" />
     <meta name="twitter:description" content="Blockchain Researcher at NJUPT specializing in blockchain-enabled UAV systems, spectrum security, and decentralized solutions for next-generation aerial networks." />
     <meta name="twitter:image" content="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/Images/Muntasir_AL_Mamun_logo.png" />
+    <meta name="keywords" content="Muntasir Al Mamun, blockchain researcher, UAV systems, smart contracts, Solidity, spectrum security, 6G networks, NJUPT, computer science, Ethereum, Hardhat, decentralized" />
     <link rel="canonical" href="https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/" />
     <script type="application/ld+json">
     {
@@ -43,8 +47,9 @@
       "knowsAbout": ["Blockchain", "UAV Systems", "Smart Contracts", "Spectrum Security", "Solidity", "Ethereum"]
     }
     </script>
-    <title>Muntasir Al Mamun - Portfolio</title>
+    <title>Muntasir Al Mamun | Blockchain Researcher & CS Student at NJUPT</title>
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
@@ -65,6 +70,7 @@
     </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Loading Screen -->
     <div id="loading-screen">
       <div class="loader-content">
@@ -115,11 +121,11 @@
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
+          <button class="hamburger-icon" type="button" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
           <div class="menu-links">
             <ul>
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
@@ -137,8 +143,8 @@
     </nav>
 
     
-    <section id="home">
-      <div class="section__text">
+    <section id="home" tabindex="-1">
+      <div id="main-content" class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title typing-effect">Muntasir Al Mamun</h1>
         <p class="section__text__p2">Blockchain Researcher & Computer Science Student</p>
@@ -296,7 +302,7 @@
           </p>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-group">
           <label for="contact-name">Name</label>
           <input type="text" id="contact-name" name="name" placeholder="Your Name" required autocomplete="name" />
@@ -310,6 +316,7 @@
           <textarea id="contact-message" name="message" placeholder="Your message…" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn-color-1">Send Message</button>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
       </form>
     </section>
     <footer>

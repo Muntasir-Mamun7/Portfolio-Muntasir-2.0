@@ -21,40 +21,76 @@ class AIChatbot {
         origin: "Bangladesh",
         university: "Nanjing University of Posts and Telecommunications",
         degree: "B.Eng. Computer Science & Technology",
+        gpa: "4.23/5.0",
         email: "munmamun9@gmail.com",
         linkedin: "https://www.linkedin.com/in/muntasirmamun7/",
         github: "https://github.com/Muntasir-Mamun7",
+        orcid: "https://orcid.org/0009-0008-5640-5193",
+        medium: "https://muntasirmamun7.medium.com/",
+        twitter: "https://x.com/MoRN__7",
         facebook: "https://www.facebook.com/Muntasir0724/",
         instagram: "https://www.instagram.com/morn.m7/",
-        experience: "Published research in Springer Nature and Blockchain Journal, with active work on UAV authentication systems using Proof-of-History blockchain",
+        experience: "2 published research papers (Springer Nature & Blockchain Journal) with active work on UAV authentication systems using Proof-of-History blockchain technology",
         projectsPage: "https://muntasir-mamun7.github.io/Portfolio-Muntasir-2.0/projects.html"
       },
       skills: {
         languages: ["Java", "Python", "JavaScript", "C", "C++", "Solidity", "HTML/CSS"],
-        frameworks: ["React", "Node.js", "Web3.js", "Hardhat", "AirSim"],
+        frameworks: ["React", "Node.js", "Web3.js", "Hardhat", "AirSim", "PX4 Autopilot"],
         databases: ["MySQL"],
-        tools: ["Git", "GitHub", "VS Code", "Docker", "MetaMask", "IPFS"],
-        expertise: ["Blockchain Development", "UAV Systems", "Smart Contracts", "Spectrum Security", "Decentralized Solutions"]
+        tools: ["Git", "GitHub", "VS Code", "Docker", "MetaMask", "IPFS", "Unreal Engine"],
+        expertise: ["Blockchain Development", "UAV Systems", "Smart Contracts", "Spectrum Security", "Decentralized Solutions", "6G Networks"]
       },
       projects: [
         {
-          name: "Baymax 2.3",
-          description: "A modern, responsive web application with interactive elements and smooth animations",
-          technologies: ["HTML", "CSS", "JavaScript", "React"]
+          name: "UAVSpectrumChain",
+          description: "A blockchain-based smart contract framework for secure and credible spectrum trading among UAVs. Implements Ethereum smart contracts for trustless spectrum auctions and transparent transaction records. Published in Springer Nature, 2025.",
+          technologies: ["Blockchain", "Solidity", "Hardhat", "UAV", "Ethereum"],
+          link: "https://doi.org/10.1007/978-981-95-4142-3_3"
         },
         {
-          name: "Portfolio Website",
-          description: "Personal portfolio showcasing projects, skills, and professional experience",
-          technologies: ["HTML", "CSS", "JavaScript"]
+          name: "Baymax 2.3",
+          description: "A modern, responsive web application with interactive elements and smooth animations",
+          technologies: ["HTML", "CSS", "JavaScript"],
+          link: "https://muntasir-mamun7.github.io/baymax-2.3/"
+        },
+        {
+          name: "Beat Chimp - Memory Test Game",
+          description: "An engaging Java-based memory testing game with progressive difficulty levels and performance tracking",
+          technologies: ["Java", "Java Swing", "GUI"]
+        },
+        {
+          name: "Baymax 2.0",
+          description: "An earlier iteration of the Baymax project showcasing responsive web development skills",
+          technologies: ["HTML", "CSS", "JavaScript"],
+          link: "https://muntasir-mamun7.github.io/baymax-2-0/"
+        },
+        {
+          name: "G3 Architecture",
+          description: "A sleek architecture website design showcasing modern layout techniques and UI/UX design",
+          technologies: ["HTML", "CSS", "Design"],
+          link: "https://muntasir-mamun7.github.io/g3-arch/"
+        }
+      ],
+      publications: [
+        {
+          title: "UAVSpectrumChain: Smart-Contract Based Credible Spectrum Trading for UAV Communications",
+          venue: "Springer Nature, 2025",
+          doi: "https://doi.org/10.1007/978-981-95-4142-3_3"
+        },
+        {
+          title: "Blockchain-enabled Dynamic Credible Spectrum Sharing in 6G Networks",
+          venue: "ELSP Blockchain Journal, 2025",
+          doi: "https://doi.org/10.55092/blockchain20250014"
         }
       ],
       interests: [
-        "Software Development",
-        "Web Technologies",
+        "Blockchain Technology",
+        "UAV Systems & Aerial Networks",
+        "Smart Contract Development",
+        "Spectrum Security & 6G Networks",
+        "Web Development",
         "Artificial Intelligence",
-        "Problem Solving",
-        "Continuous Learning",
-        "Technology Innovation"
+        "Continuous Learning"
       ]
     };
   }
@@ -138,17 +174,17 @@ class AIChatbot {
 
   toggleChatbot() {
     this.isOpen = !this.isOpen;
-    const window = document.getElementById('chatbot-window');
+    const chatWindow = document.getElementById('chatbot-window');
     const toggleBtn = document.getElementById('chatbot-toggle');
     
     if (this.isOpen) {
-      window.classList.add('active');
+      chatWindow.classList.add('active');
       toggleBtn.classList.add('active');
       document.getElementById('chatbot-input').focus();
     } else {
-      window.classList.remove('active');
+      chatWindow.classList.remove('active');
       toggleBtn.classList.remove('active');
-      window.style.height = ''; // Reset any JS-set height from keyboard handling
+      chatWindow.style.height = ''; // Reset any JS-set height from keyboard handling
     }
   }
 
@@ -260,6 +296,14 @@ class AIChatbot {
       return `I'm MoRN, Muntasir's AI assistant! I'm here to help answer questions about Muntasir's background, skills, projects, and general knowledge. How can I help you today?`;
     }
 
+    // Publications / research papers
+    if (message.includes('publication') || message.includes('paper') || message.includes('research') || message.includes('published')) {
+      const pubList = kb.publications.map(p =>
+        `**${p.title}**\nPublished in: ${p.venue}\nDOI: ${p.doi}`
+      ).join('\n\n');
+      return `${kb.personal.name} has ${kb.publications.length} published research papers:\n\n${pubList}`;
+    }
+
     // Projects - check this before generic "where" to avoid conflict
     if (/\bproject(s)?\b/.test(message) || message.includes('work') || message.includes('built')) {
       const projectList = kb.projects.map(p => 
@@ -279,18 +323,19 @@ class AIChatbot {
       }
       response += `LinkedIn: ${kb.personal.linkedin}\n`;
       response += `GitHub: ${kb.personal.github}\n`;
+      response += `X (Twitter): ${kb.personal.twitter}\n`;
       response += `\nFeel free to connect and follow!`;
       return response;
     }
 
     // Contact - updated to include social media
     if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('linkedin') || message.includes('github')) {
-      return `You can connect with ${kb.personal.name} through:\n\n**Email:** ${kb.personal.email}\n**LinkedIn:** ${kb.personal.linkedin}\n**GitHub:** ${kb.personal.github}\n**Facebook:** ${kb.personal.facebook}\n**Instagram:** ${kb.personal.instagram}\n\nFeel free to reach out for collaborations or opportunities!`;
+      return `You can connect with ${kb.personal.name} through:\n\n**Email:** ${kb.personal.email}\n**LinkedIn:** ${kb.personal.linkedin}\n**GitHub:** ${kb.personal.github}\n**ORCID:** ${kb.personal.orcid}\n**Medium:** ${kb.personal.medium}\n**Facebook:** ${kb.personal.facebook}\n**Instagram:** ${kb.personal.instagram}\n\nFeel free to reach out for collaborations or opportunities!`;
     }
 
     // About Muntasir
     if (message.includes('who') || message.includes('about') || message.includes('introduce')) {
-      return `I'm ${kb.personal.name}, a passionate Computer Science student from ${kb.personal.origin}, currently pursuing my degree at ${kb.personal.university} in ${kb.personal.location}. I have ${kb.personal.experience} and specialize in web development and software engineering.`;
+      return `${kb.personal.name} is a passionate Computer Science & Technology researcher from ${kb.personal.origin}, currently pursuing his ${kb.personal.degree} at ${kb.personal.university} in ${kb.personal.location} (GPA: ${kb.personal.gpa}). He has ${kb.personal.experience} and specializes in blockchain technology and UAV systems.`;
     }
 
     // Location - check after more specific keywords
@@ -299,8 +344,8 @@ class AIChatbot {
     }
 
     // Education
-    if (message.includes('education') || message.includes('university') || message.includes('study') || message.includes('degree')) {
-      return `${kb.personal.name} is pursuing a ${kb.personal.degree} at ${kb.personal.university} in China. He's passionate about computer science and software development.`;
+    if (message.includes('education') || message.includes('university') || message.includes('study') || message.includes('degree') || message.includes('gpa')) {
+      return `${kb.personal.name} is pursuing a ${kb.personal.degree} at ${kb.personal.university} in China, with a GPA of ${kb.personal.gpa}. He's passionate about blockchain technology, UAV systems, and computer science research.`;
     }
 
     // Skills
@@ -312,7 +357,7 @@ class AIChatbot {
 
     // Experience
     if (message.includes('experience') || message.includes('years')) {
-      return `${kb.personal.name} has ${kb.personal.experience}. He has worked on various web development and software engineering projects, gaining hands-on experience with modern technologies and frameworks.`;
+      return `${kb.personal.name} has ${kb.personal.experience}. He has worked on blockchain and UAV research projects, gaining hands-on experience with smart contract development, spectrum security, and decentralized systems.`;
     }
 
     // Languages - programming
@@ -322,7 +367,7 @@ class AIChatbot {
 
     // Interests
     if (message.includes('interest') || message.includes('hobby') || message.includes('passion')) {
-      return `${kb.personal.name}'s interests include: ${kb.interests.join(', ')}. He's particularly passionate about creating innovative solutions and staying updated with the latest technology trends.`;
+      return `${kb.personal.name}'s interests include: ${kb.interests.join(', ')}. He's particularly passionate about blockchain-enabled UAV systems and advancing decentralized solutions for next-generation aerial networks.`;
     }
 
     return null;
@@ -463,11 +508,21 @@ class AIChatbot {
   }
 
   formatMessage(text) {
-    // Convert **bold** to <strong>
+    // Sanitize HTML entities first to prevent XSS
+    const escapeHtml = (str) => str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;');
+
+    text = escapeHtml(text);
+
+    // Convert **bold** to <strong> (safe: HTML already escaped above)
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     
-    // Convert URLs to links
-    text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    // Convert URLs to links (safe: HTML already escaped, URL is treated as text content)
+    text = text.replace(/(https?:\/\/[^\s<>"]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
     
     // Convert email to mailto link
     text = text.replace(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g, '<a href="mailto:$1">$1</a>');

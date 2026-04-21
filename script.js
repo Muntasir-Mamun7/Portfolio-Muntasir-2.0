@@ -16,11 +16,17 @@ window.addEventListener('load', () => {
 
 // ===== LAZY LOAD CHATBOT =====
 window.addEventListener('load', () => {
-  setTimeout(() => {
+  const loadChatbot = () => {
     const s = document.createElement('script');
     s.src = 'chatbot.js';
     document.body.appendChild(s);
-  }, 2000);
+  };
+  // Use requestIdleCallback when available; fall back to a short timeout
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadChatbot, { timeout: 3000 });
+  } else {
+    setTimeout(loadChatbot, 500);
+  }
 });
 
 // ===== DARK/LIGHT MODE TOGGLE =====
@@ -227,6 +233,9 @@ certificateItems.forEach(item => {
     const img = this.querySelector('img');
     const modal = document.createElement('div');
     modal.className = 'certificate-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Certificate image');
     modal.style.display = 'flex';
     modal.style.alignItems = 'center';
     modal.style.justifyContent = 'center';
@@ -247,22 +256,32 @@ certificateItems.forEach(item => {
     modal.appendChild(closeBtn);
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
-    
-    // Close modal on click
-    modal.addEventListener('click', function() {
-      modal.style.opacity = '0';
-      setTimeout(() => {
-        document.body.removeChild(modal);
-      }, 300);
-    });
+
+    // Trap focus inside the modal
+    const focusableElements = [closeBtn];
+    closeBtn.focus();
+
+    const trapFocus = (e) => {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        closeBtn.focus();
+      }
+    };
+    modal.addEventListener('keydown', trapFocus);
     
     const closeModal = (e) => {
       if (e) e.stopPropagation();
+      modal.removeEventListener('keydown', trapFocus);
       modal.style.opacity = '0';
       setTimeout(() => {
         if (document.body.contains(modal)) document.body.removeChild(modal);
       }, 300);
     };
+
+    // Close modal on backdrop click (but not on image click)
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal(e);
+    });
 
     closeBtn.addEventListener('click', closeModal);
 
@@ -274,23 +293,24 @@ certificateItems.forEach(item => {
       }
     };
     document.addEventListener('keydown', escHandler);
-    closeBtn.focus();
   });
 });
 
 // ===== HERO SECTION COUNTER ANIMATION =====
 function animateCounter(element, target, duration = 2000) {
-  let start = 0;
-  const increment = target / (duration / 16); // 60fps
-  const timer = setInterval(() => {
-    start += increment;
-    if (start >= target) {
-      element.textContent = target;
-      clearInterval(timer);
+  let start = null;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const elapsed = timestamp - start;
+    const progress = Math.min(elapsed / duration, 1);
+    element.textContent = Math.floor(progress * target);
+    if (progress < 1) {
+      requestAnimationFrame(step);
     } else {
-      element.textContent = Math.floor(start);
+      element.textContent = target;
     }
-  }, 16);
+  };
+  requestAnimationFrame(step);
 }
 
 // Trigger counter animation when hero section is visible
@@ -486,14 +506,52 @@ if (wechatQrImg && wechatQrFallback) {
 }());
 
 // ===== CONTACT FORM =====
-function handleContactSubmit(e) {
-  e.preventDefault();
-  const name = document.getElementById('contact-name').value.trim();
-  const email = document.getElementById('contact-email').value.trim();
-  const message = document.getElementById('contact-message').value.trim();
-  const subject = `Portfolio Contact from ${name}`;
-  const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-  window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// To enable form submissions, sign up at https://formspree.io and replace
+// 'YOUR_FORM_ID' in index.html with your actual form endpoint ID.
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    if (statusEl) statusEl.textContent = '';
+
+    try {
+      const response = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        if (statusEl) statusEl.textContent = '✓ Message sent! I\'ll get back to you soon.';
+        this.reset();
+      } else {
+        // Fallback to mailto if Formspree endpoint is not yet configured
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+        const subject = `Portfolio Contact from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+    } catch {
+      // Network error or form not yet configured — fall back to mailto
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+      const subject = `Portfolio Contact from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
 }
 
 // ===== BACK TO TOP BUTTON =====

@@ -119,7 +119,10 @@
 
     <!-- Certificates Gallery -->
     <section id="certificates-main">
-      <div class="certificates-grid">
+      <div class="cert-slider-wrapper" id="certSliderWrapper">
+        <button class="cert-slider-btn cert-slider-prev" id="certPrev" aria-label="Previous certificate">&#8249;</button>
+        <button class="cert-slider-btn cert-slider-next" id="certNext" aria-label="Next certificate">&#8250;</button>
+        <div class="cert-slider-track" id="certSliderTrack">
         
         <!-- Certificate 0: HSK Level 4 -->
         <div class="certificate-item horizontal">
@@ -650,7 +653,10 @@
           </div>
         </div>
 
-      </div>
+      </div><!-- /.cert-slider-track -->
+        <div class="cert-slider-dots" id="certDots"></div>
+        <p class="cert-slider-counter" id="certCounter"></p>
+      </div><!-- /.cert-slider-wrapper -->
     </section>
 
     <!-- Back to Home -->
@@ -678,5 +684,138 @@
     </footer>
     
     <script src="script.js" defer></script>
+    <script>
+    (function () {
+      'use strict';
+
+      var wrapper = document.getElementById('certSliderWrapper');
+      var track   = document.getElementById('certSliderTrack');
+      var prevBtn = document.getElementById('certPrev');
+      var nextBtn = document.getElementById('certNext');
+      var dotsEl  = document.getElementById('certDots');
+      var counter = document.getElementById('certCounter');
+
+      if (!wrapper || !track) return;
+
+      var slides = Array.from(track.querySelectorAll('.certificate-item'));
+      var total  = slides.length;
+      if (total === 0) return;
+
+      var current   = 0;
+      var autoTimer = null;
+      var AUTO_DELAY = 4500; // ms between auto-advances
+
+      /* ── Build dot indicators ── */
+      slides.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'cert-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to certificate ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+        dotsEl.appendChild(dot);
+      });
+
+      function getDots() { return dotsEl.querySelectorAll('.cert-dot'); }
+
+      /* ── Core navigation ── */
+      function goTo(index) {
+        slides[current].setAttribute('aria-hidden', 'true');
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        slides[current].removeAttribute('aria-hidden');
+
+        var dots = getDots();
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+
+        counter.textContent = (current + 1) + ' / ' + total;
+      }
+
+      function goNext() { goTo(current + 1); }
+      function goPrev() { goTo(current - 1); }
+
+      /* ── Initial state ── */
+      slides.forEach(function (s, i) {
+        if (i !== 0) s.setAttribute('aria-hidden', 'true');
+      });
+      counter.textContent = '1 / ' + total;
+
+      prevBtn.addEventListener('click', function () { goPrev(); resetTimer(); });
+      nextBtn.addEventListener('click', function () { goNext(); resetTimer(); });
+
+      /* ── Auto-scroll ── */
+      function startTimer() {
+        autoTimer = setInterval(goNext, AUTO_DELAY);
+      }
+      function stopTimer() {
+        clearInterval(autoTimer);
+      }
+      function resetTimer() {
+        stopTimer();
+        startTimer();
+      }
+      startTimer();
+
+      /* Pause on hover / focus inside */
+      wrapper.addEventListener('mouseenter', stopTimer);
+      wrapper.addEventListener('mouseleave', startTimer);
+      wrapper.addEventListener('focusin',    stopTimer);
+      wrapper.addEventListener('focusout',   startTimer);
+
+      /* ── Mouse drag ── */
+      var dragStartX = 0;
+      var isDragging = false;
+      var DRAG_THRESHOLD = 50;
+
+      wrapper.addEventListener('mousedown', function (e) {
+        dragStartX = e.clientX;
+        isDragging = true;
+        wrapper.classList.add('dragging');
+        stopTimer();
+      });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        /* optional: you could show live drag here */
+      });
+
+      window.addEventListener('mouseup', function (e) {
+        if (!isDragging) return;
+        isDragging = false;
+        wrapper.classList.remove('dragging');
+        var diff = dragStartX - e.clientX;
+        if (Math.abs(diff) >= DRAG_THRESHOLD) {
+          diff > 0 ? goNext() : goPrev();
+        }
+        startTimer();
+      });
+
+      /* ── Touch / swipe ── */
+      var touchStartX = 0;
+      var touchStartY = 0;
+
+      wrapper.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        stopTimer();
+      }, { passive: true });
+
+      wrapper.addEventListener('touchend', function (e) {
+        var dx = touchStartX - e.changedTouches[0].clientX;
+        var dy = touchStartY - e.changedTouches[0].clientY;
+        /* Only treat as horizontal swipe if horizontal movement dominates */
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) >= DRAG_THRESHOLD) {
+          dx > 0 ? goNext() : goPrev();
+        }
+        startTimer();
+      }, { passive: true });
+
+      /* ── Keyboard accessibility ── */
+      wrapper.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { goPrev(); resetTimer(); }
+        if (e.key === 'ArrowRight') { goNext(); resetTimer(); }
+      });
+    })();
+    </script>
   </body>
 </html>

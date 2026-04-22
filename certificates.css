@@ -37,136 +37,58 @@
 #certificates-main {
   padding: 2rem 5% 5rem;
   min-height: auto;
-}
-
-/* ===== CERTIFICATE SLIDER ===== */
-
-.cert-slider-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   max-width: 1100px;
   margin: 0 auto;
-  overflow: hidden;
-  border-radius: 25px;
 }
 
-.cert-slider-track {
+/* ===== CATEGORY SECTIONS ===== */
+
+.cert-category {
   display: flex;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Each certificate card is one slide */
-.cert-slider-track .certificate-item {
-  flex: 0 0 100%;
-  min-width: 100%;
-  /* override grid default so it fills the slide */
-  margin: 0;
-  animation: none !important;
+.cert-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
-/* Prev / Next buttons */
-.cert-slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--border-color);
-  background: var(--card-bg);
-  color: var(--text-primary);
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
+.cert-category-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  user-select: none;
-}
-
-.cert-slider-btn:hover {
-  background: var(--accent-primary);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--accent-gradient);
   color: #fff;
-  border-color: var(--accent-primary);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: var(--shadow-lg);
-}
-
-.cert-slider-prev { left: 12px; }
-.cert-slider-next { right: 12px; }
-
-/* Dot indicators */
-.cert-slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 1.8rem;
-}
-
-.cert-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--border-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  padding: 0;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
-.cert-dot.active {
-  background: var(--accent-primary);
-  transform: scale(1.35);
-  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+.cert-category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Counter label */
-.cert-slider-counter {
-  text-align: center;
-  margin-top: 0.8rem;
-  font-size: 0.9rem;
-  color: var(--text-tertiary);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* Drag cursor while dragging */
-.cert-slider-wrapper.dragging {
-  cursor: grabbing;
-}
-
-.cert-slider-wrapper.dragging .cert-slider-track {
-  transition: none;
-}
-
-/* ===== RESPONSIVE SLIDER ADJUSTMENTS ===== */
-
-@media screen and (max-width: 768px) {
-  .cert-slider-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1.3rem;
-  }
-
-  .cert-slider-prev { left: 6px; }
-  .cert-slider-next { right: 6px; }
-}
-
-@media screen and (max-width: 480px) {
-  .cert-slider-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.1rem;
-  }
-
-  .cert-dot {
-    width: 8px;
-    height: 8px;
-  }
+/* Certificates Grid (vertical stack within each category) */
+.certificates-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 /* Certificate Item */
@@ -401,6 +323,10 @@
   .certificate-frame {
     padding: 1.2rem;
   }
+
+  .cert-category-title {
+    font-size: 1.3rem;
+  }
 }
 
 /* Mobile Landscape and Small Tablets */
@@ -414,7 +340,7 @@
   }
   
   .certificates-grid {
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .certificate-item {
@@ -438,6 +364,10 @@
   .certificate-meta {
     padding: 1.2rem;
   }
+
+  #certificates-main {
+    gap: 3rem;
+  }
 }
 
 /* Mobile Phones */
@@ -455,7 +385,7 @@
   }
   
   .certificates-grid {
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
   
   .certificate-item {
@@ -492,6 +422,20 @@
   .meta-value {
     font-size: 0.95rem;
   }
+
+  .cert-category-title {
+    font-size: 1.1rem;
+  }
+
+  .cert-category-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  #certificates-main {
+    gap: 2.5rem;
+  }
 }
 
 /* Extra Small Phones */
@@ -511,7 +455,7 @@
 
 /* High Resolution Displays */
 @media screen and (min-width: 1920px) {
-  .certificates-grid {
+  #certificates-main {
     max-width: 1600px;
   }
   
@@ -523,3 +467,4 @@
     font-size: 1.15rem;
   }
 }
+

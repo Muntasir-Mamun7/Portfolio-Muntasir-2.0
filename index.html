@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';" />
     <meta name="description" content="Muntasir Al Mamun - Blockchain Researcher & Computer Science Student at NJUPT specializing in blockchain-enabled UAV systems and decentralized solutions." />
     <meta name="author" content="Muntasir Al Mamun" />
     <meta property="og:title" content="Muntasir Al Mamun - Blockchain Researcher &amp; Computer Science Student" />
@@ -55,10 +56,8 @@
     <link rel="stylesheet" href="chatbot.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
     <!-- Bootstrap Icons for professional icons -->
     <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
     <link rel="preload" as="image" href="Images/MoRNGif.webp" type="image/webp" />
@@ -214,7 +213,7 @@
     <!-- About Section on Homepage -->
     <section id="about-home">
       <p class="section__text__p1">Get To Know</p>
-      <h1 class="title">About Me</h1>
+      <h2 class="title">About Me</h2>
       <div class="about-home-container">
         <!-- Quick Info Cards -->
         <div class="about-info-cards">
@@ -279,7 +278,7 @@
     
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
+      <h2 class="title">Contact Me</h2>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
           <i class="bi bi-envelope-fill contact-icon-bi"></i>
@@ -302,7 +301,7 @@
           </p>
         </div>
       </div>
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="contact-form" id="contact-form" action="mailto:munmamun9@gmail.com" method="POST">
         <div class="form-group">
           <label for="contact-name">Name</label>
           <input type="text" id="contact-name" name="name" placeholder="Your Name" required autocomplete="name" />

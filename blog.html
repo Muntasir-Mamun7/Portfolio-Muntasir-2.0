@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';" />
     <meta name="description" content="Blog by Muntasir Al Mamun - Blockchain researcher and Computer Science student at NJUPT. Articles on blockchain, UAV systems, smart contracts, and decentralized technologies." />
     <meta name="keywords" content="blockchain blog, UAV systems, smart contracts, spectrum security, 6G networks, Solidity, decentralized technologies, Muntasir Al Mamun" />
     <meta name="author" content="Muntasir Al Mamun" />
@@ -36,10 +37,8 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   </head>
   <body>
     <!-- Loading Screen -->
@@ -58,7 +57,7 @@
     <div class="scroll-progress" id="scroll-progress"></div>
     
     <nav id="desktop-nav">
-      <div class="logo" onclick="location.href='index.html'"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir Al Mamun</span></div>
+      <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir Al Mamun</span></a>
       <div class="nav-center">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -79,17 +78,17 @@
     </nav>
     
     <nav id="hamburger-nav">
-      <div class="logo" onclick="location.href='index.html'"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir</span></div>
+      <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir</span></a>
       <div class="nav-right">
         <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu" role="button" tabindex="0">
+          <button class="hamburger-icon" type="button" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
           <div class="menu-links">
             <ul>
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>

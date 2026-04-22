@@ -4501,7 +4501,12 @@ button.hamburger-icon {
   background-color: #000;
 }
 
-/* ===== CONTACT FORM STATUS ===== */
+/* ===== ANCHOR RESET FOR LOGO LINK ===== */
+a.logo {
+  text-decoration: none;
+}
+
+
 .form-status {
   margin-top: 0.75rem;
   font-size: 0.95rem;

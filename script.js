@@ -180,16 +180,7 @@ const updateYear = () => {
 updateYear();
 
 // ===== PERFORMANCE: Lazy Loading Images =====
-if ('loading' in HTMLImageElement.prototype) {
-  // Browser supports native lazy loading, images will load automatically
-  const images = document.querySelectorAll('img[loading="lazy"]');
-  // No action needed, native lazy loading handles it
-} else {
-  // Fallback for browsers that don't support lazy loading
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-  document.body.appendChild(script);
-}
+// All modern browsers support the native loading="lazy" attribute natively.
 
 // ===== HANDLE NAVIGATION MENU CLOSE ON OUTSIDE CLICK =====
 document.addEventListener('click', (e) => {
@@ -506,51 +497,18 @@ if (wechatQrImg && wechatQrFallback) {
 }());
 
 // ===== CONTACT FORM =====
-// To enable form submissions, sign up at https://formspree.io and replace
-// 'YOUR_FORM_ID' in index.html with your actual form endpoint ID.
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
+  contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const statusEl = document.getElementById('form-status');
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    if (statusEl) statusEl.textContent = '';
-
-    try {
-      const response = await fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        if (statusEl) statusEl.textContent = '✓ Message sent! I\'ll get back to you soon.';
-        this.reset();
-      } else {
-        // Fallback to mailto if Formspree endpoint is not yet configured
-        const name = document.getElementById('contact-name').value.trim();
-        const email = document.getElementById('contact-email').value.trim();
-        const message = document.getElementById('contact-message').value.trim();
-        const subject = `Portfolio Contact from ${name}`;
-        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-        window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      }
-    } catch {
-      // Network error or form not yet configured — fall back to mailto
-      const name = document.getElementById('contact-name').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
-      const subject = `Portfolio Contact from ${name}`;
-      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+    const subject = `Portfolio Contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (statusEl) statusEl.textContent = '✓ Opening your email client…';
   });
 }
 

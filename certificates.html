@@ -119,7 +119,7 @@
 
     <!-- Certificates Gallery -->
     <section id="certificates-main">
-      <div class="cert-slider-wrapper" id="certSliderWrapper">
+      <div class="cert-slider-wrapper" id="certSliderWrapper" tabindex="0">
         <button class="cert-slider-btn cert-slider-prev" id="certPrev" aria-label="Previous certificate">&#8249;</button>
         <button class="cert-slider-btn cert-slider-next" id="certNext" aria-label="Next certificate">&#8250;</button>
         <div class="cert-slider-track" id="certSliderTrack">
@@ -703,7 +703,7 @@
 
       var current   = 0;
       var autoTimer = null;
-      var AUTO_DELAY = 4500; // ms between auto-advances
+      var AUTO_DELAY = 4500; // ms between auto-advances (const-like, not reassigned)
 
       /* ── Build dot indicators ── */
       slides.forEach(function (_, i) {
@@ -749,6 +749,7 @@
       }
       function stopTimer() {
         clearInterval(autoTimer);
+        autoTimer = null;
       }
       function resetTimer() {
         stopTimer();

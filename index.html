@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="translator.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
@@ -69,7 +70,7 @@
     </script>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link" data-i18n="common.skipLink">Skip to main content</a>
     <!-- Loading Screen -->
     <div id="loading-screen">
       <div class="loader-content">
@@ -97,18 +98,18 @@
       <div class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir Al Mamun</span></div>
       <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="theme-toggle">
-        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
       </div>
@@ -116,7 +117,7 @@
     <nav id="hamburger-nav">
       <div class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir</span></div>
       <div class="nav-right">
-        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
@@ -127,14 +128,14 @@
           </button>
           <div class="menu-links">
             <ul>
-            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
-            <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>
-            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
-            <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="#home" onclick="toggleMenu()" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" onclick="toggleMenu()" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" onclick="toggleMenu()" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" onclick="toggleMenu()" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#contact" onclick="toggleMenu()" data-i18n="nav.contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -144,10 +145,10 @@
     
     <section id="home" tabindex="-1">
       <div id="main-content" class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
+        <p class="section__text__p1" data-i18n="home.greeting">Hello, I'm</p>
         <h1 class="title typing-effect">Muntasir Al Mamun</h1>
-        <p class="section__text__p2">Blockchain Researcher & Computer Science Student</p>
-        <p class="profile-description">
+        <p class="section__text__p2" data-i18n="home.subtitle">Blockchain Researcher & Computer Science Student</p>
+        <p class="profile-description" data-i18n="home.description">
           Computer Science & Technology researcher at NJUPT specializing in blockchain-enabled UAV systems, 
           secure spectrum management, and decentralized solutions for next-generation aerial networks.
         </p>
@@ -156,10 +157,11 @@
             href="Muntasir Al Mamun (2).pdf"
             download
             class="btn btn-color-2"
+            data-i18n="home.downloadResume"
           >
             Download Resume
           </a>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
+          <button class="btn btn-color-1" onclick="location.href='#contact'" data-i18n="home.contactMe">
             Contact Me
           </button>
         </div>
@@ -191,7 +193,7 @@
             </a>
             <div class="wechat-qr-popup">
               <img src="Images/wechat-qr.svg" alt="WeChat QR Code" loading="lazy" />
-              <p>Scan to add on WeChat</p>
+              <p data-i18n="common.scanWeChat">Scan to add on WeChat</p>
             </div>
           </div>
         </div>
@@ -212,16 +214,16 @@
     
     <!-- About Section on Homepage -->
     <section id="about-home">
-      <p class="section__text__p1">Get To Know</p>
-      <h2 class="title">About Me</h2>
+      <p class="section__text__p1" data-i18n="about.getToKnow">Get To Know</p>
+      <h2 class="title" data-i18n="about.title">About Me</h2>
       <div class="about-home-container">
         <!-- Quick Info Cards -->
         <div class="about-info-cards">
           <div class="info-card">
             <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <h3>Location</h3>
+            <h3 data-i18n="about.location">Location</h3>
             <p class="info-detail">Nanjing, Jiangsu, China</p>
-            <p class="info-sub">Originally from Bangladesh</p>
+            <p class="info-sub" data-i18n="about.originBangladesh">Originally from Bangladesh</p>
           </div>
           <div class="info-card">
             <div class="info-icon"><i class="bi bi-mortarboard-fill"></i></div>
@@ -334,6 +336,7 @@
       </nav>
       <p>Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
     </footer>
+    <script src="translator.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>

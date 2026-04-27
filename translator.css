@@ -1,0 +1,148 @@
+/* ===== Language Switcher Styles ===== */
+
+.lang-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lang-btn {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 64px;
+  justify-content: center;
+}
+
+.lang-btn i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.lang-switcher.open .lang-btn i {
+  transform: rotate(20deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  min-width: 160px;
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-switcher.open .lang-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.lang-option {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  transition: background 0.15s ease, color 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.lang-option:hover {
+  background: var(--bg-tertiary);
+  color: var(--accent-primary);
+}
+
+.lang-option.active {
+  background: rgba(44, 62, 80, 0.1);
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.lang-option.active::after {
+  content: "✓";
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+}
+
+/* Smooth page transition when switching language */
+body {
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.lang-switching {
+  opacity: 0;
+}
+
+/* RTL support */
+[dir="rtl"] .lang-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .lang-option.active::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Hover/focus states matching existing theme-btn */
+.lang-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .lang-btn {
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+[data-theme="dark"] .lang-btn:hover {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: #00d4ff;
+  color: #00d4ff;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.35);
+}
+
+[data-theme="dark"] .lang-dropdown {
+  background: #0a1628;
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+[data-theme="dark"] .lang-option:hover {
+  background: #0f1f3a;
+}
+
+[data-theme="dark"] .lang-option.active {
+  background: rgba(0, 212, 255, 0.08);
+}
+
+/* Responsive: ensure dropdown doesn't overflow on small screens */
+@media screen and (max-width: 600px) {
+  .lang-dropdown {
+    min-width: 140px;
+    right: -10px;
+  }
+}

@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="translator.css" />
     <!-- Bootstrap Icons for professional icons -->
     <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
     <script>
@@ -62,18 +63,18 @@
       <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir Al Mamun</span></a>
       <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
+          <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="theme-toggle">
-        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
       </div>
@@ -82,7 +83,7 @@
     <nav id="hamburger-nav">
       <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir</span></a>
       <div class="nav-right">
-        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
@@ -93,14 +94,14 @@
           </button>
           <div class="menu-links">
             <ul>
-            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-            <li><a href="about.html" class="active" onclick="toggleMenu()">About</a></li>
-            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
-            <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>
-            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
-            <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
-            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="index.html" onclick="toggleMenu()" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" class="active" onclick="toggleMenu()" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" onclick="toggleMenu()" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" onclick="toggleMenu()" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()" data-i18n="nav.contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -110,9 +111,9 @@
     <!-- About Header -->
     <section id="about-header" tabindex="-1">
       <div class="header-content">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <p class="about-intro">
+        <p class="section__text__p1" data-i18n="about.getToKnowMore">Get To Know More</p>
+        <h1 class="title" data-i18n="about.title">About Me</h1>
+        <p class="about-intro" data-i18n="about.aboutIntro">
           Computer Science &amp; Technology researcher specializing in blockchain-enabled UAV systems, 
           with a passion for advancing secure, decentralized solutions for next-generation aerial networks.
         </p>
@@ -124,32 +125,32 @@
       <div class="about-overview-cards">
         <div class="info-card">
           <div class="info-icon"><i class="bi bi-mortarboard-fill"></i></div>
-          <h3>Education</h3>
+          <h3 data-i18n="about.education">Education</h3>
           <p class="info-detail">B.Eng. Computer Science</p>
           <p class="info-sub">NJUPT &nbsp;|&nbsp; GPA: 4.23 / 5.0</p>
         </div>
         <div class="info-card">
           <div class="info-icon"><i class="bi bi-cpu-fill"></i></div>
-          <h3>Research Focus</h3>
+          <h3 data-i18n="about.researchFocus">Research Focus</h3>
           <p class="info-detail">Blockchain &amp; UAV Systems</p>
           <p class="info-sub">Spectrum Security &amp; Decentralized Networks</p>
         </div>
         <div class="info-card">
           <div class="info-icon"><i class="bi bi-journal-richtext"></i></div>
-          <h3>Publications</h3>
-          <p class="info-detail">2 Published Papers</p>
+          <h3 data-i18n="about.publications">Publications</h3>
+          <p class="info-detail" data-i18n="about.publishedPapers">2 Published Papers</p>
           <p class="info-sub">Springer Nature &amp; Blockchain Journal</p>
         </div>
         <div class="info-card">
           <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
-          <h3>Location</h3>
+          <h3 data-i18n="about.location">Location</h3>
           <p class="info-detail">Nanjing, China</p>
-          <p class="info-sub">Originally from Bangladesh</p>
+          <p class="info-sub" data-i18n="about.originBangladesh">Originally from Bangladesh</p>
         </div>
       </div>
 
       <div class="about-details about-bio-card">
-        <h2 class="about-subtitle">Blockchain Researcher &amp; Computer Science Student</h2>
+        <h2 class="about-subtitle" data-i18n="about.subtitleText">Blockchain Researcher &amp; Computer Science Student</h2>
         <div class="about-text">
           <p>
             I'm a <strong>Computer Science &amp; Technology</strong> researcher at
@@ -181,18 +182,18 @@
 
     <!-- Research & Publications -->
     <section id="about-research">
-      <p class="section__text__p1">Academic Work</p>
-      <h1 class="title">Research &amp; Publications</h1>
+      <p class="section__text__p1" data-i18n="about.academicWork">Academic Work</p>
+      <h1 class="title" data-i18n="about.researchAndPubs">Research &amp; Publications</h1>
 
       <div class="about-research-highlights">
         <div class="about-highlight-card">
           <div class="about-highlight-icon"><i class="bi bi-book-fill"></i></div>
-          <h3>Thesis</h3>
+          <h3 data-i18n="about.thesis">Thesis</h3>
           <p>Design and Implementation of UAV Authentication System based on Proof-of-History Blockchain Technology</p>
         </div>
         <div class="about-highlight-card">
           <div class="about-highlight-icon"><i class="bi bi-diagram-3-fill"></i></div>
-          <h3>Active Research Project</h3>
+          <h3 data-i18n="about.activeResearch">Active Research Project</h3>
           <p>
             <strong>Spectrum Security Sharing and Supervision for Low-Altitude Intelligent Networking</strong><br />
             <em>Jiangsu Provincial Key R&amp;D Program (No.&nbsp;BE2022068-2) &nbsp;|&nbsp; July 2022 – January 2026</em>
@@ -206,7 +207,7 @@
       </div>
 
       <div class="about-publications">
-        <h3>Published Papers</h3>
+        <h3 data-i18n="about.publishedPapersTitle">Published Papers</h3>
         <div class="publications-container">
           <div class="publication-card">
             <div class="publication-content">
@@ -232,8 +233,8 @@
 
     <!-- Academic Excellence -->
     <section id="about-academics">
-      <p class="section__text__p1">Academic Record</p>
-      <h1 class="title">Education &amp; Honors</h1>
+      <p class="section__text__p1" data-i18n="about.academicRecord">Academic Record</p>
+      <h1 class="title" data-i18n="about.educationHonors">Education &amp; Honors</h1>
 
       <div class="about-edu-info">
         <h3>Bachelor of Engineering — Computer Science &amp; Technology</h3>
@@ -296,8 +297,8 @@
 
     <!-- Leadership & Community -->
     <section id="about-leadership">
-      <p class="section__text__p1">Community</p>
-      <h1 class="title">Leadership &amp; Engagement</h1>
+      <p class="section__text__p1" data-i18n="about.community">Community</p>
+      <h1 class="title" data-i18n="about.leadershipEngagement">Leadership &amp; Engagement</h1>
 
       <div class="about-leadership-grid">
         <div class="about-role-card">
@@ -337,12 +338,12 @@
 
     <!-- Technical Skills -->
     <section id="about-skills-section">
-      <p class="section__text__p1">Expertise</p>
-      <h1 class="title">Technical Skills</h1>
+      <p class="section__text__p1" data-i18n="about.expertise">Expertise</p>
+      <h1 class="title" data-i18n="about.technicalSkills">Technical Skills</h1>
 
       <div class="about-skills-grid">
         <div class="about-skill-category">
-          <h3><i class="bi bi-shield-lock-fill"></i> Blockchain Development</h3>
+          <h3><i class="bi bi-shield-lock-fill"></i> <span data-i18n="skills.blockchainDev">Blockchain Development</span></h3>
           <div class="skills-highlight">
             <div class="skill-tag">Solidity</div>
             <div class="skill-tag">Smart Contracts</div>
@@ -355,7 +356,7 @@
           </div>
         </div>
         <div class="about-skill-category">
-          <h3><i class="bi bi-send-fill"></i> UAV &amp; Simulation</h3>
+          <h3><i class="bi bi-send-fill"></i> <span data-i18n="skills.uavSimulation">UAV &amp; Simulation</span></h3>
           <div class="skills-highlight">
             <div class="skill-tag">AirSim</div>
             <div class="skill-tag">PX4 Autopilot</div>
@@ -366,7 +367,7 @@
           </div>
         </div>
         <div class="about-skill-category">
-          <h3><i class="bi bi-code-slash"></i> Programming Languages</h3>
+          <h3><i class="bi bi-code-slash"></i> <span data-i18n="skills.progLanguages">Programming Languages</span></h3>
           <div class="skills-highlight">
             <div class="skill-tag">C</div>
             <div class="skill-tag">C++</div>
@@ -379,7 +380,7 @@
           </div>
         </div>
         <div class="about-skill-category">
-          <h3><i class="bi bi-globe"></i> Web Development</h3>
+          <h3><i class="bi bi-globe"></i> <span data-i18n="skills.webDev">Web Development</span></h3>
           <div class="skills-highlight">
             <div class="skill-tag">HTML5</div>
             <div class="skill-tag">CSS3</div>
@@ -389,7 +390,7 @@
           </div>
         </div>
         <div class="about-skill-category">
-          <h3><i class="bi bi-tools"></i> Tools &amp; Platforms</h3>
+          <h3><i class="bi bi-tools"></i> <span data-i18n="skills.toolsTech">Tools &amp; Platforms</span></h3>
           <div class="skills-highlight">
             <div class="skill-tag">Git / GitHub</div>
             <div class="skill-tag">Linux</div>
@@ -400,12 +401,12 @@
           </div>
         </div>
         <div class="about-skill-category">
-          <h3><i class="bi bi-translate"></i> Languages</h3>
+          <h3><i class="bi bi-translate"></i> <span data-i18n="skills.languagesTitle">Languages</span></h3>
           <div class="about-languages-grid">
-            <div class="about-lang-item"><strong>Bengali</strong><span>Native</span></div>
-            <div class="about-lang-item"><strong>English</strong><span>Fluent</span></div>
-            <div class="about-lang-item"><strong>Chinese (HSK Level 4)</strong><span>Conversational</span></div>
-            <div class="about-lang-item"><strong>Hindi &amp; Urdu</strong><span>Conversational</span></div>
+            <div class="about-lang-item"><strong>Bengali</strong><span data-i18n="skill.native">Native</span></div>
+            <div class="about-lang-item"><strong>English</strong><span data-i18n="skill.fluent">Fluent</span></div>
+            <div class="about-lang-item"><strong>Chinese (HSK Level 4)</strong><span data-i18n="skill.conversational">Conversational</span></div>
+            <div class="about-lang-item"><strong>Hindi &amp; Urdu</strong><span data-i18n="skill.conversational">Conversational</span></div>
           </div>
         </div>
       </div>
@@ -413,9 +414,9 @@
 
     <!-- Let's Connect -->
     <section id="about-connect">
-      <p class="section__text__p1">Get In Touch</p>
-      <h1 class="title">Let's Connect</h1>
-      <p class="about-connect-intro">
+      <p class="section__text__p1" data-i18n="about.getInTouch">Get In Touch</p>
+      <h1 class="title" data-i18n="about.letsConnect">Let's Connect</h1>
+      <p class="about-connect-intro" data-i18n="about.connectDesc">
         I'm always eager to collaborate on innovative research, discuss blockchain applications in UAV systems,
         or explore opportunities in decentralized technologies. Feel free to reach out!
       </p>
@@ -482,9 +483,9 @@
       <div class="wechat-qr-section">
         <div class="wechat-header">
           <i class="bi bi-chat-dots-fill"></i>
-          <h4>Connect on WeChat</h4>
+          <h4 data-i18n="about.connectWeChat">Connect on WeChat</h4>
         </div>
-        <span class="wechat-badge">Based in China</span>
+        <span class="wechat-badge" data-i18n="about.basedInChina">Based in China</span>
         <img
           src="Images/wechat-qr.svg"
           alt="Scan to add Muntasir on WeChat"
@@ -498,7 +499,7 @@
           <i class="bi bi-qr-code"></i>
           WeChat QR code coming soon
         </div>
-        <p>Scan the QR code to add me on WeChat &mdash; I&rsquo;m currently based in Nanjing, China.</p>
+        <p data-i18n="about.scanWeChatDesc">Scan the QR code to add me on WeChat &mdash; I&rsquo;m currently based in Nanjing, China.</p>
       </div>
     </section>
 
@@ -506,19 +507,20 @@
       <nav>
         <div class="nav-link-container">
           <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
+      <p data-i18n="common.copyright">Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
     </footer>
     
+    <script src="translator.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>

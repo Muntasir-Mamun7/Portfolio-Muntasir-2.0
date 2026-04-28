@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
     <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="translator.css" />
     <!-- Bootstrap Icons for professional icons -->
     <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
     <script>
@@ -60,18 +61,18 @@
       <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir Al Mamun</span></a>
       <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="blog.html" class="active">Blog</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+          <li><a href="blog.html" class="active" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="theme-toggle">
-        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
       </div>
@@ -80,7 +81,7 @@
     <nav id="hamburger-nav">
       <a href="index.html" class="logo"><img src="Images/Muntasir_AL_Mamun_logo.png" alt="MM" class="logo-icon" width="34" height="34"/><span>Muntasir</span></a>
       <div class="nav-right">
-        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
@@ -91,14 +92,14 @@
           </button>
           <div class="menu-links">
             <ul>
-            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
-            <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>
-            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
-            <li><a href="blog.html" class="active" onclick="toggleMenu()">Blog</a></li>
-            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="index.html" onclick="toggleMenu()" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" onclick="toggleMenu()" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" onclick="toggleMenu()" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" class="active" onclick="toggleMenu()" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()" data-i18n="nav.contact">Contact</a></li>
             </ul>
           </div>
         </div>

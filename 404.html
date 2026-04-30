@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="Images/Muntasir_AL_Mamun_logo.png" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="stylesheet" href="translator.css" />
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="assets/icons/bootstrap-icons.min.css" />
     <script>
@@ -69,18 +70,18 @@
       </a>
       <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certificates.html">Certificates</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="theme-toggle">
-        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
       </div>
@@ -92,7 +93,7 @@
         <span>Muntasir</span>
       </a>
       <div class="nav-right">
-        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme">
+        <button id="theme-toggle-btn-mobile" class="theme-btn" aria-label="Toggle theme" data-i18n-aria-label="common.toggleTheme">
           <i class="bi bi-moon-stars-fill theme-icon"></i>
         </button>
         <div class="hamburger-menu">
@@ -103,14 +104,14 @@
           </button>
           <div class="menu-links">
             <ul>
-            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-            <li><a href="skills.html" onclick="toggleMenu()">Skills</a></li>
-            <li><a href="tools.html" onclick="toggleMenu()">Tools</a></li>
-            <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="certificates.html" onclick="toggleMenu()">Certificates</a></li>
-            <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
-            <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="index.html" onclick="toggleMenu()" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" onclick="toggleMenu()" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" onclick="toggleMenu()" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" onclick="toggleMenu()" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" onclick="toggleMenu()" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" onclick="toggleMenu()" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" onclick="toggleMenu()" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="index.html#contact" onclick="toggleMenu()" data-i18n="nav.contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -119,17 +120,17 @@
 
     <section id="not-found-section">
       <div class="not-found-code" aria-hidden="true">404</div>
-      <h1 class="not-found-title">Page Not Found</h1>
-      <p class="not-found-message">
+      <h1 class="not-found-title" data-i18n="page404.pageNotFound">Page Not Found</h1>
+      <p class="not-found-message" data-i18n="page404.message">
         Oops! The page you're looking for doesn't exist or has been moved.
         Let's get you back on track.
       </p>
       <div class="not-found-actions">
         <a href="index.html" class="btn btn-color-1">
-          <i class="bi bi-house-fill"></i> Go Home
+          <i class="bi bi-house-fill"></i> <span data-i18n="page404.goHome">Go Home</span>
         </a>
         <a href="projects.html" class="btn btn-color-2">
-          <i class="bi bi-grid-fill"></i> View Projects
+          <i class="bi bi-grid-fill"></i> <span data-i18n="page404.viewProjects">View Projects</span>
         </a>
       </div>
     </section>
@@ -138,19 +139,20 @@
       <nav>
         <div class="nav-link-container">
           <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
+      <p data-i18n="common.copyright">Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
     </footer>
 
+    <script src="translator.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>

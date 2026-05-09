@@ -33,6 +33,14 @@ Available commands:
 - `/status <sessionId>` → current session status
 - `/help` → command list
 
+## Telegram Chat Mode (Bot Conversations)
+
+Once the webhook is set, any non-command message sent to the bot will be answered by the MoRN AI backend.
+
+- Each Telegram chat uses a session id of `tg-<chatId>`.
+- Operator commands remain admin-only (configure `TELEGRAM_ADMIN_CHAT_ID` to use them).
+- Use `/help` to see the available commands and a short usage prompt.
+
 ## RAG (Knowledge Vault)
 
 1. Drop PDFs/Markdown files into `server/rag/data/`.

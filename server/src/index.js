@@ -37,7 +37,7 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4.1-mini';
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022';
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-const TELEGRAM_ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID || '';
+const TELEGRAM_ADMIN_CHAT_ID = (process.env.TELEGRAM_ADMIN_CHAT_ID || '').trim();
 const CHROMA_URL = process.env.CHROMA_URL || '';
 const CHROMA_COLLECTION_RAW = process.env.CHROMA_COLLECTION || 'morn-knowledge';
 const CHROMA_COLLECTION = /^[a-zA-Z0-9_-]+$/.test(CHROMA_COLLECTION_RAW)
@@ -447,8 +447,7 @@ app.post('/api/telegram/webhook', async (req, res) => {
   if (!chatId) {
     return res.json({ ok: true });
   }
-  const adminChatId = (TELEGRAM_ADMIN_CHAT_ID || '').trim();
-  const isAdmin = adminChatId.length > 0 && String(chatId) === adminChatId;
+  const isAdmin = TELEGRAM_ADMIN_CHAT_ID && String(chatId) === TELEGRAM_ADMIN_CHAT_ID;
   const text = typeof message.text === 'string' ? message.text.trim() : '';
   if (!text) {
     return res.json({ ok: true });
@@ -496,7 +495,7 @@ app.post('/api/telegram/webhook', async (req, res) => {
     '/status',
   ]);
 
-  if (isCommand && adminCommands.has(command) && !adminChatId) {
+  if (isCommand && adminCommands.has(command) && !TELEGRAM_ADMIN_CHAT_ID) {
     await sendTelegramMessage(
       '⚠️ Admin commands are disabled until TELEGRAM_ADMIN_CHAT_ID is configured on the backend.',
       chatId

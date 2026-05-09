@@ -447,8 +447,8 @@ app.post('/api/telegram/webhook', async (req, res) => {
   if (!chatId) {
     return res.json({ ok: true });
   }
-  const adminChatId = TELEGRAM_ADMIN_CHAT_ID.trim();
-  const isAdmin = adminChatId && String(chatId) === adminChatId;
+  const adminChatId = (TELEGRAM_ADMIN_CHAT_ID || '').trim();
+  const isAdmin = adminChatId.length > 0 && String(chatId) === adminChatId;
   const text = typeof message.text === 'string' ? message.text.trim() : '';
   if (!text) {
     return res.json({ ok: true });

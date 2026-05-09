@@ -181,12 +181,12 @@ const handleTelegramChat = async (chatId, text) => {
   session.messages.push({ role: 'user', content: text });
   try {
     const response = await generateResponse(session, text);
-    if (response.reply) {
-      session.messages.push({ role: 'assistant', content: response.reply });
+    if (!response.reply) {
+      await sendTelegramMessage('⚠️ Sorry, I could not generate a response right now.', chatId);
+      return;
     }
-    const replyText =
-      response.reply || '⚠️ Sorry, I could not generate a response right now.';
-    await sendTelegramMessage(replyText, chatId);
+    session.messages.push({ role: 'assistant', content: response.reply });
+    await sendTelegramMessage(response.reply, chatId);
   } catch (error) {
     console.error('Telegram chat error:', error);
     await sendTelegramMessage('⚠️ Sorry, something went wrong generating a reply.', chatId);
@@ -492,16 +492,16 @@ app.post('/api/telegram/webhook', async (req, res) => {
     '/status',
   ]);
 
-  if (isCommand && adminCommands.has(command) && !isAdmin) {
-    await sendTelegramMessage('⚠️ Operator commands are only available to the admin.', chatId);
-    return res.json({ ok: true });
-  }
-
   if (isCommand && adminCommands.has(command) && !TELEGRAM_ADMIN_CHAT_ID) {
     await sendTelegramMessage(
       '⚠️ TELEGRAM_ADMIN_CHAT_ID is not configured on the backend.',
       chatId
     );
+    return res.json({ ok: true });
+  }
+
+  if (isCommand && adminCommands.has(command) && !isAdmin) {
+    await sendTelegramMessage('⚠️ Operator commands are only available to the admin.', chatId);
     return res.json({ ok: true });
   }
 

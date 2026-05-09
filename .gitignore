@@ -15,6 +15,12 @@ Thumbs.db
 # Node modules (if added in future)
 node_modules/
 
+# Backend environment and vector store
+server/.env
+server/rag/chroma/
+server/rag/data/*
+!server/rag/data/.gitkeep
+
 # Build artifacts
 dist/
 build/

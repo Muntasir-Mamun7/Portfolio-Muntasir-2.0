@@ -1,16 +1,61 @@
 // ===== AI CHATBOT FUNCTIONALITY =====
 
 const MOBILE_BREAKPOINT = 600;
+const LOCAL_STORAGE_SESSION_KEY = 'morn-chat-session-id';
+const BACKEND_META_NAME = 'morn-backend-url';
+const EVENT_RETRY_BASE_MS = 2000;
+const EVENT_RETRY_MAX_MS = 30000;
+const EVENT_RETRY_LIMIT = 5;
+
+const resolveBackendUrl = () => {
+  if (window.MORN_BACKEND_URL) {
+    return window.MORN_BACKEND_URL.replace(/\/$/, '');
+  }
+  const meta = document.querySelector(`meta[name="${BACKEND_META_NAME}"]`);
+  if (meta && meta.content) {
+    return meta.content.replace(/\/$/, '');
+  }
+  return window.location.origin;
+};
+
+const createSessionId = () => {
+  if (window.crypto && window.crypto.randomUUID) {
+    return window.crypto.randomUUID();
+  }
+  if (window.crypto && window.crypto.getRandomValues) {
+    const bytes = new Uint8Array(16);
+    window.crypto.getRandomValues(bytes);
+    const hex = Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+    return `morn-${hex}`;
+  }
+  return `morn-${Date.now()}`;
+};
 
 class AIChatbot {
   constructor() {
     this.messages = [];
     this.isOpen = false;
     this.isTyping = false;
+    this.sessionId = this.getOrCreateSessionId();
+    this.backendUrl = resolveBackendUrl();
+    this.manualMode = false;
+    this.operatorStatus = 'idle';
+    this.hasNotifiedStart = false;
+    this.eventSource = null;
+    this.eventRetryCount = 0;
+    this.eventRetryDelay = EVENT_RETRY_BASE_MS;
     this.knowledgeBase = this.initializeKnowledgeBase();
     this._viewportResizeHandler = null;
     // Note: Future enhancement could integrate with AI APIs like Hugging Face
     this.init();
+  }
+
+  getOrCreateSessionId() {
+    const stored = localStorage.getItem(LOCAL_STORAGE_SESSION_KEY);
+    if (stored) return stored;
+    const sessionId = createSessionId();
+    localStorage.setItem(LOCAL_STORAGE_SESSION_KEY, sessionId);
+    return sessionId;
   }
 
   initializeKnowledgeBase() {
@@ -99,6 +144,8 @@ class AIChatbot {
     this.createChatbotUI();
     this.attachEventListeners();
     this.showWelcomeMessage();
+    this.updateStatusUI();
+    this.connectBackend();
   }
 
   createChatbotUI() {
@@ -117,10 +164,10 @@ class AIChatbot {
       <div class="chatbot-header">
         <div class="chatbot-header-content">
           <div class="chatbot-avatar"><i class="bi bi-robot"></i></div>
-          <div class="chatbot-header-info">
-            <h3>MoRN</h3>
-            <p>Online <span class="chatbot-status"></span></p>
-          </div>
+            <div class="chatbot-header-info">
+              <h3>MoRN</h3>
+              <p><span id="chatbot-status-text">Online</span> <span class="chatbot-status" id="chatbot-status-dot"></span></p>
+            </div>
         </div>
         <button class="chatbot-close" aria-label="Close chatbot">×</button>
       </div>
@@ -172,6 +219,119 @@ class AIChatbot {
     }
   }
 
+  connectBackend() {
+    this.fetchState();
+    this.connectEventSource();
+  }
+
+  async fetchState() {
+    try {
+      const response = await fetch(`${this.backendUrl}/api/state?sessionId=${encodeURIComponent(this.sessionId)}`);
+      if (response.ok) {
+        const data = await response.json();
+        this.applyState(data.state);
+      }
+    } catch (error) {
+      console.warn('Backend state unavailable:', error);
+    }
+  }
+
+  connectEventSource() {
+    if (this.eventSource) return;
+    try {
+      const url = `${this.backendUrl}/api/events?sessionId=${encodeURIComponent(this.sessionId)}`;
+      const source = new EventSource(url);
+      source.onopen = () => {
+        this.eventRetryCount = 0;
+        this.eventRetryDelay = EVENT_RETRY_BASE_MS;
+      };
+      source.onmessage = (event) => {
+        try {
+          const payload = JSON.parse(event.data);
+          this.handleEventPayload(payload);
+        } catch (error) {
+          console.warn('Invalid SSE payload:', error);
+        }
+      };
+      source.onerror = () => {
+        source.close();
+        this.eventSource = null;
+        if (this.eventRetryCount >= EVENT_RETRY_LIMIT) {
+          return;
+        }
+        const delay = this.eventRetryDelay;
+        this.eventRetryDelay = Math.min(this.eventRetryDelay * 2, EVENT_RETRY_MAX_MS);
+        this.eventRetryCount += 1;
+        setTimeout(() => this.connectEventSource(), delay);
+      };
+      this.eventSource = source;
+    } catch (error) {
+      console.warn('Event source unavailable:', error);
+    }
+  }
+
+  handleEventPayload(payload) {
+    if (!payload) return;
+    if (payload.type === 'state' || payload.type === 'handover') {
+      this.applyState(payload.state);
+      if (payload.type === 'handover' && payload.message) {
+        this.addMessage(payload.message, 'bot', { variant: 'system' });
+      }
+    }
+    if (payload.type === 'message' && payload.message) {
+      this.addMessage(payload.message.text, 'bot', { variant: 'operator' });
+    }
+  }
+
+  applyState(state) {
+    if (!state) return;
+    this.manualMode = Boolean(state.isManualMode);
+    this.operatorStatus = state.operatorStatus || 'idle';
+    this.updateStatusUI();
+    if (this.manualMode && this.isTyping) {
+      this.hideTypingIndicator();
+    }
+  }
+
+  updateStatusUI() {
+    const statusText = document.getElementById('chatbot-status-text');
+    const statusDot = document.getElementById('chatbot-status-dot');
+    if (!statusText || !statusDot) return;
+    statusDot.classList.remove('is-idle', 'is-manual', 'is-typing');
+    if (this.operatorStatus === 'typing') {
+      statusText.textContent = 'Operator typing';
+      statusDot.classList.add('is-typing');
+      return;
+    }
+    if (this.manualMode) {
+      statusText.textContent = 'Operator active';
+      statusDot.classList.add('is-manual');
+      return;
+    }
+    statusText.textContent = 'Online';
+    statusDot.classList.add('is-idle');
+  }
+
+  async notifySessionStart() {
+    if (this.hasNotifiedStart) return;
+    this.hasNotifiedStart = true;
+    try {
+      await fetch(`${this.backendUrl}/api/session/start`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: this.sessionId,
+          metadata: {
+            page: window.location.pathname,
+            userAgent: navigator.userAgent,
+          },
+        }),
+      });
+    } catch (error) {
+      console.warn('Session start notification failed:', error);
+    }
+  }
+
   toggleChatbot() {
     this.isOpen = !this.isOpen;
     const chatWindow = document.getElementById('chatbot-window');
@@ -181,6 +341,7 @@ class AIChatbot {
       chatWindow.classList.add('active');
       toggleBtn.classList.add('active');
       document.getElementById('chatbot-input').focus();
+      this.notifySessionStart();
     } else {
       chatWindow.classList.remove('active');
       toggleBtn.classList.remove('active');
@@ -236,38 +397,49 @@ class AIChatbot {
     this.addMessage(message, 'user');
     input.value = '';
 
-    // Show typing indicator
-    this.showTypingIndicator();
+    const expectsAI = !this.manualMode && this.operatorStatus !== 'typing';
+    if (expectsAI) {
+      this.showTypingIndicator();
+    }
 
-    // Get response
     const response = await this.getResponse(message);
-    
-    // Remove typing indicator and show response
-    this.hideTypingIndicator();
-    this.addMessage(response, 'bot');
+
+    if (expectsAI) {
+      this.hideTypingIndicator();
+    }
+
+    if (response?.manual) {
+      return;
+    }
+
+    if (response?.reply) {
+      this.addMessage(response.reply, 'bot');
+    }
   }
 
   async getResponse(message) {
     const lowerMessage = message.toLowerCase();
+    const backendResponse = await this.getBackendResponse(message);
+    if (backendResponse) {
+      this.applyState(backendResponse.state);
+      if (backendResponse.manual) {
+        return { manual: true };
+      }
+      if (backendResponse.reply) {
+        return { reply: backendResponse.reply, manual: false };
+      }
+    }
+    const manualOverride = this.manualMode || this.operatorStatus === 'typing';
+    if (manualOverride) {
+      return { manual: true };
+    }
 
-    // Check knowledge base first
     const localResponse = this.getLocalResponse(lowerMessage);
     if (localResponse) {
-      return localResponse;
+      return { reply: localResponse, manual: false };
     }
 
-    // Try AI API for general questions
-    try {
-      const aiResponse = await this.getAIResponse(message);
-      if (aiResponse) {
-        return aiResponse;
-      }
-    } catch (error) {
-      console.error('AI API Error:', error);
-    }
-
-    // Fallback response
-    return this.getFallbackResponse(lowerMessage);
+    return { reply: this.getFallbackResponse(lowerMessage), manual: false };
   }
 
   getLocalResponse(message) {
@@ -373,70 +545,28 @@ class AIChatbot {
     return null;
   }
 
-  async getAIResponse(message) {
-    // Try to search the internet for general knowledge questions
-    if (this.shouldSearchInternet(message)) {
-      try {
-        const searchResult = await this.searchInternet(message);
-        if (searchResult) {
-          return searchResult;
-        }
-      } catch (error) {
-        console.error('Internet search error:', error);
-      }
-    }
-    
-    return null;
-  }
-
-  shouldSearchInternet(message) {
-    // Keywords that suggest a general knowledge question
-    const generalKeywords = [
-      'what is', 'who is', 'how to', 'why', 'when', 
-      'define', 'explain', 'tell me about',
-      'how does', 'what are', 'where is'
-    ];
-    
-    const lowerMessage = message.toLowerCase();
-    
-    // Don't search if question is about Muntasir
-    const personalKeywords = ['muntasir', 'you', 'your', 'portfolio', 'resume'];
-    if (personalKeywords.some(keyword => lowerMessage.includes(keyword))) {
-      return false;
-    }
-    
-    // Check if question matches general knowledge patterns
-    return generalKeywords.some(keyword => lowerMessage.includes(keyword));
-  }
-
-  async searchInternet(query) {
-    // Use Wikipedia API for general knowledge questions
+  async getBackendResponse(message) {
     try {
-      const searchTerm = this.extractSearchTerm(query);
-      const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(searchTerm)}`;
-      
-      const response = await fetch(url);
-      if (response.ok) {
-        const data = await response.json();
-        if (data.extract) {
-          return `Based on available information:\n\n${data.extract}\n\n_Source: Wikipedia_`;
-        }
+      const response = await fetch(`${this.backendUrl}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: this.sessionId,
+          message,
+          metadata: {
+            page: window.location.pathname,
+            userAgent: navigator.userAgent,
+          },
+        }),
+      });
+      if (!response.ok) {
+        return null;
       }
+      return await response.json();
     } catch (error) {
-      console.error('Wikipedia search failed:', error);
+      console.warn('Backend response failed:', error);
+      return null;
     }
-    
-    return null;
-  }
-
-  extractSearchTerm(query) {
-    // Remove question words to get the main topic
-    let term = query.toLowerCase()
-      .replace(/^(what is|who is|tell me about|explain|define|how to|why|when|where is|what are|how does)\s+/i, '')
-      .replace(/\?$/, '')
-      .trim();
-    
-    return term;
   }
 
   getFallbackResponse(message) {
@@ -470,7 +600,7 @@ class AIChatbot {
     return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  addMessage(text, sender) {
+  addMessage(text, sender, options = {}) {
     const messagesContainer = document.getElementById('chatbot-messages');
     
     // Remove welcome message if exists
@@ -480,14 +610,24 @@ class AIChatbot {
     }
 
     const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}`;
+    const messageClasses = ['message', sender];
+    if (options.variant) {
+      messageClasses.push(options.variant);
+    }
+    messageDiv.className = messageClasses.join(' ');
     
     const time = new Date().toLocaleTimeString('en-US', { 
       hour: '2-digit', 
       minute: '2-digit' 
     });
 
-    const avatar = sender === 'bot' ? '<i class="bi bi-robot"></i>' : '<i class="bi bi-person-fill"></i>';
+    let avatar = sender === 'bot' ? '<i class="bi bi-robot"></i>' : '<i class="bi bi-person-fill"></i>';
+    if (options.variant === 'operator') {
+      avatar = '<i class="bi bi-person-badge"></i>';
+    }
+    if (options.variant === 'system') {
+      avatar = '<i class="bi bi-info-circle"></i>';
+    }
     
     // Format text with markdown-like syntax
     const formattedText = this.formatMessage(text);

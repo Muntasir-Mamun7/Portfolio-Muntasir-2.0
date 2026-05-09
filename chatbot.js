@@ -3,6 +3,9 @@
 const MOBILE_BREAKPOINT = 600;
 const LOCAL_STORAGE_SESSION_KEY = 'morn-chat-session-id';
 const BACKEND_META_NAME = 'morn-backend-url';
+const EVENT_RETRY_BASE_MS = 2000;
+const EVENT_RETRY_MAX_MS = 30000;
+const EVENT_RETRY_LIMIT = 5;
 
 const resolveBackendUrl = () => {
   if (window.MORN_BACKEND_URL) {
@@ -39,6 +42,8 @@ class AIChatbot {
     this.operatorStatus = 'idle';
     this.hasNotifiedStart = false;
     this.eventSource = null;
+    this.eventRetryCount = 0;
+    this.eventRetryDelay = EVENT_RETRY_BASE_MS;
     this.knowledgeBase = this.initializeKnowledgeBase();
     this._viewportResizeHandler = null;
     // Note: Future enhancement could integrate with AI APIs like Hugging Face
@@ -236,6 +241,10 @@ class AIChatbot {
     try {
       const url = `${this.backendUrl}/api/events?sessionId=${encodeURIComponent(this.sessionId)}`;
       const source = new EventSource(url);
+      source.onopen = () => {
+        this.eventRetryCount = 0;
+        this.eventRetryDelay = EVENT_RETRY_BASE_MS;
+      };
       source.onmessage = (event) => {
         try {
           const payload = JSON.parse(event.data);
@@ -247,7 +256,13 @@ class AIChatbot {
       source.onerror = () => {
         source.close();
         this.eventSource = null;
-        setTimeout(() => this.connectEventSource(), 3000);
+        if (this.eventRetryCount >= EVENT_RETRY_LIMIT) {
+          return;
+        }
+        const delay = this.eventRetryDelay;
+        this.eventRetryDelay = Math.min(this.eventRetryDelay * 2, EVENT_RETRY_MAX_MS);
+        this.eventRetryCount += 1;
+        setTimeout(() => this.connectEventSource(), delay);
       };
       this.eventSource = source;
     } catch (error) {
@@ -404,7 +419,6 @@ class AIChatbot {
 
   async getResponse(message) {
     const lowerMessage = message.toLowerCase();
-    const manualOverride = this.manualMode || this.operatorStatus === 'typing';
     const backendResponse = await this.getBackendResponse(message);
     if (backendResponse) {
       this.applyState(backendResponse.state);
@@ -415,6 +429,7 @@ class AIChatbot {
         return { reply: backendResponse.reply, manual: false };
       }
     }
+    const manualOverride = this.manualMode || this.operatorStatus === 'typing';
     if (manualOverride) {
       return { manual: true };
     }

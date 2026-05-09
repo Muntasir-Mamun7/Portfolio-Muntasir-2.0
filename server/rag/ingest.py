@@ -19,9 +19,12 @@ EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 CHUNK_SIZE = int(os.getenv("RAG_CHUNK_SIZE", "800"))
 CHUNK_OVERLAP = int(os.getenv("RAG_CHUNK_OVERLAP", "100"))
 RESET_COLLECTION = os.getenv("RAG_RESET", "false").lower() == "true"
+MIN_STEP = int(os.getenv("RAG_MIN_STEP", "50"))
 
 if CHUNK_OVERLAP >= CHUNK_SIZE:
     raise ValueError("RAG_CHUNK_OVERLAP must be smaller than RAG_CHUNK_SIZE.")
+if CHUNK_SIZE - CHUNK_OVERLAP < MIN_STEP:
+    raise ValueError("RAG_CHUNK_OVERLAP leaves too little room for chunking.")
 
 
 def load_documents():
@@ -56,7 +59,7 @@ def load_documents():
 
 def chunk_text(text, encoder):
     tokens = encoder.encode(text)
-    step = max(CHUNK_SIZE - CHUNK_OVERLAP, 1)
+    step = CHUNK_SIZE - CHUNK_OVERLAP
     for start in range(0, len(tokens), step):
         chunk_tokens = tokens[start : start + CHUNK_SIZE]
         if not chunk_tokens:

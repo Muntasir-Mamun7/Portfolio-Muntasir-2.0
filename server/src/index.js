@@ -235,10 +235,10 @@ const buildMessages = (session, message, ragContext) => {
     .filter((entry) => entry.role === 'user' || entry.role === 'assistant')
     .slice(-MAX_HISTORY);
   const messages = [{ role: 'system', content: systemPrompt }];
+  messages.push(...history);
   if (ragContext) {
     messages.push({ role: 'user', content: `Knowledge Vault Context:\n${ragContext}` });
   }
-  messages.push(...history);
   messages.push({ role: 'user', content: message });
   return messages;
 };
@@ -464,7 +464,9 @@ app.post('/api/telegram/webhook', async (req, res) => {
 
   if (command === '/typing') {
     if (!(await ensureSession('/typing <sessionId> on|off'))) return res.json({ ok: true });
-    const nextStatus = payload === 'on' ? 'typing' : 'active';
+    const session = getSession(sessionId);
+    const nextStatus =
+      payload === 'on' ? 'typing' : session.isManualMode ? 'active' : 'idle';
     updateSessionState(sessionId, { operatorStatus: nextStatus });
     await sendTelegramMessage(`✍️ Operator status set to ${nextStatus} for ${sessionId}.`);
     return res.json({ ok: true });

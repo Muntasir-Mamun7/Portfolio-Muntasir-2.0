@@ -130,6 +130,18 @@
   animation: blink 2s infinite;
 }
 
+.chatbot-status.is-idle {
+  background: #4ade80;
+}
+
+.chatbot-status.is-manual {
+  background: #f59e0b;
+}
+
+.chatbot-status.is-typing {
+  background: #f97316;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
@@ -248,6 +260,16 @@
 
 .message.bot .message-content {
   border-radius: 16px 16px 16px 0;
+}
+
+.message.system .message-content {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.message.operator .message-content {
+  border: 1px solid var(--accent-primary);
 }
 
 .message-content p {

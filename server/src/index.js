@@ -37,7 +37,7 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4.1-mini';
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022';
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-const TELEGRAM_ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID || '';
+const TELEGRAM_ADMIN_CHAT_ID = (process.env.TELEGRAM_ADMIN_CHAT_ID || '').trim();
 const CHROMA_URL = process.env.CHROMA_URL || '';
 const CHROMA_COLLECTION_RAW = process.env.CHROMA_COLLECTION || 'morn-knowledge';
 const CHROMA_COLLECTION = /^[a-zA-Z0-9_-]+$/.test(CHROMA_COLLECTION_RAW)
@@ -119,8 +119,8 @@ const updateSessionState = (sessionId, updates, eventType, eventMessage) => {
   return session;
 };
 
-const sendTelegramMessage = async (text) => {
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_ADMIN_CHAT_ID) {
+const sendTelegramMessage = async (text, chatId = TELEGRAM_ADMIN_CHAT_ID) => {
+  if (!TELEGRAM_BOT_TOKEN || !chatId) {
     return;
   }
   try {
@@ -129,7 +129,7 @@ const sendTelegramMessage = async (text) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        chat_id: TELEGRAM_ADMIN_CHAT_ID,
+        chat_id: chatId,
         text,
         disable_web_page_preview: true,
       }),
@@ -173,6 +173,24 @@ const emitOperatorMessage = (sessionId, text) => {
       time,
     },
   });
+};
+
+const handleTelegramChat = async (chatId, text) => {
+  const sessionId = `tg-${chatId}`;
+  const session = getSession(sessionId);
+  session.messages.push({ role: 'user', content: text });
+  try {
+    const response = await generateResponse(session, text);
+    if (!response.reply) {
+      await sendTelegramMessage('⚠️ Sorry, I could not generate a response right now.', chatId);
+      return;
+    }
+    session.messages.push({ role: 'assistant', content: response.reply });
+    await sendTelegramMessage(response.reply, chatId);
+  } catch (error) {
+    console.error('Telegram chat error:', error);
+    await sendTelegramMessage('⚠️ Sorry, something went wrong generating a reply.', chatId);
+  }
 };
 
 const queryChroma = async (query) => {
@@ -421,22 +439,74 @@ app.post('/api/chat', async (req, res) => {
 app.post('/api/telegram/webhook', async (req, res) => {
   const update = req.body;
   const message = update?.message;
-  if (!message || !message.text) {
+  if (!message) {
     return res.json({ ok: true });
   }
 
-  if (TELEGRAM_ADMIN_CHAT_ID && String(message.chat.id) !== TELEGRAM_ADMIN_CHAT_ID) {
-    return res.status(403).json({ ok: false });
+  const chatId = message.chat?.id;
+  if (!chatId) {
+    return res.json({ ok: true });
   }
-
-  const text = message.text.trim();
+  const isAdmin = TELEGRAM_ADMIN_CHAT_ID && String(chatId) === TELEGRAM_ADMIN_CHAT_ID;
+  const text = typeof message.text === 'string' ? message.text.trim() : '';
+  if (!text) {
+    return res.json({ ok: true });
+  }
+  const isCommand = text.startsWith('/');
   const [command, sessionId, ...rest] = text.split(' ');
   const payload = rest.join(' ').trim();
   const ensureSession = async (usage) => {
     if (sessionId) return true;
-    await sendTelegramMessage(`⚠️ Usage: ${usage}`);
+    await sendTelegramMessage(`⚠️ Usage: ${usage}`, chatId);
     return false;
   };
+
+  if (isCommand && command === '/start') {
+    await sendTelegramMessage(
+      'Welcome to MoRN AI! Send any message to chat. Use /help for commands.',
+      chatId
+    );
+    return res.json({ ok: true });
+  }
+
+  if (isCommand && command === '/help') {
+    const lines = [
+      'MoRN AI is ready. Send any message to chat.',
+      isAdmin ? 'Operator Commands:' : 'Operator commands are admin-only.',
+    ];
+    if (isAdmin) {
+      lines.push(
+        '/manual_on <sessionId>',
+        '/manual_off <sessionId>',
+        '/typing <sessionId> on|off',
+        '/reply <sessionId> <message>',
+        '/status <sessionId>'
+      );
+    }
+    await sendTelegramMessage(lines.join('\n'), chatId);
+    return res.json({ ok: true });
+  }
+
+  const adminCommands = new Set([
+    '/manual_on',
+    '/manual_off',
+    '/typing',
+    '/reply',
+    '/status',
+  ]);
+
+  if (isCommand && adminCommands.has(command) && !TELEGRAM_ADMIN_CHAT_ID) {
+    await sendTelegramMessage(
+      '⚠️ Admin commands are disabled until TELEGRAM_ADMIN_CHAT_ID is configured on the backend.',
+      chatId
+    );
+    return res.json({ ok: true });
+  }
+
+  if (isCommand && adminCommands.has(command) && !isAdmin) {
+    await sendTelegramMessage('⚠️ Operator commands are only available to the admin.', chatId);
+    return res.json({ ok: true });
+  }
 
   if (command === '/manual_on') {
     if (!(await ensureSession('/manual_on <sessionId>'))) return res.json({ ok: true });
@@ -446,7 +516,7 @@ app.post('/api/telegram/webhook', async (req, res) => {
       'handover',
       HANDOVER_MESSAGE
     );
-    await sendTelegramMessage(`✅ Manual mode enabled for ${sessionId}.`);
+    await sendTelegramMessage(`✅ Manual mode enabled for ${sessionId}.`, chatId);
     return res.json({ ok: true });
   }
 
@@ -458,7 +528,7 @@ app.post('/api/telegram/webhook', async (req, res) => {
       'handover',
       RETURN_MESSAGE
     );
-    await sendTelegramMessage(`✅ Manual mode disabled for ${sessionId}.`);
+    await sendTelegramMessage(`✅ Manual mode disabled for ${sessionId}.`, chatId);
     return res.json({ ok: true });
   }
 
@@ -468,18 +538,18 @@ app.post('/api/telegram/webhook', async (req, res) => {
     const nextStatus =
       payload === 'on' ? 'typing' : session.isManualMode ? 'active' : 'idle';
     updateSessionState(sessionId, { operatorStatus: nextStatus });
-    await sendTelegramMessage(`✍️ Operator status set to ${nextStatus} for ${sessionId}.`);
+    await sendTelegramMessage(`✍️ Operator status set to ${nextStatus} for ${sessionId}.`, chatId);
     return res.json({ ok: true });
   }
 
   if (command === '/reply') {
     if (!(await ensureSession('/reply <sessionId> <message>'))) return res.json({ ok: true });
     if (!payload) {
-      await sendTelegramMessage('⚠️ Usage: /reply <sessionId> <message>');
+      await sendTelegramMessage('⚠️ Usage: /reply <sessionId> <message>', chatId);
       return res.json({ ok: true });
     }
     emitOperatorMessage(sessionId, payload);
-    await sendTelegramMessage(`📨 Delivered reply to ${sessionId}.`);
+    await sendTelegramMessage(`📨 Delivered reply to ${sessionId}.`, chatId);
     return res.json({ ok: true });
   }
 
@@ -487,30 +557,22 @@ app.post('/api/telegram/webhook', async (req, res) => {
     if (!(await ensureSession('/status <sessionId>'))) return res.json({ ok: true });
     const session = getSession(sessionId);
     if (!session) {
-      await sendTelegramMessage('⚠️ Session not found.');
+      await sendTelegramMessage('⚠️ Session not found.', chatId);
     } else {
       await sendTelegramMessage(
-        `Session ${sessionId} status:\nManual: ${session.isManualMode}\nOperator: ${session.operatorStatus}`
+        `Session ${sessionId} status:\nManual: ${session.isManualMode}\nOperator: ${session.operatorStatus}`,
+        chatId
       );
     }
     return res.json({ ok: true });
   }
 
-  if (command === '/help') {
-    await sendTelegramMessage(
-      [
-        'MoRN AI Operator Commands:',
-        '/manual_on <sessionId>',
-        '/manual_off <sessionId>',
-        '/typing <sessionId> on|off',
-        '/reply <sessionId> <message>',
-        '/status <sessionId>',
-      ].join('\n')
-    );
+  if (isCommand) {
+    await sendTelegramMessage('⚠️ Unknown command. Use /help for available commands.', chatId);
     return res.json({ ok: true });
   }
 
-  await sendTelegramMessage('⚠️ Unknown command. Use /help for available commands.');
+  await handleTelegramChat(chatId, text);
   return res.json({ ok: true });
 });
 

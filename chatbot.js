@@ -19,7 +19,13 @@ const createSessionId = () => {
   if (window.crypto && window.crypto.randomUUID) {
     return window.crypto.randomUUID();
   }
-  return `morn-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  if (window.crypto && window.crypto.getRandomValues) {
+    const bytes = new Uint8Array(16);
+    window.crypto.getRandomValues(bytes);
+    const hex = Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+    return `morn-${hex}`;
+  }
+  return `morn-${Date.now()}`;
 };
 
 class AIChatbot {

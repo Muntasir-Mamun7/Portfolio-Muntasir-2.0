@@ -5,6 +5,7 @@ This service powers the Hybrid Autonomous-Human Agent flow for the portfolio cha
 ## Setup
 
 1. Copy `.env.example` to `.env` and fill in your API keys.
+   - Set `CORS_ORIGIN` to the exact frontend origin (comma-separated if multiple).
 2. Add your full “Sovereign Architect” system prompt to `config/systemPrompt.txt` (or set `SYSTEM_PROMPT`).
 3. Install dependencies:
    ```bash

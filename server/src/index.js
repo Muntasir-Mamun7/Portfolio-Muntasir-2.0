@@ -8,9 +8,23 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 const app = express();
 app.use(express.json({ limit: '1mb' }));
+const allowedOrigins = (process.env.CORS_ORIGIN || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || '*',
+    origin: (origin, callback) => {
+      if (!origin) {
+        return callback(null, true);
+      }
+      if (allowedOrigins.length === 0) {
+        return callback(new Error('CORS origin not allowed'), false);
+      }
+      const isAllowed = allowedOrigins.includes(origin);
+      return callback(isAllowed ? null : new Error('CORS origin not allowed'), isAllowed);
+    },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
   })

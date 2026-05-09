@@ -33,6 +33,11 @@ Available commands:
 - `/status <sessionId>` → current session status
 - `/help` → command list
 
+### Operator Notifications
+
+- When `TELEGRAM_ADMIN_CHAT_ID` is set, web chat messages are forwarded to the admin chat.
+- Set `TELEGRAM_FORWARD_ALL=false` to only forward messages when manual mode is enabled.
+
 ## Telegram Chat Mode (Bot Conversations)
 
 Once the webhook is set, any non-command message sent to the bot will be answered by the MoRN AI backend.

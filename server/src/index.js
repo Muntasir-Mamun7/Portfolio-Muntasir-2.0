@@ -12,6 +12,14 @@ const allowedOrigins = (process.env.CORS_ORIGIN || '')
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean);
+const allowAllOrigins = allowedOrigins.length === 0;
+let corsWarningLogged = false;
+const normalizeBoolean = (value, defaultValue = false) => {
+  if (value === undefined || value === null || value === '') {
+    return defaultValue;
+  }
+  return !['false', '0', 'no', 'off'].includes(String(value).toLowerCase());
+};
 
 app.use(
   cors({
@@ -19,8 +27,12 @@ app.use(
       if (!origin) {
         return callback(null, true);
       }
-      if (allowedOrigins.length === 0) {
-        return callback(new Error('CORS origin not allowed'), false);
+      if (allowAllOrigins) {
+        if (!corsWarningLogged) {
+          console.warn('CORS_ORIGIN not set; allowing all origins.');
+          corsWarningLogged = true;
+        }
+        return callback(null, true);
       }
       const isAllowed = allowedOrigins.includes(origin);
       return callback(isAllowed ? null : new Error('CORS origin not allowed'), isAllowed);
@@ -38,6 +50,7 @@ const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022';
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const TELEGRAM_ADMIN_CHAT_ID = (process.env.TELEGRAM_ADMIN_CHAT_ID || '').trim();
+const TELEGRAM_FORWARD_ALL = normalizeBoolean(process.env.TELEGRAM_FORWARD_ALL, true);
 const CHROMA_URL = process.env.CHROMA_URL || '';
 const CHROMA_COLLECTION_RAW = process.env.CHROMA_COLLECTION || 'morn-knowledge';
 const CHROMA_COLLECTION = /^[a-zA-Z0-9_-]+$/.test(CHROMA_COLLECTION_RAW)
@@ -152,9 +165,13 @@ const notifySessionStart = async (sessionId, metadata = {}) => {
   );
 };
 
-const forwardUserMessageToTelegram = async (sessionId, message) => {
+const forwardUserMessageToTelegram = async (sessionId, message, metadata = {}) => {
+  const details = [];
+  if (metadata.page) details.push(`Page: ${metadata.page}`);
+  if (metadata.userAgent) details.push(`User Agent: ${metadata.userAgent}`);
+  const detailText = details.length ? `\n${details.join('\n')}` : '';
   await sendTelegramMessage(
-    `👤 User message received.\nSession: ${sessionId}\nMessage: ${message}`
+    `👤 User message received.\nSession: ${sessionId}\nMessage: ${message}${detailText}`
   );
 };
 
@@ -309,7 +326,21 @@ const callAnthropic = async (messages) => {
   return data.content?.[0]?.text?.trim() || null;
 };
 
+const getProviderConfigError = () => {
+  if (LLM_PROVIDER === 'anthropic' && !ANTHROPIC_API_KEY) {
+    return '⚠️ Anthropic API key is missing on the server. Add ANTHROPIC_API_KEY to enable AI replies.';
+  }
+  if (LLM_PROVIDER !== 'anthropic' && !OPENAI_API_KEY) {
+    return '⚠️ OpenAI API key is missing on the server. Add OPENAI_API_KEY to enable AI replies.';
+  }
+  return null;
+};
+
 const generateResponse = async (session, message) => {
+  const providerError = getProviderConfigError();
+  if (providerError) {
+    return { reply: providerError, citations: [] };
+  }
   const { context, citations } = await retrieveRagContext(message);
   const messages = buildMessages(session, message, context);
   let reply = null;
@@ -406,8 +437,13 @@ app.post('/api/chat', async (req, res) => {
 
   await notifySessionStart(sessionId, metadata || {});
 
+  const shouldForwardMessage =
+    TELEGRAM_ADMIN_CHAT_ID && (TELEGRAM_FORWARD_ALL || isManualOverride(session));
+  if (shouldForwardMessage) {
+    await forwardUserMessageToTelegram(sessionId, message, metadata || {});
+  }
+
   if (isManualOverride(session)) {
-    await forwardUserMessageToTelegram(sessionId, message);
     return res.json({
       reply: null,
       manual: true,

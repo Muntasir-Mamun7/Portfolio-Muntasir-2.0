@@ -439,7 +439,7 @@ app.post('/api/chat', async (req, res) => {
 app.post('/api/telegram/webhook', async (req, res) => {
   const update = req.body;
   const message = update?.message;
-  if (!message || !message.text) {
+  if (!message) {
     return res.json({ ok: true });
   }
 
@@ -448,7 +448,10 @@ app.post('/api/telegram/webhook', async (req, res) => {
     return res.json({ ok: true });
   }
   const isAdmin = TELEGRAM_ADMIN_CHAT_ID && String(chatId) === TELEGRAM_ADMIN_CHAT_ID;
-  const text = message.text.trim();
+  const text = typeof message.text === 'string' ? message.text.trim() : '';
+  if (!text) {
+    return res.json({ ok: true });
+  }
   const isCommand = text.startsWith('/');
   const [command, sessionId, ...rest] = text.split(' ');
   const payload = rest.join(' ').trim();
@@ -494,7 +497,7 @@ app.post('/api/telegram/webhook', async (req, res) => {
 
   if (isCommand && adminCommands.has(command) && !TELEGRAM_ADMIN_CHAT_ID) {
     await sendTelegramMessage(
-      '⚠️ TELEGRAM_ADMIN_CHAT_ID is not configured on the backend.',
+      '⚠️ Admin commands are disabled until TELEGRAM_ADMIN_CHAT_ID is configured on the backend.',
       chatId
     );
     return res.json({ ok: true });

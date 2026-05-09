@@ -39,7 +39,10 @@ const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-202410
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const TELEGRAM_ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID || '';
 const CHROMA_URL = process.env.CHROMA_URL || '';
-const CHROMA_COLLECTION = process.env.CHROMA_COLLECTION || 'morn-knowledge';
+const CHROMA_COLLECTION_RAW = process.env.CHROMA_COLLECTION || 'morn-knowledge';
+const CHROMA_COLLECTION = /^[a-zA-Z0-9_-]+$/.test(CHROMA_COLLECTION_RAW)
+  ? CHROMA_COLLECTION_RAW
+  : 'morn-knowledge';
 const RAG_TOP_K = Number(process.env.RAG_TOP_K || 4);
 const MAX_HISTORY = Number(process.env.MAX_HISTORY || 8);
 
@@ -68,6 +71,10 @@ const loadSystemPrompt = () => {
 };
 
 const SYSTEM_PROMPT = loadSystemPrompt();
+
+if (CHROMA_COLLECTION !== CHROMA_COLLECTION_RAW) {
+  console.warn('Invalid CHROMA_COLLECTION detected, falling back to "morn-knowledge".');
+}
 
 const getSession = (sessionId) => {
   if (!sessionId) {
@@ -116,16 +123,20 @@ const sendTelegramMessage = async (text) => {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_ADMIN_CHAT_ID) {
     return;
   }
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-  await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: TELEGRAM_ADMIN_CHAT_ID,
-      text,
-      disable_web_page_preview: true,
-    }),
-  });
+  try {
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_ADMIN_CHAT_ID,
+        text,
+        disable_web_page_preview: true,
+      }),
+    });
+  } catch (error) {
+    console.error('Telegram send failed:', error);
+  }
 };
 
 const notifySessionStart = async (sessionId, metadata = {}) => {

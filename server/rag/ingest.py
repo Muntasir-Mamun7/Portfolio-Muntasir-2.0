@@ -20,6 +20,9 @@ CHUNK_SIZE = int(os.getenv("RAG_CHUNK_SIZE", "800"))
 CHUNK_OVERLAP = int(os.getenv("RAG_CHUNK_OVERLAP", "100"))
 RESET_COLLECTION = os.getenv("RAG_RESET", "false").lower() == "true"
 
+if CHUNK_OVERLAP >= CHUNK_SIZE:
+    raise ValueError("RAG_CHUNK_OVERLAP must be smaller than RAG_CHUNK_SIZE.")
+
 
 def load_documents():
     documents = []

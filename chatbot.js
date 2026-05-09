@@ -1,7 +1,7 @@
 // ===== AI CHATBOT FUNCTIONALITY =====
 
 const MOBILE_BREAKPOINT = 600;
-const SESSION_STORAGE_KEY = 'morn-chat-session-id';
+const LOCAL_STORAGE_SESSION_KEY = 'morn-chat-session-id';
 const BACKEND_META_NAME = 'morn-backend-url';
 
 const resolveBackendUrl = () => {
@@ -46,10 +46,10 @@ class AIChatbot {
   }
 
   getOrCreateSessionId() {
-    const stored = localStorage.getItem(SESSION_STORAGE_KEY);
+    const stored = localStorage.getItem(LOCAL_STORAGE_SESSION_KEY);
     if (stored) return stored;
     const sessionId = createSessionId();
-    localStorage.setItem(SESSION_STORAGE_KEY, sessionId);
+    localStorage.setItem(LOCAL_STORAGE_SESSION_KEY, sessionId);
     return sessionId;
   }
 

@@ -230,12 +230,12 @@ function injectLangSwitchers() {
   });
 }
 
-function resolveTranslation(key, lang) {
+function resolveTranslation(key, lang, year) {
   const entry = translations[key];
   if (!entry || !entry[lang]) return null;
   let value = entry[lang];
-  if (value.includes('{year}')) {
-    value = value.replace('{year}', new Date().getFullYear());
+  if (value.includes('{year}') && year) {
+    value = value.replace('{year}', year);
   }
   return value;
 }
@@ -243,6 +243,7 @@ function resolveTranslation(key, lang) {
 // ===== APPLY TRANSLATIONS =====
 function applyTranslation(lang) {
   const langData = langMap[lang] || langMap['en'];
+  const currentYear = new Date().getFullYear();
 
   // Set document language and direction
   document.documentElement.setAttribute('lang', lang);
@@ -251,7 +252,7 @@ function applyTranslation(lang) {
   // Translate all data-i18n elements
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    const value = resolveTranslation(key, lang);
+    const value = resolveTranslation(key, lang, currentYear);
     if (value) {
       el.textContent = value;
     }
@@ -260,7 +261,7 @@ function applyTranslation(lang) {
   // Translate data-i18n-html elements (innerHTML)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
-    const value = resolveTranslation(key, lang);
+    const value = resolveTranslation(key, lang, currentYear);
     if (value) {
       el.innerHTML = value;
     }
@@ -269,7 +270,7 @@ function applyTranslation(lang) {
   // Translate placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    const value = resolveTranslation(key, lang);
+    const value = resolveTranslation(key, lang, currentYear);
     if (value) {
       el.placeholder = value;
     }
@@ -278,7 +279,7 @@ function applyTranslation(lang) {
   // Translate aria-label attributes
   document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
     const key = el.getAttribute('data-i18n-aria-label');
-    const value = resolveTranslation(key, lang);
+    const value = resolveTranslation(key, lang, currentYear);
     if (value) {
       el.setAttribute('aria-label', value);
     }

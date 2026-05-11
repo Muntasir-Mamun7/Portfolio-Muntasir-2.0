@@ -175,7 +175,7 @@ const updateYear = () => {
   const footerText = document.querySelector('footer p');
   if (footerText) {
     const i18nKey = footerText.getAttribute('data-i18n');
-    if (i18nKey && window.translations && translations[i18nKey]) {
+    if (i18nKey && typeof translations !== 'undefined' && translations[i18nKey]) {
       const lang = localStorage.getItem('lang') || 'en';
       const template = translations[i18nKey][lang] || translations[i18nKey].en;
       if (template) {

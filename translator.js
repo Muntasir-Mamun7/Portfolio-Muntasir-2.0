@@ -234,7 +234,7 @@ function resolveTranslation(key, lang, year) {
   const entry = translations[key];
   if (!entry || !entry[lang]) return null;
   let value = entry[lang];
-  if (value.includes('{year}') && year) {
+  if (value.includes('{year}') && year !== undefined) {
     value = value.replace('{year}', year);
   }
   return value;

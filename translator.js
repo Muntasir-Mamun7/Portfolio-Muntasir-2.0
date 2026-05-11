@@ -24,12 +24,25 @@ const translations = {
   'about.title': { en: 'About Me', zh: '关于我', hi: 'मेरे बारे में', es: 'Sobre mí', fr: 'À propos de moi', ar: 'عنّي', bn: 'আমার সম্পর্কে', pt: 'Sobre mim', ru: 'Обо мне', ja: '自己紹介' },
   'about.location': { en: 'Location', zh: '所在地', hi: 'स्थान', es: 'Ubicación', fr: 'Emplacement', ar: 'الموقع', bn: 'অবস্থান', pt: 'Localização', ru: 'Местоположение', ja: '所在地' },
   'about.originBangladesh': { en: 'Originally from Bangladesh', zh: '来自孟加拉国', hi: 'मूलतः बांग्लादेश से', es: 'Originalmente de Bangladesh', fr: 'Originaire du Bangladesh', ar: 'أصله من بنغلاديش', bn: 'মূলত বাংলাদেশ থেকে', pt: 'Originalmente do Bangladesh', ru: 'Родом из Бангладеш', ja: 'バングラデシュ出身' },
+  'about.locationDetail': { en: 'Nanjing, Jiangsu, China', zh: '中国江苏南京', hi: 'नानजिंग, जिआंगसू, चीन', es: 'Nanjing, Jiangsu, China', fr: 'Nanjing, Jiangsu, Chine', ar: 'نانجينغ، جيانغسو، الصين', bn: 'নানজিং, জিয়াংসু, চীন', pt: 'Nanjing, Jiangsu, China', ru: 'Нанкин, Цзянсу, Китай', ja: '中国・江蘇省南京' },
   'about.education': { en: 'Education', zh: '教育背景', hi: 'शिक्षा', es: 'Educación', fr: 'Formation', ar: 'التعليم', bn: 'শিক্ষা', pt: 'Educação', ru: 'Образование', ja: '学歴' },
+  'about.educationDetail': { en: 'B.Eng. Computer Science', zh: '工学学士（计算机科学）', hi: 'बी.ई. कंप्यूटर विज्ञान', es: 'B.Eng. Ciencias de la Computación', fr: "Licence d’ingénierie en informatique", ar: 'بكالوريوس هندسة في علوم الحاسب', bn: 'বি.ইং. কম্পিউটার বিজ্ঞান', pt: 'B.Eng. Ciência da Computação', ru: 'Бакалавр инженерии по информатике', ja: '工学士（コンピュータサイエンス）' },
+  'about.educationSub': { en: 'NJUPT | GPA: 4.23/5.0', zh: '南京邮电大学 | GPA: 4.23/5.0', hi: 'NJUPT | GPA: 4.23/5.0', es: 'NJUPT | GPA: 4.23/5.0', fr: 'NJUPT | GPA : 4,23/5,0', ar: 'NJUPT | المعدل: 4.23/5.0', bn: 'NJUPT | GPA: 4.23/5.0', pt: 'NJUPT | GPA: 4.23/5.0', ru: 'NJUPT | GPA: 4,23/5,0', ja: 'NJUPT | GPA: 4.23/5.0' },
   'about.researchFocus': { en: 'Research Focus', zh: '研究方向', hi: 'अनुसंधान क्षेत्र', es: 'Área de Investigación', fr: 'Domaine de Recherche', ar: 'مجال البحث', bn: 'গবেষণার ক্ষেত্র', pt: 'Foco de Pesquisa', ru: 'Научные интересы', ja: '研究分野' },
+  'about.researchDetail': { en: 'Blockchain & UAV', zh: '区块链与无人机', hi: 'ब्लॉकचेन और UAV', es: 'Blockchain y UAV', fr: 'Blockchain & UAV', ar: 'البلوكتشين والطائرات المسيّرة', bn: 'ব্লকচেইন ও UAV', pt: 'Blockchain e UAV', ru: 'Блокчейн и БПЛА', ja: 'ブロックチェーンとUAV' },
+  'about.researchSub': { en: 'Spectrum Security & Decentralized Systems', zh: '频谱安全与去中心化系统', hi: 'स्पेक्ट्रम सुरक्षा और विकेंद्रीकृत प्रणाली', es: 'Seguridad del espectro y sistemas descentralizados', fr: 'Sécurité du spectre et systèmes décentralisés', ar: 'أمن الطيف والأنظمة اللامركزية', bn: 'স্পেকট্রাম নিরাপত্তা ও বিকেন্দ্রীভূত সিস্টেম', pt: 'Segurança do espectro e sistemas descentralizados', ru: 'Безопасность спектра и децентрализованные системы', ja: 'スペクトラムセキュリティと分散型システム' },
   'about.subtitleText': { en: 'Blockchain Researcher & Computer Science Student', zh: '区块链研究员与计算机科学学生', hi: 'ब्लॉकचेन शोधकर्ता और कम्प्यूटर विज्ञान छात्र', es: 'Investigador en Blockchain y Estudiante de CS', fr: 'Chercheur en Blockchain et Étudiant en Informatique', ar: 'باحث في البلوكتشين وطالب علوم الحاسب', bn: 'ব্লকচেইন গবেষক ও কম্পিউটার বিজ্ঞান ছাত্র', pt: 'Pesquisador em Blockchain e Estudante de CS', ru: 'Исследователь блокчейна и студент КН', ja: 'ブロックチェーン研究者・CS学生' },
   'about.aboutPara1': { en: "I'm Muntasir Al Mamun, a Computer Science & Technology researcher at Nanjing University of Posts and Telecommunications (NJUPT) with a strong academic record (GPA: 4.23/5.0). My research focuses on the intersection of blockchain technology and Unmanned Aerial Vehicle (UAV) systems, developing secure, decentralized solutions for next-generation aerial networks and spectrum management.", zh: '我是Muntasir Al Mamun，南京邮电大学（NJUPT）计算机科学与技术研究人员，学业成绩优异（GPA: 4.23/5.0）。我的研究聚焦于区块链技术与无人机系统的交叉领域，为下一代空中网络及频谱管理开发安全的去中心化解决方案。', hi: 'मैं Muntasir Al Mamun हूं, नानजिंग यूनिवर्सिटी ऑफ पोस्ट्स एंड टेलीकम्युनिकेशंस (NJUPT) में कंप्यूटर विज्ञान एवं प्रौद्योगिकी शोधकर्ता (GPA: 4.23/5.0)। मेरा शोध ब्लॉकचेन तकनीक और UAV प्रणाली के संगम पर, अगली पीढ़ी के नेटवर्क के लिए सुरक्षित विकेन्द्रीकृत समाधान विकसित करने पर केंद्रित है।', es: 'Soy Muntasir Al Mamun, investigador de Ciencias de la Computación en NJUPT con un excelente expediente académico (GPA: 4.23/5.0). Mi investigación se centra en la intersección de la tecnología blockchain y los sistemas UAV, desarrollando soluciones seguras y descentralizadas para redes aéreas de próxima generación.', fr: "Je suis Muntasir Al Mamun, chercheur en Sciences Informatiques à l'NJUPT avec un excellent parcours académique (GPA : 4.23/5.0). Ma recherche porte sur l'intersection de la technologie blockchain et des systèmes UAV, développant des solutions sécurisées et décentralisées pour les réseaux aériens de prochaine génération.", ar: 'أنا Muntasir Al Mamun، باحث في علوم الحاسب في جامعة نانجينغ للبريد والاتصالات (NJUPT) بمعدل تراكمي 4.23/5.0. يركز بحثي على تقاطع تقنية البلوكتشين وأنظمة الطائرات المسيّرة، مطوّرًا حلولًا آمنة ولامركزية لشبكات الجيل القادم.', bn: 'আমি Muntasir Al Mamun, নানজিং ইউনিভার্সিটি অব পোস্টস অ্যান্ড টেলিকমিউনিকেশনস (NJUPT)-এ কম্পিউটার বিজ্ঞান গবেষক (GPA: 4.23/5.0)। আমার গবেষণা ব্লকচেইন প্রযুক্তি এবং UAV সিস্টেমের ছেদবিন্দুতে, পরবর্তী প্রজন্মের নেটওয়ার্কের জন্য নিরাপদ বিকেন্দ্রীভূত সমাধান তৈরিতে কেন্দ্রীভূত।', pt: 'Sou Muntasir Al Mamun, pesquisador de Ciência da Computação na NJUPT com um excelente histórico acadêmico (GPA: 4.23/5.0). Minha pesquisa foca na interseção da tecnologia blockchain e sistemas UAV, desenvolvendo soluções seguras e descentralizadas para redes aéreas de próxima geração.', ru: 'Я Muntasir Al Mamun, исследователь в области компьютерных наук в NJUPT с отличными академическими показателями (GPA: 4.23/5.0). Моё исследование сосредоточено на пересечении технологии блокчейн и систем БПЛА, разрабатывая безопасные децентрализованные решения для воздушных сетей нового поколения.', ja: '私はMuntasir Al Mamunです。NJUPT（南京郵電大学）のコンピュータサイエンス研究者で、優秀な学業成績（GPA: 4.23/5.0）を持ちます。私の研究はブロックチェーン技術とUAVシステムの交差点に焦点を当て、次世代航空ネットワークのための安全な分散型ソリューションを開発しています。' },
   'about.aboutPara2': { en: "Currently working on designing and implementing UAV authentication systems using Proof-of-History blockchain technology, with published research in Springer Nature and Blockchain Journal. I'm passionate about advancing blockchain-enabled UAV communications, spectrum security in 6G networks, and smart contract development for aerial systems.", zh: '目前致力于基于历史证明（Proof-of-History）区块链技术设计和实现UAV认证系统，研究成果已发表于施普林格自然和区块链期刊。热衷于推进区块链赋能无人机通信、6G频谱安全及空中系统智能合约开发。', hi: 'वर्तमान में प्रूफ-ऑफ-हिस्ट्री ब्लॉकचेन तकनीक का उपयोग करके UAV प्रमाणीकरण प्रणाली डिजाइन और कार्यान्वित करने पर कार्यरत, स्प्रिंगर नेचर और ब्लॉकचेन जर्नल में शोध प्रकाशित। 6G नेटवर्क में ब्लॉकचेन-सक्षम UAV संचार को आगे बढ़ाने के प्रति उत्साही।', es: 'Actualmente trabajando en el diseño e implementación de sistemas de autenticación UAV usando la tecnología blockchain Proof-of-History, con investigaciones publicadas en Springer Nature y Blockchain Journal. Apasionado por avanzar en las comunicaciones UAV habilitadas por blockchain.', fr: "Actuellement en train de concevoir et d'implémenter des systèmes d'authentification UAV utilisant la technologie blockchain Proof-of-History, avec des recherches publiées dans Springer Nature et Blockchain Journal. Passionné par l'avancement des communications UAV basées sur la blockchain.", ar: 'يعمل حالياً على تصميم وتنفيذ أنظمة مصادقة الطائرات المسيّرة باستخدام تقنية بلوكتشين إثبات التاريخ، مع أبحاث منشورة في Springer Nature وBlockchain Journal. شغوف بتطوير اتصالات الطائرات المسيّرة المدعومة بالبلوكتشين.', bn: 'বর্তমানে Proof-of-History ব্লকচেইন প্রযুক্তি ব্যবহার করে UAV প্রমাণীকরণ সিস্টেম ডিজাইন ও বাস্তবায়নে কাজ করছেন, Springer Nature এবং Blockchain Journal-এ গবেষণা প্রকাশিত। 6G নেটওয়ার্কে ব্লকচেইন-সক্ষম যোগাযোগ এগিয়ে নিতে আগ্রহী।', pt: 'Atualmente trabalhando no design e implementação de sistemas de autenticação UAV usando a tecnologia blockchain Proof-of-History, com pesquisas publicadas na Springer Nature e Blockchain Journal. Apaixonado por avançar as comunicações UAV habilitadas por blockchain.', ru: 'В настоящее время работает над проектированием систем аутентификации БПЛА с использованием технологии Proof-of-History, с опубликованными исследованиями в Springer Nature и Blockchain Journal. Увлечён развитием блокчейн-коммуникаций для БПЛА.', ja: '現在、Proof-of-Historyブロックチェーン技術を用いたUAV認証システムの設計・実装に取り組み、Springer NatureとBlockchain Journalに研究を発表しています。UAVのブロックチェーン通信の発展に情熱を持っています。' },
   'about.learnMore': { en: 'Learn More About Me', zh: '了解更多', hi: 'मेरे बारे में और जानें', es: 'Saber más sobre mí', fr: 'En savoir plus sur moi', ar: 'تعرّف أكثر عليّ', bn: 'আমার সম্পর্কে আরও জানুন', pt: 'Saiba mais sobre mim', ru: 'Узнать больше обо мне', ja: 'もっと詳しく' },
+  'about.skill.blockchain': { en: 'Blockchain', zh: '区块链', hi: 'ब्लॉकचेन', es: 'Blockchain', fr: 'Blockchain', ar: 'البلوكتشين', bn: 'ব্লকচেইন', pt: 'Blockchain', ru: 'Блокчейн', ja: 'ブロックチェーン' },
+  'about.skill.solidity': { en: 'Solidity', zh: 'Solidity', hi: 'Solidity', es: 'Solidity', fr: 'Solidity', ar: 'Solidity', bn: 'Solidity', pt: 'Solidity', ru: 'Solidity', ja: 'Solidity' },
+  'about.skill.uavSystems': { en: 'UAV Systems', zh: '无人机系统', hi: 'UAV सिस्टम', es: 'Sistemas UAV', fr: 'Systèmes UAV', ar: 'أنظمة الطائرات المسيّرة', bn: 'UAV সিস্টেম', pt: 'Sistemas UAV', ru: 'Системы БПЛА', ja: 'UAVシステム' },
+  'about.skill.smartContracts': { en: 'Smart Contracts', zh: '智能合约', hi: 'स्मार्ट कॉन्ट्रैक्ट्स', es: 'Contratos inteligentes', fr: 'Contrats intelligents', ar: 'العقود الذكية', bn: 'স্মার্ট কন্ট্র্যাক্টস', pt: 'Contratos inteligentes', ru: 'Смарт-контракты', ja: 'スマートコントラクト' },
+  'about.skill.python': { en: 'Python', zh: 'Python', hi: 'Python', es: 'Python', fr: 'Python', ar: 'Python', bn: 'Python', pt: 'Python', ru: 'Python', ja: 'Python' },
+  'about.skill.cpp': { en: 'C/C++', zh: 'C/C++', hi: 'C/C++', es: 'C/C++', fr: 'C/C++', ar: 'C/C++', bn: 'C/C++', pt: 'C/C++', ru: 'C/C++', ja: 'C/C++' },
+  'about.skill.javascript': { en: 'JavaScript', zh: 'JavaScript', hi: 'JavaScript', es: 'JavaScript', fr: 'JavaScript', ar: 'JavaScript', bn: 'JavaScript', pt: 'JavaScript', ru: 'JavaScript', ja: 'JavaScript' },
+  'about.skill.airsim': { en: 'AirSim', zh: 'AirSim', hi: 'AirSim', es: 'AirSim', fr: 'AirSim', ar: 'AirSim', bn: 'AirSim', pt: 'AirSim', ru: 'AirSim', ja: 'AirSim' },
 
   // CONTACT SECTION
   'contact.getInTouch': { en: 'Get in Touch', zh: '与我联系', hi: 'संपर्क करें', es: 'Ponerse en Contacto', fr: 'Entrer en Contact', ar: 'تواصل معي', bn: 'যোগাযোগ করুন', pt: 'Entre em Contato', ru: 'Свяжитесь со мной', ja: 'お問い合わせ' },
@@ -38,12 +51,13 @@ const translations = {
   'contact.emailLabel': { en: 'Email', zh: '邮箱', hi: 'ईमेल', es: 'Correo electrónico', fr: 'Email', ar: 'البريد الإلكتروني', bn: 'ইমেইল', pt: 'Email', ru: 'Электронная почта', ja: 'メール' },
   'contact.messageLabel': { en: 'Message', zh: '留言', hi: 'संदेश', es: 'Mensaje', fr: 'Message', ar: 'الرسالة', bn: 'বার্তা', pt: 'Mensagem', ru: 'Сообщение', ja: 'メッセージ' },
   'contact.namePlaceholder': { en: 'Your Name', zh: '你的姓名', hi: 'आपका नाम', es: 'Tu nombre', fr: 'Votre nom', ar: 'اسمك', bn: 'আপনার নাম', pt: 'Seu nome', ru: 'Ваше имя', ja: 'お名前' },
+  'contact.emailPlaceholder': { en: 'your@email.com', zh: '你的邮箱@示例.com', hi: 'आपका@email.com', es: 'tu@correo.com', fr: 'votre@email.com', ar: 'your@email.com', bn: 'আপনার@email.com', pt: 'seu@email.com', ru: 'ваш@email.com', ja: 'your@email.com' },
   'contact.messagePlaceholder': { en: 'Your message…', zh: '你的留言…', hi: 'आपका संदेश…', es: 'Tu mensaje…', fr: 'Votre message…', ar: 'رسالتك…', bn: 'আপনার বার্তা…', pt: 'Sua mensagem…', ru: 'Ваше сообщение…', ja: 'メッセージ…' },
   'contact.sendMessage': { en: 'Send Message', zh: '发送消息', hi: 'संदेश भेजें', es: 'Enviar Mensaje', fr: 'Envoyer', ar: 'إرسال', bn: 'বার্তা পাঠান', pt: 'Enviar', ru: 'Отправить', ja: '送信する' },
 
   // COMMON
   'common.backToHome': { en: '← Back to Home', zh: '← 返回首页', hi: '← वापस होम', es: '← Volver al inicio', fr: "← Retour à l'accueil", ar: 'الرئيسية ←', bn: '← হোম এ ফিরুন', pt: '← Voltar ao início', ru: '← На главную', ja: '← ホームへ戻る' },
-  'common.copyright': { en: 'Copyright © 2026 Muntasir Al Mamun. All Rights Reserved', zh: '版权所有 © 2026 Muntasir Al Mamun。保留所有权利', hi: 'कॉपीराइट © 2026 Muntasir Al Mamun। सर्वाधिकार सुरक्षित', es: 'Copyright © 2026 Muntasir Al Mamun. Todos los derechos reservados', fr: 'Copyright © 2026 Muntasir Al Mamun. Tous droits réservés', ar: 'حقوق النشر © 2026 Muntasir Al Mamun. جميع الحقوق محفوظة', bn: 'কপিরাইট © 2026 Muntasir Al Mamun। সর্বস্বত্ব সংরক্ষিত', pt: 'Copyright © 2026 Muntasir Al Mamun. Todos os direitos reservados', ru: 'Copyright © 2026 Muntasir Al Mamun. Все права защищены', ja: 'Copyright © 2026 Muntasir Al Mamun. All Rights Reserved' },
+  'common.copyright': { en: 'Copyright © {year} Muntasir Al Mamun. All Rights Reserved', zh: '版权所有 © {year} Muntasir Al Mamun。保留所有权利', hi: 'कॉपीराइट © {year} Muntasir Al Mamun। सर्वाधिकार सुरक्षित', es: 'Copyright © {year} Muntasir Al Mamun. Todos los derechos reservados', fr: 'Copyright © {year} Muntasir Al Mamun. Tous droits réservés', ar: 'حقوق النشر © {year} Muntasir Al Mamun. جميع الحقوق محفوظة', bn: 'কপিরাইট © {year} Muntasir Al Mamun। সর্বস্বত্ব সংরক্ষিত', pt: 'Copyright © {year} Muntasir Al Mamun. Todos os direitos reservados', ru: 'Copyright © {year} Muntasir Al Mamun. Все права защищены', ja: 'Copyright © {year} Muntasir Al Mamun. All Rights Reserved' },
   'common.skipLink': { en: 'Skip to main content', zh: '跳转到主要内容', hi: 'मुख्य सामग्री पर जाएं', es: 'Saltar al contenido principal', fr: 'Aller au contenu principal', ar: 'تخطى إلى المحتوى الرئيسي', bn: 'মূল বিষয়বস্তুতে যান', pt: 'Pular para o conteúdo principal', ru: 'Перейти к основному содержанию', ja: 'メインコンテンツへ' },
   'common.toggleTheme': { en: 'Toggle theme', zh: '切换主题', hi: 'थीम बदलें', es: 'Cambiar tema', fr: 'Changer de thème', ar: 'تبديل المظهر', bn: 'থিম পরিবর্তন', pt: 'Alternar tema', ru: 'Сменить тему', ja: 'テーマ切替' },
   'common.scanWeChat': { en: 'Scan to add on WeChat', zh: '扫码添加微信', hi: 'WeChat पर जोड़ने के लिए स्कैन करें', es: 'Escanear para agregar en WeChat', fr: 'Scanner pour ajouter sur WeChat', ar: 'امسح لإضافة على WeChat', bn: 'WeChat-এ যোগ করতে স্ক্যান করুন', pt: 'Escanear para adicionar no WeChat', ru: 'Сканировать для добавления в WeChat', ja: 'WeChatに追加するにはスキャン' },
@@ -216,6 +230,16 @@ function injectLangSwitchers() {
   });
 }
 
+function resolveTranslation(key, lang) {
+  const entry = translations[key];
+  if (!entry || !entry[lang]) return null;
+  let value = entry[lang];
+  if (value.includes('{year}')) {
+    value = value.replace('{year}', new Date().getFullYear());
+  }
+  return value;
+}
+
 // ===== APPLY TRANSLATIONS =====
 function applyTranslation(lang) {
   const langData = langMap[lang] || langMap['en'];
@@ -227,32 +251,36 @@ function applyTranslation(lang) {
   // Translate all data-i18n elements
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (translations[key] && translations[key][lang]) {
-      el.textContent = translations[key][lang];
+    const value = resolveTranslation(key, lang);
+    if (value) {
+      el.textContent = value;
     }
   });
 
   // Translate data-i18n-html elements (innerHTML)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
-    if (translations[key] && translations[key][lang]) {
-      el.innerHTML = translations[key][lang];
+    const value = resolveTranslation(key, lang);
+    if (value) {
+      el.innerHTML = value;
     }
   });
 
   // Translate placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    if (translations[key] && translations[key][lang]) {
-      el.placeholder = translations[key][lang];
+    const value = resolveTranslation(key, lang);
+    if (value) {
+      el.placeholder = value;
     }
   });
 
   // Translate aria-label attributes
   document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
     const key = el.getAttribute('data-i18n-aria-label');
-    if (translations[key] && translations[key][lang]) {
-      el.setAttribute('aria-label', translations[key][lang]);
+    const value = resolveTranslation(key, lang);
+    if (value) {
+      el.setAttribute('aria-label', value);
     }
   });
 

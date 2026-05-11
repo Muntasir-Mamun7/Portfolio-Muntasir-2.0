@@ -222,34 +222,34 @@
           <div class="info-card">
             <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <h3 data-i18n="about.location">Location</h3>
-            <p class="info-detail">Nanjing, Jiangsu, China</p>
+            <p class="info-detail" data-i18n="about.locationDetail">Nanjing, Jiangsu, China</p>
             <p class="info-sub" data-i18n="about.originBangladesh">Originally from Bangladesh</p>
           </div>
           <div class="info-card">
             <div class="info-icon"><i class="bi bi-mortarboard-fill"></i></div>
-            <h3>Education</h3>
-            <p class="info-detail">B.Eng. Computer Science</p>
-            <p class="info-sub">NJUPT | GPA: 4.23/5.0</p>
+            <h3 data-i18n="about.education">Education</h3>
+            <p class="info-detail" data-i18n="about.educationDetail">B.Eng. Computer Science</p>
+            <p class="info-sub" data-i18n="about.educationSub">NJUPT | GPA: 4.23/5.0</p>
           </div>
           <div class="info-card">
             <div class="info-icon"><i class="bi bi-briefcase-fill"></i></div>
-            <h3>Research Focus</h3>
-            <p class="info-detail" data-counter="experience">Blockchain & UAV</p>
-            <p class="info-sub">Spectrum Security & Decentralized Systems</p>
+            <h3 data-i18n="about.researchFocus">Research Focus</h3>
+            <p class="info-detail" data-counter="experience" data-i18n="about.researchDetail">Blockchain & UAV</p>
+            <p class="info-sub" data-i18n="about.researchSub">Spectrum Security & Decentralized Systems</p>
           </div>
         </div>
         
         <!-- About Details -->
         <div class="about-details">
           <div class="about-text">
-            <h2 class="about-subtitle">Blockchain Researcher & Computer Science Student</h2>
-            <p>
+            <h2 class="about-subtitle" data-i18n="about.subtitleText">Blockchain Researcher & Computer Science Student</h2>
+            <p data-i18n="about.aboutPara1">
               I'm Muntasir Al Mamun, a Computer Science & Technology researcher at 
               Nanjing University of Posts and Telecommunications (NJUPT) with a strong academic record (GPA: 4.23/5.0). 
               My research focuses on the intersection of blockchain technology and Unmanned Aerial Vehicle (UAV) systems, 
               developing secure, decentralized solutions for next-generation aerial networks and spectrum management.
             </p>
-            <p>
+            <p data-i18n="about.aboutPara2">
               Currently working on designing and implementing UAV authentication systems using Proof-of-History blockchain technology, 
               with published research in Springer Nature and Blockchain Journal. I'm passionate about advancing 
               blockchain-enabled UAV communications, spectrum security in 6G networks, and smart contract development 
@@ -259,18 +259,18 @@
           
           <!-- Skills Highlights -->
           <div class="skills-highlight">
-            <div class="skill-tag">Blockchain</div>
-            <div class="skill-tag">Solidity</div>
-            <div class="skill-tag">UAV Systems</div>
-            <div class="skill-tag">Smart Contracts</div>
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">C/C++</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">AirSim</div>
+            <div class="skill-tag" data-i18n="about.skill.blockchain">Blockchain</div>
+            <div class="skill-tag" data-i18n="about.skill.solidity">Solidity</div>
+            <div class="skill-tag" data-i18n="about.skill.uavSystems">UAV Systems</div>
+            <div class="skill-tag" data-i18n="about.skill.smartContracts">Smart Contracts</div>
+            <div class="skill-tag" data-i18n="about.skill.python">Python</div>
+            <div class="skill-tag" data-i18n="about.skill.cpp">C/C++</div>
+            <div class="skill-tag" data-i18n="about.skill.javascript">JavaScript</div>
+            <div class="skill-tag" data-i18n="about.skill.airsim">AirSim</div>
           </div>
           
           <div class="about-cta">
-            <button class="btn btn-color-1" onclick="location.href='about.html'">
+            <button class="btn btn-color-1" onclick="location.href='about.html'" data-i18n="about.learnMore">
               Learn More About Me
             </button>
           </div>
@@ -279,8 +279,8 @@
     </section>
     
     <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h2 class="title">Contact Me</h2>
+      <p class="section__text__p1" data-i18n="contact.getInTouch">Get in Touch</p>
+      <h2 class="title" data-i18n="contact.title">Contact Me</h2>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
           <i class="bi bi-envelope-fill contact-icon-bi"></i>
@@ -305,18 +305,18 @@
       </div>
       <form class="contact-form" id="contact-form" action="mailto:munmamun9@gmail.com" method="POST">
         <div class="form-group">
-          <label for="contact-name">Name</label>
-          <input type="text" id="contact-name" name="name" placeholder="Your Name" required autocomplete="name" />
+          <label for="contact-name" data-i18n="contact.nameLabel">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your Name" data-i18n-placeholder="contact.namePlaceholder" required autocomplete="name" />
         </div>
         <div class="form-group">
-          <label for="contact-email">Email</label>
-          <input type="email" id="contact-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <label for="contact-email" data-i18n="contact.emailLabel">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="your@email.com" data-i18n-placeholder="contact.emailPlaceholder" required autocomplete="email" />
         </div>
         <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" placeholder="Your message…" rows="5" required></textarea>
+          <label for="contact-message" data-i18n="contact.messageLabel">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your message…" data-i18n-placeholder="contact.messagePlaceholder" rows="5" required></textarea>
         </div>
-        <button type="submit" class="btn btn-color-1">Send Message</button>
+        <button type="submit" class="btn btn-color-1" data-i18n="contact.sendMessage">Send Message</button>
         <p class="form-status" id="form-status" aria-live="polite"></p>
       </form>
     </section>
@@ -324,17 +324,17 @@
       <nav>
         <div class="nav-link-container">
           <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="tools.html" data-i18n="nav.tools">Tools</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="certificates.html" data-i18n="nav.certificates">Certificates</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
+      <p data-i18n="common.copyright">Copyright &#169; 2026 Muntasir Al Mamun. All Rights Reserved</p>
     </footer>
     <script src="translator.js" defer></script>
     <script src="script.js" defer></script>

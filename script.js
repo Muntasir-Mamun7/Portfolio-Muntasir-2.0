@@ -174,6 +174,15 @@ const updateYear = () => {
   const year = new Date().getFullYear();
   const footerText = document.querySelector('footer p');
   if (footerText) {
+    const i18nKey = footerText.getAttribute('data-i18n');
+    if (i18nKey && window.translations && translations[i18nKey]) {
+      const lang = localStorage.getItem('lang') || 'en';
+      const template = translations[i18nKey][lang] || translations[i18nKey].en;
+      if (template) {
+        footerText.textContent = template.replace('{year}', year);
+        return;
+      }
+    }
     footerText.innerHTML = `Copyright &#169; ${year} Muntasir Al Mamun. All Rights Reserved`;
   }
 };

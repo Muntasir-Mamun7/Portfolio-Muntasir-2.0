@@ -511,6 +511,10 @@ if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const statusEl = document.getElementById('form-status');
+    const actionValue = contactForm.getAttribute('action') || '';
+    const contactEmail = actionValue.startsWith('mailto:')
+      ? actionValue.slice('mailto:'.length)
+      : 'munmamun9@gmail.com';
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
     const message = document.getElementById('contact-message').value.trim();
@@ -524,8 +528,7 @@ if (contactForm) {
     }
     const subject = `Portfolio Contact from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    if (statusEl) statusEl.textContent = '✓ Opening your email client…';
-    window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
 

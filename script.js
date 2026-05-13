@@ -514,6 +514,14 @@ if (contactForm) {
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
     const message = document.getElementById('contact-message').value.trim();
+    if (!name || !email || !message) {
+      if (statusEl) statusEl.textContent = 'Please complete all required fields.';
+      return;
+    }
+    if (name.length > 120 || email.length > 254 || message.length > 5000) {
+      if (statusEl) statusEl.textContent = 'Please keep your message within the allowed length.';
+      return;
+    }
     const subject = `Portfolio Contact from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

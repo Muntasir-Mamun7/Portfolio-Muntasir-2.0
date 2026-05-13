@@ -33,6 +33,9 @@
   --text-tertiary: #6c757d;
   --accent-primary: #2c3e50;
   --accent-secondary: #34495e;
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --primary-light: rgba(44, 62, 80, 0.12);
   --accent-rgb: 44, 62, 80;
   --accent-gradient: linear-gradient(135deg, #000000 0%, #555555 100%);
   --border-color: #dee2e6;
@@ -65,6 +68,9 @@
   --text-tertiary: #56687a;
   --accent-primary: #00d4ff;
   --accent-secondary: #8b5cf6;
+  --primary-color: #00d4ff;
+  --secondary-color: #8b5cf6;
+  --primary-light: rgba(0, 212, 255, 0.14);
   --accent-rgb: 0, 212, 255;
   --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
   --border-color: rgba(0, 212, 255, 0.15);
@@ -1492,6 +1498,12 @@ a.btn {
   font-size: 0.95rem;
 }
 
+.project-detail-item p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.45rem 0 0;
+}
+
 .project-detail-item ul {
   list-style: none;
   padding: 0;
@@ -1870,6 +1882,22 @@ a.btn {
 .contact-form button[type="submit"] {
   align-self: flex-start;
   margin-top: 0.5rem;
+}
+
+.contact-form button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact-note {
+  margin-top: 0.8rem;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.contact-note a {
+  color: var(--primary-color);
 }
 
 
@@ -2689,6 +2717,64 @@ body {
   overflow: hidden;
 }
 
+.recruiter-pill {
+  display: inline-block;
+  margin: 1rem 0 1.2rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.recruiter-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.recruiter-quick-links .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+}
+
+#for-recruiters {
+  padding: 4.5rem 5%;
+  background: var(--bg-secondary);
+}
+
+.recruiter-grid {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 1.2rem;
+}
+
+.recruiter-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.3rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recruiter-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.recruiter-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 #about-home::before {
   content: '';
   position: absolute;
@@ -3431,6 +3517,90 @@ body {
 #about-leadership {
   padding: 5rem 5%;
   background: var(--bg-secondary);
+}
+
+#about-internship-impact {
+  padding: 5rem 5%;
+  background: var(--bg-primary);
+}
+
+.internship-impact-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.internship-impact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.internship-impact-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.internship-impact-card ul {
+  padding-left: 1.1rem;
+}
+
+.internship-impact-card li {
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
+  line-height: 1.7;
+}
+
+#about-now-next {
+  padding: 5rem 5%;
+  background: var(--bg-secondary);
+}
+
+.now-next-grid {
+  max-width: 1100px;
+  margin: 0 auto 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.now-next-card,
+.social-proof-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.now-next-card h3,
+.social-proof-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.now-next-card ul {
+  padding-left: 1.1rem;
+}
+
+.now-next-card li,
+.social-proof-card p {
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.social-proof-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.4rem;
 }
 
 .about-leadership-grid {
@@ -4514,5 +4684,3 @@ a.logo {
   font-weight: 500;
   min-height: 1.4em;
 }
-
-

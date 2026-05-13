@@ -524,8 +524,8 @@ if (contactForm) {
     }
     const subject = `Portfolio Contact from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     if (statusEl) statusEl.textContent = '✓ Opening your email client…';
+    window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
 

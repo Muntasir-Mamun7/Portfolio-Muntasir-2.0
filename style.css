@@ -1884,23 +1884,6 @@ a.btn {
   margin-top: 0.5rem;
 }
 
-.contact-form button[type="submit"]:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.contact-note {
-  margin-top: 0.8rem;
-  color: var(--text-tertiary);
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.contact-note a {
-  color: var(--primary-color);
-}
-
-
 /* ===== ENHANCED PROFILE ANIMATIONS ===== */
 .typing-effect {
   position: relative;
@@ -2715,64 +2698,6 @@ body {
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
-}
-
-.recruiter-pill {
-  display: inline-block;
-  margin: 1rem 0 1.2rem;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  background: var(--primary-light);
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.recruiter-quick-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 0.9rem;
-}
-
-.recruiter-quick-links .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.65rem 1rem;
-  font-size: 0.9rem;
-}
-
-#for-recruiters {
-  padding: 4.5rem 5%;
-  background: var(--bg-secondary);
-}
-
-.recruiter-grid {
-  max-width: 1100px;
-  margin: 2rem auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: 1.2rem;
-}
-
-.recruiter-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 1.3rem 1.2rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.recruiter-card h3 {
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-  font-size: 1.05rem;
-}
-
-.recruiter-card p {
-  color: var(--text-secondary);
-  line-height: 1.7;
 }
 
 #about-home::before {

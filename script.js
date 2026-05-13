@@ -508,47 +508,16 @@ if (wechatQrImg && wechatQrFallback) {
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
+  contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const statusEl = document.getElementById('form-status');
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
     const message = document.getElementById('contact-message').value.trim();
-    if (!name || !email || !message) {
-      if (statusEl) statusEl.textContent = 'Please complete all required fields.';
-      return;
-    }
-
-    const endpoint = contactForm.getAttribute('action');
-    const formData = new FormData(contactForm);
-
-    if (statusEl) statusEl.textContent = 'Sending message securely…';
-    if (submitBtn) submitBtn.disabled = true;
-
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' }
-      });
-
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
-      }
-
-      if (statusEl) {
-        statusEl.textContent = '✓ Message sent successfully. Thank you — I will get back to you soon.';
-      }
-      contactForm.reset();
-    } catch (error) {
-      console.error('Contact form submission failed:', error);
-      if (statusEl) {
-        statusEl.textContent = 'Unable to send right now. Please email me directly at munmamun9@gmail.com.';
-      }
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
-    }
+    const subject = `Portfolio Contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:munmamun9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (statusEl) statusEl.textContent = '✓ Opening your email client…';
   });
 }
 

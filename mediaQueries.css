@@ -879,7 +879,7 @@
   .internship-impact-card li {
     font-size: 0.95rem;
     line-height: 1.6;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     word-break: break-word;
   }
 }

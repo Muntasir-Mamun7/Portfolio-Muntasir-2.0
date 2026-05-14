@@ -695,6 +695,7 @@
   #about-research,
   #about-academics,
   #about-leadership,
+  #about-internship-impact,
   #about-skills-section,
   #about-connect {
     padding: 3.5rem 5%;
@@ -722,6 +723,7 @@
   #about-research,
   #about-academics,
   #about-leadership,
+  #about-internship-impact,
   #about-skills-section,
   #about-connect {
     padding: 3rem 4%;
@@ -761,6 +763,15 @@
     padding: 1.5rem;
   }
 
+  .internship-impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .internship-impact-card {
+    padding: 1.3rem;
+  }
+
   .wechat-qr-section {
     max-width: 100%;
     padding: 1.5rem;
@@ -779,6 +790,7 @@
   #about-research,
   #about-academics,
   #about-leadership,
+  #about-internship-impact,
   #about-skills-section,
   #about-connect {
     padding: 2.5rem 3%;
@@ -854,6 +866,21 @@
 
   .about-lang-item {
     padding: 1rem;
+  }
+
+  .internship-impact-card {
+    padding: 1.1rem;
+  }
+
+  .internship-impact-card h3 {
+    font-size: 1rem;
+  }
+
+  .internship-impact-card li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 

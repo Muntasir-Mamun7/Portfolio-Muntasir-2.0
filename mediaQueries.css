@@ -197,6 +197,35 @@
     width: 100%;
     justify-content: center;
   }
+
+  #socials-container {
+    position: relative;
+  }
+
+  .wechat-card {
+    position: static;
+  }
+
+  .wechat-card .wechat-qr-popup {
+    left: 50%;
+    right: auto;
+    bottom: calc(100% + 10px);
+    width: min(88vw, 230px);
+    min-width: 0;
+    padding: 0.75rem;
+    transform: translate(-50%, 8px) scale(0.94);
+  }
+
+  .wechat-card:hover .wechat-qr-popup,
+  .wechat-card:focus-within .wechat-qr-popup,
+  .wechat-card[open] .wechat-qr-popup {
+    transform: translate(-50%, -2px) scale(1);
+  }
+
+  .wechat-card .wechat-qr-popup img {
+    width: min(56vw, 150px);
+    height: auto;
+  }
 }
 
 /* Mobile Phones */

@@ -765,6 +765,8 @@ section {
   align-items: center;
   opacity: 0;
   animation: fadeInScale 1.2s ease forwards 0.5s;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-pic {
@@ -793,6 +795,8 @@ section {
 .section__text {
   text-align: center;
   max-width: 600px;
+  position: relative;
+  z-index: 2;
 }
 
 .section__text h1 {
@@ -1027,9 +1031,9 @@ a.btn {
 
 .wechat-qr-popup {
   position: absolute;
-  top: calc(100% + 12px);
+  bottom: calc(100% + 12px);
   left: 50%;
-  transform: translate(-50%, -6px) scale(0.92);
+  transform: translate(-50%, 6px) scale(0.92);
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -1066,7 +1070,7 @@ a.btn {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0) scale(1);
+  transform: translate(-50%, -2px) scale(1);
 }
 
 .social-icon-link[aria-label="WeChat"]:hover { color: #07c160; border-color: #07c160; box-shadow: 0 10px 25px -5px rgba(7,193,96,0.4); }
@@ -3776,6 +3780,7 @@ body {
   text-align: center;
   box-shadow: var(--shadow-md);
   transition: all 0.3s ease;
+  scroll-margin-top: 7rem;
 }
 
 .wechat-qr-section:hover {

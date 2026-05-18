@@ -1015,8 +1015,8 @@ a.btn {
   width: auto;
   min-width: 2.6rem;
   border-radius: 999px;
-  gap: 0.4rem;
-  padding: 0 0.9rem;
+  gap: 0.45rem;
+  padding: 0 1rem;
 }
 
 .wechat-trigger span {
@@ -1027,36 +1027,37 @@ a.btn {
 
 .wechat-qr-popup {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 12px);
   left: 50%;
-  transform: translate(-50%, 8px);
+  transform: translate(-50%, -6px) scale(0.92);
   background: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.85rem;
+  box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.45);
   z-index: 200;
   text-align: center;
   min-width: 160px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+  transition: all 0.3s ease;
 }
 
 .wechat-qr-popup img {
-  width: 130px;
-  height: 130px;
+  width: 135px;
+  height: 135px;
   object-fit: contain;
   border-radius: 8px;
   display: block;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 0.55rem;
 }
 
 .wechat-qr-popup p {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin: 0;
+  font-weight: 500;
 }
 
 .wechat-card:hover .wechat-qr-popup,
@@ -1065,7 +1066,7 @@ a.btn {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0) scale(1);
 }
 
 .social-icon-link[aria-label="WeChat"]:hover { color: #07c160; border-color: #07c160; box-shadow: 0 10px 25px -5px rgba(7,193,96,0.4); }

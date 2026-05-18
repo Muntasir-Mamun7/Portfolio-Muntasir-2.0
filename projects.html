@@ -124,6 +124,53 @@
 
     <!-- Projects Main Content -->
     <section id="projects-main">
+      <template id="project-card-template">
+        <div class="project-card">
+          <div class="project-image">
+            <picture>
+              <source srcset="Images/PROJECT-SCREENSHOT.webp" type="image/webp" />
+              <img src="Images/PROJECT-SCREENSHOT.jpg" alt="PROJECT_NAME screenshot or AirSim simulation GIF" loading="lazy" />
+            </picture>
+          </div>
+
+          <div class="project-content">
+            <h2 class="project-title">PROJECT_NAME (e.g., UAV Drone Swarm Security / PoH)</h2>
+            <p class="project-description">One-line summary of the project.</p>
+
+            <div class="project-details">
+              <div class="project-detail-item">
+                <strong>Problem:</strong>
+                <p>What real challenge existed?</p>
+              </div>
+              <div class="project-detail-item">
+                <strong>Solution:</strong>
+                <p>What architecture/method did you build?</p>
+              </div>
+              <div class="project-detail-item">
+                <strong>Impact:</strong>
+                <ul>
+                  <li>Quantitative or publication outcome #1</li>
+                  <li>Performance/validation outcome #2</li>
+                  <li>Practical/research significance #3</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Blockchain</span>
+              <span class="tag">UAV</span>
+              <span class="tag">PoH</span>
+              <span class="tag">AirSim</span>
+            </div>
+
+            <div class="btn-container">
+              <a href="GITHUB_URL" target="_blank" rel="noopener noreferrer" class="btn btn-color-2 project-btn">GitHub</a>
+              <a href="DEMO_OR_PAPER_URL" target="_blank" rel="noopener noreferrer" class="btn btn-color-1 project-btn">Demo / Paper</a>
+              <a href="README_URL" target="_blank" rel="noopener noreferrer" class="btn btn-color-2 project-btn">Readme</a>
+            </div>
+          </div>
+        </div>
+      </template>
       <div class="projects-container">
         <div class="project-card">
           <div class="project-image">

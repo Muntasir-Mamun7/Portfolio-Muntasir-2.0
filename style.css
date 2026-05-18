@@ -1035,9 +1035,9 @@ a.btn {
   left: 50%;
   transform: translate(-50%, 6px) scale(0.92);
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 0.4rem;
+  border: 1px solid rgba(7, 193, 96, 0.28);
+  border-radius: 14px;
+  padding: 0.55rem;
   box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.45);
   z-index: 200;
   text-align: center;
@@ -1052,9 +1052,13 @@ a.btn {
   width: 135px;
   height: 135px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+  outline: 1px solid rgba(7, 193, 96, 0.4);
+  box-shadow: 0 12px 26px -16px rgba(7, 193, 96, 0.7);
   display: block;
   margin: 0 auto;
+  background: #fff;
 }
 
 .wechat-card:hover .wechat-qr-popup,
@@ -3817,8 +3821,10 @@ body {
   width: 150px;
   height: 150px;
   object-fit: contain;
-  border-radius: 8px;
-  border: none;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+  outline: 1px solid rgba(7, 193, 96, 0.4);
+  box-shadow: 0 12px 26px -16px rgba(7, 193, 96, 0.7);
   display: block;
   margin: 0 auto;
   background: #fff;

@@ -3819,9 +3819,21 @@ body {
   margin-bottom: 0.2rem;
 }
 
+.about-connect-card .connect-info {
+  min-width: 0;
+  text-align: left;
+}
+
 .about-connect-card .connect-info span {
   font-size: 0.95rem;
   font-weight: 500;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.about-connect-card .connect-info strong {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Back to home section */

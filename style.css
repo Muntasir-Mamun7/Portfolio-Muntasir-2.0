@@ -1037,11 +1037,11 @@ a.btn {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 0.85rem;
+  padding: 0.4rem;
   box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.45);
   z-index: 200;
   text-align: center;
-  min-width: 160px;
+  min-width: 145px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1054,14 +1054,7 @@ a.btn {
   object-fit: contain;
   border-radius: 8px;
   display: block;
-  margin: 0 auto 0.55rem;
-}
-
-.wechat-qr-popup p {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin: 0;
-  font-weight: 500;
+  margin: 0 auto;
 }
 
 .wechat-card:hover .wechat-qr-popup,
@@ -3771,14 +3764,14 @@ body {
 
 /* WeChat section within connect */
 .wechat-qr-section {
-  max-width: 340px;
+  max-width: 190px;
   margin: 0 auto 3rem;
   background: var(--card-bg);
-  border: 2px solid #07c160;
-  border-radius: 16px;
-  padding: 1.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
   text-align: center;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   scroll-margin-top: 7rem;
 }
@@ -3824,10 +3817,10 @@ body {
   width: 150px;
   height: 150px;
   object-fit: contain;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  border: none;
   display: block;
-  margin: 0 auto 1rem;
+  margin: 0 auto;
   background: #fff;
 }
 

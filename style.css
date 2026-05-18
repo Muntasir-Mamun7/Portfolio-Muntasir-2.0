@@ -3474,6 +3474,38 @@ body {
   background: var(--bg-secondary);
 }
 
+.yoongwin-split-layout {
+  max-width: 1100px;
+  margin: 0 auto 1.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.yoongwin-role-card {
+  height: 100%;
+}
+
+.yoongwin-video-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+}
+
+.yoongwin-internship-video {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  border-radius: 12px;
+  background: #000;
+  object-fit: cover;
+}
+
 #about-internship-impact {
   padding: 5rem 5%;
   background: var(--bg-primary);

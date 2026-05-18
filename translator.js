@@ -67,6 +67,7 @@ const translations = {
   'common.skipLink': { en: 'Skip to main content', zh: '跳转到主要内容', hi: 'मुख्य सामग्री पर जाएं', es: 'Saltar al contenido principal', fr: 'Aller au contenu principal', ar: 'تخطى إلى المحتوى الرئيسي', bn: 'মূল বিষয়বস্তুতে যান', pt: 'Pular para o conteúdo principal', ru: 'Перейти к основному содержанию', ja: 'メインコンテンツへ' },
   'common.toggleTheme': { en: 'Toggle theme', zh: '切换主题', hi: 'थीम बदलें', es: 'Cambiar tema', fr: 'Changer de thème', ar: 'تبديل المظهر', bn: 'থিম পরিবর্তন', pt: 'Alternar tema', ru: 'Сменить тему', ja: 'テーマ切替' },
   'common.scanWeChat': { en: 'Scan to add on WeChat', zh: '扫码添加微信', hi: 'WeChat पर जोड़ने के लिए स्कैन करें', es: 'Escanear para agregar en WeChat', fr: 'Scanner pour ajouter sur WeChat', ar: 'امسح لإضافة على WeChat', bn: 'WeChat-এ যোগ করতে স্ক্যান করুন', pt: 'Escanear para adicionar no WeChat', ru: 'Сканировать для добавления в WeChat', ja: 'WeChatに追加するにはスキャン' },
+  'common.connectWeChat': { en: 'Scan to connect on WeChat', zh: '扫码通过微信联系', hi: 'WeChat पर जुड़ने के लिए स्कैन करें', es: 'Escanea para conectar en WeChat', fr: 'Scannez pour vous connecter sur WeChat', ar: 'امسح للتواصل عبر WeChat', bn: 'WeChat-এ সংযুক্ত হতে স্ক্যান করুন', pt: 'Escaneie para conectar no WeChat', ru: 'Сканируйте, чтобы подключиться в WeChat', ja: 'WeChatでつながるにはスキャン' },
 
   // ABOUT PAGE SPECIFIC
   'about.getToKnowMore': { en: 'Get To Know More', zh: '更多了解我', hi: 'और जानें', es: 'Conóceme Más', fr: 'En Savoir Plus', ar: 'تعرّف أكثر', bn: 'আরও জানুন', pt: 'Conheça-me Melhor', ru: 'Узнать больше', ja: 'もっと詳しく' },

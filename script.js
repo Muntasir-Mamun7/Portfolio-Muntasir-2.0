@@ -485,23 +485,21 @@ if (wechatQrImg && wechatQrFallback) {
 }
 
 // ===== WECHAT POPUP - MOBILE TOUCH SUPPORT =====
-// CSS :hover doesn't trigger on touch devices, so toggle the popup on click/tap
+// Close the details popup when clicking outside or pressing Escape
 (function () {
   const wechatCard = document.querySelector('.wechat-card');
-  if (!wechatCard) return;
-  const wechatPopup = wechatCard.querySelector('.wechat-qr-popup');
-  if (!wechatPopup) return;
+  if (!wechatCard || wechatCard.tagName !== 'DETAILS') return;
 
-  // Toggle popup open/closed on click (works on both mouse and touch)
-  wechatCard.addEventListener('click', function (e) {
-    e.stopPropagation();
-    const isVisible = wechatPopup.style.display === 'block';
-    wechatPopup.style.display = isVisible ? '' : 'block';
+  document.addEventListener('click', function (e) {
+    if (!wechatCard.contains(e.target)) {
+      wechatCard.removeAttribute('open');
+    }
   });
 
-  // Close popup when clicking anywhere else on the page
-  document.addEventListener('click', function () {
-    wechatPopup.style.display = '';
+  wechatCard.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      wechatCard.removeAttribute('open');
+    }
   });
 }());
 
@@ -511,9 +509,17 @@ if (contactForm) {
   const DEFAULT_CONTACT_EMAIL = 'munmamun9@gmail.com';
 
   contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
     const statusEl = document.getElementById('form-status');
-    const actionValue = contactForm.getAttribute('action') || '';
+    const actionValue = (contactForm.getAttribute('action') || '').trim();
+    const isMailtoAction = actionValue.startsWith('mailto:');
+    const isPlaceholderFormspree = actionValue.includes('YOUR_FORMSPREE_ID');
+
+    if (!isMailtoAction && !isPlaceholderFormspree) {
+      if (statusEl) statusEl.textContent = '';
+      return;
+    }
+
+    e.preventDefault();
     const contactEmail = actionValue.startsWith('mailto:')
       ? actionValue.slice('mailto:'.length)
       : DEFAULT_CONTACT_EMAIL;
@@ -535,6 +541,9 @@ if (contactForm) {
     if (message.length > 5000) {
       if (statusEl) statusEl.textContent = 'Message must be 5000 characters or less.';
       return;
+    }
+    if (isPlaceholderFormspree && statusEl) {
+      statusEl.textContent = 'Tip: Replace YOUR_FORMSPREE_ID in the form action to receive direct submissions.';
     }
     const subject = `Portfolio Contact from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;

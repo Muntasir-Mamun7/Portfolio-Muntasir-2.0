@@ -3827,11 +3827,11 @@ body {
 .about-connect-card .connect-info span {
   font-size: 0.95rem;
   font-weight: 500;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .about-connect-card .connect-info strong {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* Back to home section */

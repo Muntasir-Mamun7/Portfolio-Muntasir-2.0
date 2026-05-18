@@ -3830,6 +3830,11 @@ body {
   overflow-wrap: break-word;
 }
 
+.about-connect-card .connect-info .about-email-address {
+  font-size: clamp(0.8rem, 2.7vw, 0.95rem);
+  white-space: nowrap;
+}
+
 .about-connect-card .connect-info strong {
   overflow-wrap: break-word;
 }

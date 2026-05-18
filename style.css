@@ -1003,12 +1003,33 @@ a.btn {
   justify-content: center;
 }
 
-.wechat-qr-popup {
+.wechat-card summary {
+  list-style: none;
+}
+
+.wechat-card summary::-webkit-details-marker {
   display: none;
+}
+
+.wechat-trigger {
+  width: auto;
+  min-width: 2.6rem;
+  border-radius: 999px;
+  gap: 0.4rem;
+  padding: 0 0.9rem;
+}
+
+.wechat-trigger span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.wechat-qr-popup {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 8px);
   background: var(--card-bg);
   border: 2px solid var(--border-color);
   border-radius: 12px;
@@ -1017,6 +1038,10 @@ a.btn {
   z-index: 200;
   text-align: center;
   min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
 }
 
 .wechat-qr-popup img {
@@ -1034,8 +1059,13 @@ a.btn {
   margin: 0;
 }
 
-.wechat-card:hover .wechat-qr-popup {
-  display: block;
+.wechat-card:hover .wechat-qr-popup,
+.wechat-card:focus-within .wechat-qr-popup,
+.wechat-card[open] .wechat-qr-popup {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 .social-icon-link[aria-label="WeChat"]:hover { color: #07c160; border-color: #07c160; box-shadow: 0 10px 25px -5px rgba(7,193,96,0.4); }

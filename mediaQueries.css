@@ -705,6 +705,14 @@
     font-size: 1.2rem;
   }
 
+  .yoongwin-split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .yoongwin-internship-video {
+    max-height: 320px;
+  }
+
   .about-connect-grid {
     grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
     gap: 1.2rem;
@@ -744,6 +752,14 @@
 
   .about-role-card {
     padding: 1.5rem;
+  }
+
+  .yoongwin-video-card {
+    padding: 0.9rem;
+  }
+
+  .yoongwin-internship-video {
+    max-height: 280px;
   }
 
   .about-skill-category {
@@ -850,6 +866,18 @@
 
   .about-role-card {
     padding: 1.2rem;
+  }
+
+  .yoongwin-split-layout {
+    gap: 1rem;
+  }
+
+  .yoongwin-video-card {
+    padding: 0.8rem;
+  }
+
+  .yoongwin-internship-video {
+    max-height: 220px;
   }
 
   .about-highlight-card {

@@ -1052,7 +1052,7 @@ a.btn {
   width: 135px;
   height: 135px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 8px;
   display: block;
   margin: 0 auto;
 }
@@ -3818,7 +3818,7 @@ body {
   height: 150px;
   object-fit: contain;
   border-radius: 8px;
-  border: 0;
+  border: none;
   display: block;
   margin: 0 auto;
   background: #fff;

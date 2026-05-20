@@ -1,0 +1,659 @@
+/* ===== ABOUT PAGE DEDICATED SECTIONS ===== */
+
+/* About page section spacing */
+#about-header {
+  min-height: auto;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  background: var(--bg-secondary);
+}
+
+.header-content .about-intro {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* About overview section */
+#about {
+  padding: 5rem 5%;
+  background: var(--bg-primary);
+}
+
+.about-overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto 3.5rem;
+}
+
+.about-bio-card {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Research section */
+#about-research {
+  background: var(--bg-secondary);
+  padding: 5rem 5%;
+}
+
+.about-research-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.about-highlight-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.about-highlight-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.about-highlight-icon {
+  font-size: 2rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.about-highlight-card h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.about-highlight-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.about-highlight-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+}
+
+.about-highlight-card ul li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative;
+}
+
+.about-highlight-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.about-publications {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-publications h3 {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Academics section */
+#about-academics {
+  padding: 5rem 5%;
+  background: var(--bg-primary);
+}
+
+.about-edu-info {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+}
+
+.about-edu-info h3 {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-edu-info p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about-edu-info .gpa-badge {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: var(--accent-gradient);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.about-honors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-honor-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-honor-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.about-honor-card .honor-icon {
+  font-size: 1.6rem;
+  color: #c9a96e;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.about-honor-card .honor-body h4 {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.about-honor-card .honor-body p {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+/* Leadership section */
+#about-leadership {
+  padding: 5rem 5%;
+  background: var(--bg-secondary);
+}
+
+.yoongwin-split-layout {
+  max-width: 1100px;
+  margin: 0 auto 1.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.yoongwin-role-card {
+  height: 100%;
+}
+
+.yoongwin-video-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+}
+
+.yoongwin-internship-video {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  border-radius: 12px;
+  background: #000;
+  object-fit: cover;
+}
+
+#about-internship-impact {
+  padding: 5rem 5%;
+  background: var(--bg-primary);
+}
+
+.internship-impact-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.internship-impact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.internship-impact-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.internship-impact-card ul {
+  padding-left: 1.1rem;
+}
+
+.internship-impact-card li {
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
+  line-height: 1.7;
+}
+
+#about-now-next {
+  padding: 5rem 5%;
+  background: var(--bg-secondary);
+}
+
+.now-next-grid {
+  max-width: 1100px;
+  margin: 0 auto 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.now-next-card,
+.social-proof-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.now-next-card h3,
+.social-proof-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.now-next-card ul {
+  padding-left: 1.1rem;
+}
+
+.now-next-card li,
+.social-proof-card p {
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.social-proof-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.about-leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-role-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-role-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.about-role-card:hover::before {
+  transform: scaleX(1);
+}
+
+.about-role-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.about-role-card .role-title {
+  color: var(--accent-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.about-role-card h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.about-role-card .role-period {
+  display: inline-block;
+  background: var(--bg-secondary);
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.about-role-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Skills section */
+#about-skills-section {
+  padding: 5rem 5%;
+  background: var(--bg-primary);
+}
+
+.about-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.about-skill-category {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.about-skill-category:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
+}
+
+.about-skill-category h3 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.about-skill-category h3 i {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+}
+
+.about-languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 1.2rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.about-lang-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-lang-item:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.about-lang-item strong {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.about-lang-item span {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+/* Connect section */
+#about-connect {
+  padding: 5rem 5%;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.about-connect-intro {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* WeChat section within connect */
+.wechat-qr-section {
+  max-width: 190px;
+  margin: 0 auto 3rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  scroll-margin-top: 7rem;
+}
+
+.wechat-qr-section:hover {
+  box-shadow: 0 12px 35px -8px rgba(7,193,96,0.35);
+}
+
+.wechat-qr-section .wechat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.wechat-qr-section .wechat-header i {
+  font-size: 1.6rem;
+  color: #07c160;
+}
+
+.wechat-qr-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.wechat-qr-section .wechat-badge {
+  display: inline-block;
+  background: rgba(7,193,96,0.12);
+  color: #07c160;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.wechat-qr-section .wechat-qr-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 4px solid var(--qr-frame-bg);
+  outline: 1px solid rgba(var(--wechat-green-rgb), 0.4);
+  box-shadow: 0 12px 26px -16px rgba(var(--wechat-green-rgb), 0.7);
+  display: block;
+  margin: 0 auto;
+  background: var(--qr-frame-bg);
+}
+
+.wechat-qr-section p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.wechat-qr-fallback {
+  display: none;
+  padding: 2rem 0;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.wechat-qr-fallback i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-connect-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-connect-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.about-connect-card i {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.about-connect-card .connect-info strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-tertiary);
+  margin-bottom: 0.2rem;
+}
+
+.about-connect-card .connect-info {
+  min-width: 0;
+  text-align: left;
+}
+
+.about-connect-card .connect-info span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+
+.about-connect-card .connect-info .about-email-address {
+  font-size: clamp(0.8rem, 2.7vw, 0.95rem);
+  white-space: nowrap;
+}
+
+.about-connect-card .connect-info strong {
+  overflow-wrap: break-word;
+}
+
+/* Back to home section */
+#back-to-home {
+  padding: 2rem 5%;
+  text-align: center;
+  background: var(--bg-primary);
+  min-height: auto;
+}
+
+/* ===== HOVER TRANSFORMS (only on devices that support hover) ===== */
+@media (hover: hover) {
+  .about-highlight-card:hover { transform: translateY(-5px); }
+  .about-honor-card:hover     { transform: translateY(-4px); }
+  .about-role-card:hover      { transform: translateY(-6px); }
+  .about-skill-category:hover { transform: translateY(-4px); }
+  .about-lang-item:hover      { transform: translateY(-3px); }
+  .wechat-qr-section:hover    { transform: translateY(-4px); }
+  .about-connect-card:hover   { transform: translateY(-5px); }
+}

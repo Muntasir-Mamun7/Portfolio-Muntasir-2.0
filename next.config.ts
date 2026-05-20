@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingIncludes: {
+    "/[...slug]": [
+      "./*.html",
+      "./*.css",
+      "./*.js",
+      "./*.json",
+      "./*.pdf",
+      "./robots.txt",
+      "./sitemap.xml",
+      "./Images/**/*",
+      "./assets/**/*",
+    ],
+  },
 };
 
 export default nextConfig;

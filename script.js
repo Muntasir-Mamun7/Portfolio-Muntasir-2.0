@@ -29,6 +29,34 @@ window.addEventListener('load', () => {
   }
 });
 
+function loadPageScript(src) {
+  const scriptEl = document.createElement('script');
+  scriptEl.src = src;
+  scriptEl.defer = true;
+  document.body.appendChild(scriptEl);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const isAboutContext = Boolean(
+    document.getElementById('about-home') ||
+    document.getElementById('about-header') ||
+    document.querySelector('.wechat-card') ||
+    document.getElementById('wechat-qr-img')
+  );
+
+  if (isAboutContext) {
+    loadPageScript('script.about.js');
+  }
+
+  const isCertificatesContext = Boolean(
+    document.getElementById('certificates-main') ||
+    document.querySelector('.certificate-gallery-item')
+  );
+
+  if (isCertificatesContext) {
+    loadPageScript('script.certificates.js');
+  }
+});
 // ===== DARK/LIGHT MODE TOGGLE =====
 const themeToggleBtns = document.querySelectorAll('.theme-btn');
 const html = document.documentElement;
@@ -226,76 +254,6 @@ console.log('%cWelcome to Muntasir\'s Portfolio!', 'color: #2c3e50; font-size: 2
 console.log('%cInterested in the code? Check it out on GitHub!', 'color: #3498db; font-size: 14px;');
 console.log('%chttps://github.com/Muntasir-Mamun7', 'color: #34495e; font-size: 12px;');
 
-// ===== CERTIFICATE GALLERY MODAL =====
-const certificateItems = document.querySelectorAll('.certificate-gallery-item');
-certificateItems.forEach(item => {
-  item.addEventListener('click', function() {
-    const img = this.querySelector('img');
-    const modal = document.createElement('div');
-    modal.className = 'certificate-modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Certificate image');
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
-    
-    const modalContent = document.createElement('div');
-    modalContent.className = 'certificate-modal-content';
-    
-    const modalImg = document.createElement('img');
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    
-    const closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '&times;';
-    closeBtn.setAttribute('aria-label', 'Close certificate');
-    closeBtn.style.cssText = 'position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 10001; background: none; border: none; line-height: 1;';
-    
-    modalContent.appendChild(modalImg);
-    modal.appendChild(closeBtn);
-    modal.appendChild(modalContent);
-    document.body.appendChild(modal);
-
-    // Trap focus inside the modal
-    const focusableElements = [closeBtn];
-    closeBtn.focus();
-
-    const trapFocus = (e) => {
-      if (e.key === 'Tab') {
-        e.preventDefault();
-        closeBtn.focus();
-      }
-    };
-    modal.addEventListener('keydown', trapFocus);
-    
-    const closeModal = (e) => {
-      if (e) e.stopPropagation();
-      modal.removeEventListener('keydown', trapFocus);
-      modal.style.opacity = '0';
-      setTimeout(() => {
-        if (document.body.contains(modal)) document.body.removeChild(modal);
-      }, 300);
-    };
-
-    // Close modal on backdrop click (but not on image click)
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) closeModal(e);
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-
-    // Close on Escape key
-    const escHandler = (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-        document.removeEventListener('keydown', escHandler);
-      }
-    };
-    document.addEventListener('keydown', escHandler);
-  });
-});
-
 // ===== HERO SECTION COUNTER ANIMATION =====
 function animateCounter(element, target, duration = 2000) {
   let start = null;
@@ -389,119 +347,6 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(initializeSectionAnimations, 250);
 });
-
-// ===== ABOUT SECTION ANIMATIONS =====
-// Animate info cards on scroll
-const aboutHomeSection = document.getElementById('about-home');
-if (aboutHomeSection) {
-  const aboutObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add visible class to trigger CSS animations
-        const infoCards = document.querySelectorAll('.info-card');
-        infoCards.forEach(card => {
-          card.classList.add('visible');
-        });
-        
-        const aboutDetails = document.querySelector('.about-details');
-        if (aboutDetails) {
-          aboutDetails.classList.add('visible');
-        }
-        
-        const skillTags = document.querySelectorAll('.skill-tag');
-        skillTags.forEach(tag => {
-          tag.classList.add('visible');
-        });
-        
-        aboutObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  
-  aboutObserver.observe(aboutHomeSection);
-}
-
-// ===== ABOUT PAGE (dedicated page) ANIMATIONS =====
-// On about.html there is no #about-home, so trigger animations per section
-if (!document.getElementById('about-home')) {
-  const aboutPageSections = document.querySelectorAll(
-    '#about, #about-research, #about-academics, #about-leadership, #about-skills-section, #about-connect'
-  );
-  const aboutPageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.info-card').forEach(el => el.classList.add('visible'));
-        entry.target.querySelectorAll('.about-details').forEach(el => el.classList.add('visible'));
-        entry.target.querySelectorAll('.skill-tag').forEach(el => el.classList.add('visible'));
-        aboutPageObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  aboutPageSections.forEach(sec => aboutPageObserver.observe(sec));
-}
-
-// Parallax effect removed to avoid conflicts with hover animations
-
-// Counter animation for experience years
-const experienceDetail = document.querySelector('.info-card [data-counter="experience"]');
-if (experienceDetail) {
-  const experienceObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const targetText = experienceDetail.textContent;
-        const match = targetText.match(/(\d+)\+/);
-        if (match) {
-          const target = parseInt(match[1]);
-          let count = 0;
-          const interval = setInterval(() => {
-            if (count < target) {
-              count++;
-              experienceDetail.textContent = `${count}+ Years`;
-            } else {
-              clearInterval(interval);
-            }
-          }, 500);
-        }
-        experienceObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  const parentCard = experienceDetail.closest('.info-card');
-  if (parentCard) {
-    experienceObserver.observe(parentCard);
-  }
-}
-
-
-// WeChat QR code image fallback
-const wechatQrImg = document.getElementById('wechat-qr-img');
-const wechatQrFallback = document.getElementById('wechat-qr-fallback');
-if (wechatQrImg && wechatQrFallback) {
-  wechatQrImg.addEventListener('error', function () {
-    wechatQrImg.style.display = 'none';
-    wechatQrFallback.style.display = 'block';
-  });
-}
-
-// ===== WECHAT POPUP - MOBILE TOUCH SUPPORT =====
-// Close the details popup when clicking outside or pressing Escape
-(function () {
-  const wechatCard = document.querySelector('.wechat-card');
-  if (!wechatCard || wechatCard.tagName !== 'DETAILS') return;
-
-  document.addEventListener('click', function (e) {
-    if (!wechatCard.contains(e.target)) {
-      wechatCard.removeAttribute('open');
-    }
-  });
-
-  wechatCard.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      wechatCard.removeAttribute('open');
-    }
-  });
-}());
 
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contact-form');

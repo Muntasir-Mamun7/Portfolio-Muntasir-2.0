@@ -49,40 +49,66 @@ const CONTENT_TYPES: Record<string, string> = {
   ".xml": "application/xml; charset=utf-8",
 };
 
+// Prevent Turbopack from treating the project root as a fully static build-time path.
 function fromProjectRoot(...segments: string[]) {
   return path.join(/*turbopackIgnore: true*/ process.cwd(), ...segments);
 }
 
 function resolveStaticFile(slug: string[]) {
-  const relativePath = path.posix.normalize(
-    slug.map((segment) => decodeURIComponent(segment)).join("/"),
-  );
+  let decodedSegments: string[];
 
-  if (!relativePath || relativePath === "." || relativePath.startsWith("../")) {
+  try {
+    decodedSegments = slug.map((segment) => decodeURIComponent(segment));
+  } catch {
+    return null;
+  }
+
+  const relativePath = path.posix.normalize(decodedSegments.join("/"));
+
+  if (
+    !relativePath ||
+    relativePath === "." ||
+    path.posix.isAbsolute(relativePath) ||
+    relativePath.startsWith("../")
+  ) {
     return null;
   }
 
   const segments = relativePath.split("/");
+  let resolvedPath: string | null = null;
 
   if (segments.length === 1) {
     if (STATIC_ROOT_FILES.has(segments[0])) {
-      return fromProjectRoot(segments[0]);
+      resolvedPath = fromProjectRoot(segments[0]);
     }
+    else {
+      const htmlFallback = `${segments[0]}.html`;
 
-    const htmlFallback = `${segments[0]}.html`;
-
-    if (STATIC_ROOT_FILES.has(htmlFallback)) {
-      return fromProjectRoot(htmlFallback);
+      if (STATIC_ROOT_FILES.has(htmlFallback)) {
+        resolvedPath = fromProjectRoot(htmlFallback);
+      }
     }
+  }
+  else if (STATIC_TOP_LEVEL_DIRS.has(segments[0])) {
+    resolvedPath = fromProjectRoot(...segments);
+  }
 
+  if (!resolvedPath) {
     return null;
   }
 
-  if (!STATIC_TOP_LEVEL_DIRS.has(segments[0])) {
+  const projectRoot = fromProjectRoot();
+  const normalizedRoot = `${projectRoot}${path.sep}`;
+  const normalizedResolvedPath = path.resolve(resolvedPath);
+
+  if (
+    normalizedResolvedPath !== projectRoot &&
+    !normalizedResolvedPath.startsWith(normalizedRoot)
+  ) {
     return null;
   }
 
-  return fromProjectRoot(...segments);
+  return normalizedResolvedPath;
 }
 
 export async function GET(
@@ -100,7 +126,7 @@ export async function GET(
   const contentType = CONTENT_TYPES[extension];
 
   if (!contentType) {
-    return NextResponse.json({ error: "Unsupported file type" }, { status: 404 });
+    return NextResponse.json({ error: "Unsupported file type" }, { status: 415 });
   }
 
   try {

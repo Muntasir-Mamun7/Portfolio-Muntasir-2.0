@@ -3,8 +3,6 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
-const REPO_ROOT = process.cwd();
-
 const STATIC_ROOT_FILES = new Set([
   "404.html",
   "about.html",
@@ -51,6 +49,10 @@ const CONTENT_TYPES: Record<string, string> = {
   ".xml": "application/xml; charset=utf-8",
 };
 
+function fromProjectRoot(...segments: string[]) {
+  return path.join(/*turbopackIgnore: true*/ process.cwd(), ...segments);
+}
+
 function resolveStaticFile(slug: string[]) {
   const relativePath = path.posix.normalize(
     slug.map((segment) => decodeURIComponent(segment)).join("/"),
@@ -64,13 +66,13 @@ function resolveStaticFile(slug: string[]) {
 
   if (segments.length === 1) {
     if (STATIC_ROOT_FILES.has(segments[0])) {
-      return path.join(REPO_ROOT, segments[0]);
+      return fromProjectRoot(segments[0]);
     }
 
     const htmlFallback = `${segments[0]}.html`;
 
     if (STATIC_ROOT_FILES.has(htmlFallback)) {
-      return path.join(REPO_ROOT, htmlFallback);
+      return fromProjectRoot(htmlFallback);
     }
 
     return null;
@@ -80,7 +82,7 @@ function resolveStaticFile(slug: string[]) {
     return null;
   }
 
-  return path.join(REPO_ROOT, ...segments);
+  return fromProjectRoot(...segments);
 }
 
 export async function GET(
